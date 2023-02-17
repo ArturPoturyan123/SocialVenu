@@ -1,0 +1,13 @@
+Test
+
+pageobject call
+driver -> NO
+write assertions in test method
+
+
+
+
+
+pageobejct = mapping of real page
+click, set text, get text, isElemnt present
+webelement should be private
