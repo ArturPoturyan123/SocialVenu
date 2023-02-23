@@ -1,26 +1,22 @@
 package base;
 
-import org.openqa.selenium.firefox.FirefoxDriver;
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import config.Config;
 import org.testng.annotations.*;
-import utils.DriverManager;
-import utils.Utils;
-
-
-import static utils.DriverManager.getDriver;
 
 public class TestBase {
+    @BeforeSuite
+    public void initSuite(){
+        Configuration.browser = Config.BROWSER;
+        Configuration.browserSize = "1920x1080";
+        Configuration.driverManagerEnabled = true;
 
-
-    @BeforeMethod
-    public void init() {
-        System.setProperty("webdriver.gecko.driver", Utils.FIREFOX_DRIVER_LOCATION);
-        DriverManager.setDriver(new FirefoxDriver());
     }
 
 
-    @AfterSuite
+    @AfterMethod
     public  void cleanUp() {
-        getDriver().manage().deleteAllCookies();
-        getDriver().close();
+        Selenide.closeWebDriver();
     }
 }
