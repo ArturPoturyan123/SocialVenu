@@ -16,7 +16,8 @@ public class InviteUserPage extends BasePage<InviteUserPage> {
 
     private SelenideElement inviteButton = element("[class*='MuiButton-containedPrimary']");
 
-    private SelenideElement backButton = element("[class*=' MuiButton-outlined']");
+    private SelenideElement backButton = element("[class*='MuiButton-outlined']");
+    private SelenideElement emptyArea = element("[class*='MuiGrid-spacing-xs-undefined']");
 
     @Override
     public String getUrl() {
@@ -47,8 +48,8 @@ public class InviteUserPage extends BasePage<InviteUserPage> {
         inviteButton.click();
     }
 
-    public InviteUserPage clickEmailField() {
-        email.click();
+   public InviteUserPage clickEmptyArea() {
+        emptyArea.click();
         return this;
     }
 }

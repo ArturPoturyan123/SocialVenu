@@ -24,6 +24,7 @@ public class AccountPage extends BasePage<AccountPage> {
     public void clickLogoutButton() {
         logoutButton.click();
     }
+
     @Override
     public String getUrl() {
         return "profile/accounts";

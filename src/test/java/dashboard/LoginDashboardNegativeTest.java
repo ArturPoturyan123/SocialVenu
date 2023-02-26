@@ -6,7 +6,6 @@ import com.codeborne.selenide.Selenide;
 import config.Config;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.dashboard.AccountPage;
 import pages.dashboard.DashboardLoginPage;
 
 
@@ -23,7 +22,6 @@ public class LoginDashboardNegativeTest extends DashboardTestBase {
         DashboardLoginPage loginPage = new DashboardLoginPage();
         loginPage.enterEmail(Config.EMAIL);
         loginPage.pressSignInButton();
-
         loginPage.passwordErrorText.shouldHave(Condition.text("Incorrect password"));
     }
 
@@ -39,7 +37,7 @@ public class LoginDashboardNegativeTest extends DashboardTestBase {
     @Test(testName = "Sign in into SV Dashboard with invalid email")
     public void loginSvDashboardWithInvalidEmail() {
         DashboardLoginPage loginPage = new DashboardLoginPage();
-        loginPage.enterEmail("sassa");
+        loginPage.enterEmail("test");
         loginPage.enterPassword(Config.PASSWORD);
         loginPage.pressSignInButton();
 
@@ -50,7 +48,7 @@ public class LoginDashboardNegativeTest extends DashboardTestBase {
     public void loginSvDashboardWithInvalidCredentials() {
         DashboardLoginPage loginPage = new DashboardLoginPage();
         loginPage.enterEmail(Config.EMAIL);
-        loginPage.enterPassword(Config.PASSWORD + "dummy");
+        loginPage.enterPassword(Config.PASSWORD + "incorrect");
         loginPage.pressSignInButton();
 
         loginPage.emailErrorText.shouldHave(Condition.text("Your username and/or password do not match. Try again."));

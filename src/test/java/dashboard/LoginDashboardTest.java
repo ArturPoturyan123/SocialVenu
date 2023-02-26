@@ -22,7 +22,6 @@ public class LoginDashboardTest extends DashboardTestBase {
         loginPage.enterEmail(Config.EMAIL);
         loginPage.enterPassword(Config.PASSWORD);
         loginPage.pressSignInButton();
-
         new AccountPage().rootElement.shouldBe(Condition.visible);
     }
 }
