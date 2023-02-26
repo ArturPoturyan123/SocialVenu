@@ -1,26 +1,28 @@
 package dashboard;
 
 import base.DashboardTestBase;
-import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
 import config.Config;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.DashboardLoginPage;
-
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-
+import pages.dashboard.AccountPage;
+import pages.dashboard.DashboardLoginPage;
 
 public class LoginDashboardTest extends DashboardTestBase {
 
+    @BeforeMethod
+    public void removeAuthToken() {
+        Selenide.localStorage().removeItem("authToken");
+    }
 
-    @Test(testName = "Sign in into SV Dashboardtest")
+    @Test(testName = "Sign in into SV Dashboard")
     public void loginSvDashboard() {
-
-        DashboardLoginPage loginPage = new DashboardLoginPage();
-        loginPage.open();
+        DashboardLoginPage loginPage = new DashboardLoginPage().open();
         loginPage.enterEmail(Config.EMAIL);
         loginPage.enterPassword(Config.PASSWORD);
         loginPage.pressSignInButton();
-        assertThat(WebDriverRunner.driver().url()).contains("/profile/accounts");
 
+        new AccountPage().rootElement.shouldBe(Condition.visible);
     }
 }

@@ -2,7 +2,7 @@ package webapp;
 
 import base.SvWebAppTestBase;
 import org.testng.annotations.Test;
-import pages.SvWebAppLoginPage;
+import pages.webapp.SvWebAppLoginPage;
 
 public class LoginWebAppTest extends SvWebAppTestBase {
 
