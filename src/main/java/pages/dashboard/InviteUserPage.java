@@ -1,6 +1,5 @@
 package pages.dashboard;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import pages.BasePage;
@@ -18,6 +17,7 @@ public class InviteUserPage extends BasePage<InviteUserPage> {
 
     private SelenideElement backButton = element("[class*='MuiButton-outlined']");
     private SelenideElement emptyArea = element("[class*='MuiGrid-spacing-xs-undefined']");
+
 
     @Override
     public String getUrl() {
@@ -48,8 +48,10 @@ public class InviteUserPage extends BasePage<InviteUserPage> {
         inviteButton.click();
     }
 
-   public InviteUserPage clickEmptyArea() {
+    public InviteUserPage clickEmptyArea() {
         emptyArea.click();
         return this;
     }
+
+
 }
