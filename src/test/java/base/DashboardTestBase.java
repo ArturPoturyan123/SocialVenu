@@ -2,7 +2,6 @@ package base;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.WebDriverRunner;
 import com.google.gson.JsonObject;
 import config.Config;
 import org.testng.annotations.BeforeMethod;
