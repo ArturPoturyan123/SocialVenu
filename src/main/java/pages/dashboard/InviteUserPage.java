@@ -45,7 +45,7 @@ public class InviteUserPage extends BasePage<InviteUserPage> {
     }
 
     public void clickInviteButton() {
-        inviteButton.click();
+        inviteButton.shouldBe().click();
     }
 
     public InviteUserPage clickEmptyArea() {

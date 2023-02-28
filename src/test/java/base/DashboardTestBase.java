@@ -16,8 +16,6 @@ public class DashboardTestBase extends TestBase {
         jsonObject.addProperty("accounts", 10);
         Selenide.localStorage().setItem("authToken", jsonObject.getAsJsonPrimitive("accessToken").getAsString());
         Selenide.localStorage().setItem("authResponse", jsonObject.toString());
-        Selenide.localStorage().setItem("selectedVenue", null);
-        Selenide.localStorage().setItem("refreshToken", null);
         Selenide.refresh();
     }
 }

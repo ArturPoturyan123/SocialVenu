@@ -9,7 +9,7 @@ public class TestBase {
     @BeforeSuite
     public void initSuite(){
         Configuration.browser = Config.BROWSER;
-        Configuration.browserSize = "1080x720";
+        Configuration.browserSize = "1300x900";
         Configuration.driverManagerEnabled = true;
 
     }
