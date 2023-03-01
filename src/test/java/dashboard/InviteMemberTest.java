@@ -2,12 +2,15 @@ package dashboard;
 
 import base.DashboardTestBase;
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.github.javafaker.Faker;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.dashboard.InviteUserPage;
 import pages.dashboard.MemberManagementPage;
+
+import java.time.Duration;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -20,7 +23,7 @@ public class InviteMemberTest extends DashboardTestBase {
     }
 
     @Test (testName = "Verify invite team member added without any issues")
-    public void verifyInvitationFunctionality() {
+    public void verifyInvitationFunctionality() throws InterruptedException {
         Faker faker = new Faker();
         MemberManagementPage memberManagementPage = new MemberManagementPage();
         memberManagementPage.open();
