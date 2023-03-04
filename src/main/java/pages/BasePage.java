@@ -2,18 +2,14 @@ package pages;
 
 import com.codeborne.selenide.Selenide;
 
-import java.util.concurrent.TimeUnit;
-
-
 public abstract class BasePage<T> {
-    public T open() {
+    public T open() throws InterruptedException {
+
         Selenide.open(getUrl());
+        Thread.sleep(3000);
         return (T) this;
     }
 
     public abstract String getUrl();
 
-    public void refreshPage() {
-        Selenide.refresh();
-    }
-}
+ }

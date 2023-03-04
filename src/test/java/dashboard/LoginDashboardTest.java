@@ -17,7 +17,7 @@ public class LoginDashboardTest extends DashboardTestBase {
     }
 
     @Test(testName = "Sign in into SV Dashboard")
-    public void loginSvDashboard() {
+    public void loginSvDashboard() throws InterruptedException {
         DashboardLoginPage loginPage = new DashboardLoginPage().open();
         loginPage.enterEmail(Config.EMAIL);
         loginPage.enterPassword(Config.PASSWORD);
