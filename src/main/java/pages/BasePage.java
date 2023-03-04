@@ -13,8 +13,7 @@ public abstract class BasePage<T> {
 
     public abstract String getUrl();
 
-    public void refreshPage(){
-
+    public void refreshPage() {
         Selenide.refresh();
     }
 }

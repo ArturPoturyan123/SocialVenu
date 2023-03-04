@@ -7,7 +7,7 @@ import org.testng.annotations.*;
 
 public class TestBase {
     @BeforeSuite
-    public void initSuite(){
+    public void initSuite() {
         Configuration.browser = Config.BROWSER;
         Configuration.browserSize = "1300x900";
         Configuration.driverManagerEnabled = true;
@@ -16,7 +16,7 @@ public class TestBase {
 
 
     @AfterMethod
-    public  void cleanUp() {
+    public void cleanUp() {
         Selenide.closeWebDriver();
     }
 }
