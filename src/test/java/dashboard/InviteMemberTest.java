@@ -25,6 +25,7 @@ public class InviteMemberTest extends DashboardTestBase {
         MemberManagementPage memberManagementPage = new MemberManagementPage();
         MemberProfilePage memberProfilePage = new MemberProfilePage();
         memberManagementPage.open();
+        Thread.sleep(3000);
         int rowSize = memberManagementPage.getRowCount();
         new InviteUserPage().open()
                 .setFirstName(faker.name().firstName())

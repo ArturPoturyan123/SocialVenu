@@ -3,10 +3,9 @@ package pages;
 import com.codeborne.selenide.Selenide;
 
 public abstract class BasePage<T> {
-    public T open() throws InterruptedException {
+    public T open()  {
 
         Selenide.open(getUrl());
-        Thread.sleep(3000);
         return (T) this;
     }
 

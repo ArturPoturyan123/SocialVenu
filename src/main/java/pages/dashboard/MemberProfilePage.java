@@ -10,8 +10,6 @@ public class MemberProfilePage extends BasePage<MemberProfilePage> {
 
 
 
-
-
     public void clickOnRevokeInviteButton (){
 
         revokeInviteButton.click(ClickOptions.usingJavaScript());
