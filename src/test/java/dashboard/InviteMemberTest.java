@@ -36,5 +36,6 @@ public class InviteMemberTest extends DashboardTestBase {
                 .clickInviteButton();
         memberManagementPage.inviteTeamMember.shouldBe(Condition.visible);
         assertThat(memberManagementPage.getRowCount()).isEqualTo(rowSize + 1);
+        
     }
 }
