@@ -8,7 +8,7 @@ public class LoginWebAppTest extends SvWebAppTestBase {
 
 
     @Test (testName = "Sign in into SV web app")
-    public void loginWebApp (){
+    public void loginWebApp () throws InterruptedException {
         SvWebAppLoginPage svWebApp = new SvWebAppLoginPage();
         svWebApp.open();
         svWebApp.loginButton();
