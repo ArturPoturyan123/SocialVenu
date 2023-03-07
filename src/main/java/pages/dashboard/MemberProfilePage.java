@@ -13,6 +13,8 @@ public class MemberProfilePage extends BasePage<MemberProfilePage> {
     private SelenideElement deleteThisUserButton = $x("//p[contains(text(), 'Delete This User')][not(contains(., 'Delete This User?'))]");
     public SelenideElement deleteUserPopup = Selenide.element("div>[class*='sv-dashboard-jss921']");
 
+
+
     public void deleteMember() {
         deleteThisUserButton.shouldBe(Condition.visible).click();
 
@@ -20,7 +22,8 @@ public class MemberProfilePage extends BasePage<MemberProfilePage> {
     }
 
 
-    public void clickOnRevokeInviteButton() {
+
+    public void clickOnRevokeInviteButton (){
 
         revokeInviteButton.click(ClickOptions.usingJavaScript());
 

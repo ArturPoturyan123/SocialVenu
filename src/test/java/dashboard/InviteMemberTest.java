@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.dashboard.InviteUserPage;
 import pages.dashboard.MemberManagementPage;
+import pages.dashboard.MemberProfilePage;
 
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -24,6 +25,7 @@ public class InviteMemberTest extends DashboardTestBase {
     public void verifyInvitationFunctionality() throws InterruptedException {
         Faker faker = new Faker();
         MemberManagementPage memberManagementPage = new MemberManagementPage();
+        MemberProfilePage memberProfilePage = new MemberProfilePage();
         memberManagementPage.open();
         Thread.sleep(3000);
         int rowSize = memberManagementPage.getRowCount();
@@ -36,5 +38,25 @@ public class InviteMemberTest extends DashboardTestBase {
                 .clickInviteButton();
         memberManagementPage.inviteTeamMember.shouldBe(Condition.visible);
         assertThat(memberManagementPage.getRowCount()).isEqualTo(rowSize + 1);
+        memberManagementPage.clickEditButton();
+        memberProfilePage.clickOnRevokeInviteButton();
+        memberProfilePage.deleteMember();
+
+    }
+
+    @Test(testName = "Verify to delete Member from Member Management list")
+    public void verifyDeleteMember() throws InterruptedException {
+        MemberManagementPage memberManagementPage = new MemberManagementPage();
+        MemberProfilePage memberProfilePage = new MemberProfilePage();
+        memberManagementPage.open();
+        Thread.sleep(3000);
+        int rowSize = memberManagementPage.getRowCount();
+        memberManagementPage.clickEditButton();
+        memberProfilePage.clickOnRevokeInviteButton();
+        memberProfilePage.deleteUserPopup.shouldBe(Condition.visible);
+        memberProfilePage.deleteMember();
+        Thread.sleep(3000);
+        assertThat(memberManagementPage.getRowCount()).isEqualTo(rowSize - 1);
+
     }
 }
