@@ -8,7 +8,7 @@ import org.testng.annotations.BeforeMethod;
 public class TbWebAppTestBase extends TestBase {
     @BeforeMethod
     public void initWebApp() {
-        Configuration.baseUrl = Config.DASHBOARD_URL.replace("{subDomain}","testdentartrel");
+        Configuration.baseUrl = Config.DASHBOARD_RELEASE_URL.replace("{subDomain}","testdentartrel");
         Selenide.open();
     }
 }

@@ -19,4 +19,9 @@ public class SvWebAppLoginPage extends BasePage<SvWebAppLoginPage> {
     public String getUrl() {
         return "";
     }
+
+    @Override
+    public void refreshPage() {
+
+    }
 }

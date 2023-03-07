@@ -40,4 +40,9 @@ public class DashboardLoginPage extends BasePage<DashboardLoginPage> {
     public String getUrl() {
         return "login";
     }
+
+    @Override
+    public void refreshPage() {
+
+    }
 }

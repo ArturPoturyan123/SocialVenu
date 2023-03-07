@@ -33,6 +33,11 @@ public class MemberManagementPage extends BasePage<MemberManagementPage> {
         element("tr>td>svg[data-testid='EditIcon']").should(disappear, Duration.ofSeconds(10));
 
     }
+    public void waitListItemLoad(){
+
+
+
+    }
 
 
     public void toastMessageAppear() {
@@ -43,5 +48,10 @@ public class MemberManagementPage extends BasePage<MemberManagementPage> {
     @Override
     public String getUrl() {
         return "accounts/members";
+    }
+
+    @Override
+    public void refreshPage() {
+
     }
 }

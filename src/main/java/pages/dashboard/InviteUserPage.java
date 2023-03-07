@@ -24,6 +24,11 @@ public class InviteUserPage extends BasePage<InviteUserPage> {
         return "members/invite";
     }
 
+    @Override
+    public void refreshPage() {
+
+    }
+
     public InviteUserPage setFirstName(String name) {
         this.name.setValue(name);
         return this;

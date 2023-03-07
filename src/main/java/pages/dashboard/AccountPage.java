@@ -29,4 +29,9 @@ public class AccountPage extends BasePage<AccountPage> {
     public String getUrl() {
         return "profile/accounts";
     }
+
+    @Override
+    public void refreshPage() {
+
+    }
 }

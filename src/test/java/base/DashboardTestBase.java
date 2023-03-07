@@ -10,7 +10,7 @@ import utils.ApiUtils;
 public class DashboardTestBase extends TestBase {
     @BeforeMethod
     public void initDashboard() {
-        Configuration.baseUrl = Config.DASHBOARD_URL;
+        Configuration.baseUrl = Config.DASHBOARD_RELEASE_URL;
         Selenide.open(Configuration.baseUrl);
         JsonObject jsonObject = ApiUtils.loginDashboard("arthurp@doublecoconut.com", "123456");
         jsonObject.addProperty("accounts", 10);
@@ -18,4 +18,6 @@ public class DashboardTestBase extends TestBase {
         Selenide.localStorage().setItem("authResponse", jsonObject.toString());
         Selenide.refresh();
     }
+
+
 }

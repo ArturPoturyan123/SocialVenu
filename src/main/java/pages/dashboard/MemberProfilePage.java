@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.$x;
 public class MemberProfilePage extends BasePage<MemberProfilePage> {
     private SelenideElement revokeInviteButton = Selenide.element("p.MuiTypography-root.MuiTypography-body1.css-1gollgz");
     private SelenideElement deleteThisUserButton = $x("//p[contains(text(), 'Delete This User')][not(contains(., 'Delete This User?'))]");
-    public SelenideElement deleteUserPopup = Selenide.element("div>[class*='sv-dashboard-jss921']");
+    public SelenideElement deleteUserPopup = Selenide.$x("//p[contains(text(), 'Delete This User')]");
 
 
 
@@ -33,5 +33,10 @@ public class MemberProfilePage extends BasePage<MemberProfilePage> {
     @Override
     public String getUrl() {
         return null;
+    }
+
+    @Override
+    public void refreshPage() {
+
     }
 }
