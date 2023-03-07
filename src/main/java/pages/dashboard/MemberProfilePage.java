@@ -14,7 +14,6 @@ public class MemberProfilePage extends BasePage<MemberProfilePage> {
     public SelenideElement deleteUserPopup = Selenide.$x("//p[contains(text(), 'Delete This User')]");
 
 
-
     public void deleteMember() {
         deleteThisUserButton.shouldBe(Condition.visible).click();
 
@@ -22,8 +21,7 @@ public class MemberProfilePage extends BasePage<MemberProfilePage> {
     }
 
 
-
-    public void clickOnRevokeInviteButton (){
+    public void clickOnRevokeInviteButton() {
 
         revokeInviteButton.click(ClickOptions.usingJavaScript());
 

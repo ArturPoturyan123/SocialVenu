@@ -1,13 +1,10 @@
 package dashboard;
 
 import base.DashboardTestBase;
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.dashboard.CustomizationRewardsPage;
-
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class CustomizationRewardTest extends DashboardTestBase {
 

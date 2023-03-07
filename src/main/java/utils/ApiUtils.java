@@ -21,7 +21,7 @@ public class ApiUtils {
         Request request = new Request.Builder()
                 .addHeader("content-type", "application/json")
                 .url(Config.BACKEND_URL + "/api/v1/auth/customer")
-                .post(body) // Use .post() instead of .method("POST", body)
+                .post(body)
                 .build();
         try {
             Response response = client.newCall(request).execute();
