@@ -37,4 +37,5 @@ public class MemberProfilePage extends BasePage<MemberProfilePage> {
     public void refreshPage() {
 
     }
+
 }

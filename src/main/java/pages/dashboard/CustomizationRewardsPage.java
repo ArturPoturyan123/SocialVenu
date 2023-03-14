@@ -12,6 +12,7 @@ import pages.BasePage;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.files.DownloadActions.click;
 
@@ -19,20 +20,17 @@ public class CustomizationRewardsPage extends BasePage<CustomizationRewardsPage>
 
     private final List<SelenideElement> pointsToggle = Selenide.elements("div>[class*='MuiFormGroup-root']");
     private final SelenideElement toggle = element("span>input[name='undefinedToggle']");
-    private SelenideElement saveButton = Selenide.elements("button[type='button']").get(3);
+    private SelenideElement saveButton = $x("//div//button[contains(text(),'Save')]");
     private SelenideElement chat = Selenide.element("a[aria-label='Open chat']");
 
     public void openBot() {
-        chat.shouldBe(Condition.visible).click();
+        chat.shouldBe(visible).click();
     }
 
 
     public void clickOnSaveButton() {
-        if (saveButton.exists()) {
-            saveButton.click(ClickOptions.usingJavaScript());
-        } else {
-            System.out.println("error");
-        }
+
+        saveButton.shouldBe(Condition.visible).click();
     }
 
     public int getAllToggles() {
@@ -63,4 +61,6 @@ public class CustomizationRewardsPage extends BasePage<CustomizationRewardsPage>
     public void refreshPage() {
 
     }
+
+
 }

@@ -1,11 +1,11 @@
 package config;
 
-import com.google.common.io.Resources;
-
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 public class PropertyLoader {
+
     private static final Properties configs;
 
     static {
@@ -14,24 +14,24 @@ public class PropertyLoader {
 
     private static Properties readFromFile(String path) {
         Properties properties = new Properties();
-        try {
-            properties.load(Resources.class.getResourceAsStream(path));
+        try (InputStream input = PropertyLoader.class.getResourceAsStream(path)) {
+            if (input != null) {
+                properties.load(input);
+            } else {
+                throw new RuntimeException("Unable to load properties file " + path);
+            }
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            throw new RuntimeException("Error loading properties file " + path, e);
         }
         return properties;
     }
 
     public static String getProperty(String key) {
-        if (System.getProperty(key) == null || System.getProperty(key).isEmpty()) {
-            String property = configs.getProperty(key);
-            System.out.println("Getting property " + key + ": " + property);
-            return property;
-        } else {
-            String property = System.getProperty(key);
-            System.out.println("Getting property " + key + ": " + property);
-            return property;
+        String property = System.getProperty(key);
+        if (property == null || property.isEmpty()) {
+            property = configs.getProperty(key);
         }
+        System.out.println("Getting property " + key + ": " + property);
+        return property;
     }
-
 }

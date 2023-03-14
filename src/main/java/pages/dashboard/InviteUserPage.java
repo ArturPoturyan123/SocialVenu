@@ -29,6 +29,7 @@ public class InviteUserPage extends BasePage<InviteUserPage> {
 
     }
 
+
     public InviteUserPage setFirstName(String name) {
         this.name.setValue(name);
         return this;

@@ -48,4 +48,6 @@ public class MemberManagementPage extends BasePage<MemberManagementPage> {
     public void refreshPage() {
         Selenide.refresh();
     }
+
+
 }
