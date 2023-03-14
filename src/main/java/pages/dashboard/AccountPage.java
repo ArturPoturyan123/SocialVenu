@@ -9,7 +9,7 @@ import pages.BasePage;
 import static com.codeborne.selenide.Selenide.element;
 import static com.codeborne.selenide.Selenide.elements;
 
-public class AccountPage extends BasePage<AccountPage> {
+public class AccountPage extends BasePage<AccountPage>  {
 
     public SelenideElement rootElement = Selenide.element("div[class*='MuiDrawer-docked']");
     private final SelenideElement arrowButton = element("button[aria-label='Account settings'] > div");

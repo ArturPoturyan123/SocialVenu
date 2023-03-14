@@ -4,9 +4,6 @@ import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.conditions.Interactable;
-import com.github.javafaker.Code;
-import org.openqa.selenium.By;
 import pages.BasePage;
 
 import java.util.List;
@@ -14,7 +11,7 @@ import java.util.NoSuchElementException;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.files.DownloadActions.click;
+
 
 public class CustomizationRewardsPage extends BasePage<CustomizationRewardsPage> {
 
