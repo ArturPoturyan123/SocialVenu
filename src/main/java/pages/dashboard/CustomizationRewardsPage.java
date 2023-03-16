@@ -1,7 +1,6 @@
 package pages.dashboard;
 
 import com.codeborne.selenide.ClickOptions;
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import pages.BasePage;
@@ -9,25 +8,36 @@ import pages.BasePage;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
+import static com.google.common.base.Predicates.and;
 
 
 public class CustomizationRewardsPage extends BasePage<CustomizationRewardsPage> {
 
-    private final List<SelenideElement> pointsToggle = Selenide.elements("div>[class*='MuiFormGroup-root']");
-    private final SelenideElement toggle = element("span>input[name='undefinedToggle']");
-    private SelenideElement saveButton = $x("//div//button[contains(text(),'Save')]");
+    private List<SelenideElement> pointsToggle = Selenide.elements("div>[class*='MuiFormGroup-root']");
+    private SelenideElement toggle = Selenide.element("span>input[name='undefinedToggle']");
+    public SelenideElement saveButton = $x("//div//button[contains (text(), 'Save')]");
     private SelenideElement chat = Selenide.element("a[aria-label='Open chat']");
+    private SelenideElement rewardsSms = Selenide.$x("//div[contains (text(), 'Reward SMS')]");
+    private SelenideElement rewardFulFillMeant = Selenide.$x("//div[contains (text(), 'Reward Fulfillment')]");
 
     public void openBot() {
         chat.shouldBe(visible).click();
     }
 
+    public void clickRewardFulFillMeant() {
+        rewardFulFillMeant.click(ClickOptions.usingJavaScript());
+    }
+
+    public void clickRewardsSms() {
+        rewardsSms.click(ClickOptions.usingJavaScript());
+    }
+
 
     public void clickOnSaveButton() {
 
-        saveButton.shouldBe(Condition.visible).click();
+        saveButton.shouldBe(visible).click();
     }
 
     public int getAllToggles() {
