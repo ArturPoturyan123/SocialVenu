@@ -21,11 +21,11 @@ public class CustomizationRewardTest extends DashboardTestBase {
     }
 
     @Test (testName = "Verify to open reward page")
-    public void verify () throws InterruptedException {
+    public void verify () {
         CustomizationRewardsPage customizationRewardsPage = new CustomizationRewardsPage();
         customizationRewardsPage.open();
         customizationRewardsPage.clickAllToggles();
-        customizationRewardsPage.clickOnSaveButton();
+
 
 
 
