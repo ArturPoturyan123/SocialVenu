@@ -16,7 +16,6 @@ public class DashboardLoginPage extends BasePage<DashboardLoginPage> {
 
     public SelenideElement passwordErrorText = Selenide.element(By.id("input-meta-title-helper-text"));
 
-    //    private SelenideElement signInButton = Selenide.element("button[class*='MuiButton-text']");
     private SelenideElement signInButton = Selenide.element("[type='submit']");
 
 
