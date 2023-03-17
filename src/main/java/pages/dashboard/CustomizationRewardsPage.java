@@ -42,7 +42,6 @@ public class CustomizationRewardsPage extends BasePage<CustomizationRewardsPage>
             System.out.println("the button is not present");
         } else {
             saveButton.click(ClickOptions.usingJavaScript());
-            Selenide.executeJavaScript("document.body.style.zoom='100%'");
         }
     }
 
