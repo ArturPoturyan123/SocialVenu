@@ -25,5 +25,15 @@ public class SvWebAppLoginPage extends BasePage<SvWebAppLoginPage> {
 
     }
 
+    @Override
+    public void zoomPage() {
+
+    }
+
+    @Override
+    public void resetZoom() {
+
+    }
+
 
 }

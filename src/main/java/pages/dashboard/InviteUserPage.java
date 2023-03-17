@@ -1,5 +1,6 @@
 package pages.dashboard;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import pages.BasePage;
@@ -59,5 +60,15 @@ public class InviteUserPage extends BasePage<InviteUserPage> {
         return this;
     }
 
+    @Override
+    public void zoomPage() {
+        Selenide.executeJavaScript("document.body.style.zoom='150%'");
 
+    }
+
+    @Override
+    public void resetZoom() {
+        Selenide.executeJavaScript("document.body.style.zoom='100%'");
+
+    }
 }

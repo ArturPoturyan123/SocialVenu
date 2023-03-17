@@ -9,7 +9,7 @@ import pages.BasePage;
 import static com.codeborne.selenide.Selenide.element;
 import static com.codeborne.selenide.Selenide.elements;
 
-public class AccountPage extends BasePage<AccountPage>  {
+public class AccountPage extends BasePage<AccountPage> {
 
     public SelenideElement rootElement = Selenide.element("div[class*='MuiDrawer-docked']");
     private final SelenideElement arrowButton = element("button[aria-label='Account settings'] > div");
@@ -20,6 +20,8 @@ public class AccountPage extends BasePage<AccountPage>  {
         arrowButton.click(ClickOptions.usingJavaScript());
         element("ul[class*='MuiList-root']").shouldBe(Condition.visible);
     }
+
+
 
     public void clickLogoutButton() {
         logoutButton.click();
@@ -35,5 +37,16 @@ public class AccountPage extends BasePage<AccountPage>  {
 
     }
 
+    @Override
+    public void zoomPage() {
+        Selenide.executeJavaScript("document.body.style.zoom='150%'");
+
+    }
+
+    @Override
+    public void resetZoom() {
+        Selenide.executeJavaScript("document.body.style.zoom='100%'");
+
+    }
 
 }

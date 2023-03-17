@@ -10,4 +10,5 @@ public interface Config {
     String EMAIL = PropertyLoader.getProperty("email");
     String PASSWORD = PropertyLoader.getProperty("password");
 
+
 }

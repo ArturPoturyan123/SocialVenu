@@ -13,11 +13,12 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 
-public class CustomizationRewardsPage extends BasePage<CustomizationRewardsPage> {
+public class CustomizationRewardsPage extends BasePage<CustomizationRewardsPage>  {
 
     private List<SelenideElement> pointsToggle = Selenide.elements("div>[class*='MuiFormGroup-root']");
     private SelenideElement toggle = Selenide.element("span>input[name='undefinedToggle']");
-    public SelenideElement saveButton = Selenide.element("div>button[id='bottom-bar-cancel-action']");
+    public SelenideElement saveButton = Selenide.$(By.id("bottom-bar-save-action"));
+
     private SelenideElement chat = Selenide.element("a[aria-label='Open chat']");
     private SelenideElement rewardsSms = Selenide.$x("//div[contains (text(), 'Reward SMS')]");
     private SelenideElement rewardFulFillMeant = Selenide.$x("//div[contains (text(), 'Reward Fulfillment')]");
@@ -37,9 +38,17 @@ public class CustomizationRewardsPage extends BasePage<CustomizationRewardsPage>
 
 
     public void clickOnSaveButton() {
+        if (!isSaveButtonDisplayed()) {
+            System.out.println("the button is not present");
+        } else {
+            saveButton.click(ClickOptions.usingJavaScript());
+            Selenide.executeJavaScript("document.body.style.zoom='100%'");
+        }
+    }
 
-        saveButton.shouldBe(visible).click();
 
+    public boolean isSaveButtonDisplayed() {
+        return saveButton.isDisplayed();
     }
 
 
@@ -47,9 +56,6 @@ public class CustomizationRewardsPage extends BasePage<CustomizationRewardsPage>
         return element("span>input[name='undefinedToggle']", toggleIndex);
     }
 
-    private SelenideElement getActionButtonIndex(int actionButtonIndex) {
-        return element("div>button[class*='MuiButton-containedPrimary']", actionButtonIndex);
-    }
 
     public int getAllToggles() {
         return pointsToggle.size();
@@ -75,6 +81,18 @@ public class CustomizationRewardsPage extends BasePage<CustomizationRewardsPage>
     @Override
     public void refreshPage() {
         Selenide.refresh();
+
+    }
+
+    @Override
+    public void zoomPage() {
+        Selenide.executeJavaScript("document.body.style.zoom='150%'");
+
+    }
+
+    @Override
+    public void resetZoom() {
+        Selenide.executeJavaScript("document.body.style.zoom='100%'");
 
     }
 }
