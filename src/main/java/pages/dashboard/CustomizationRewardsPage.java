@@ -17,7 +17,7 @@ public class CustomizationRewardsPage extends BasePage<CustomizationRewardsPage>
 
     private List<SelenideElement> pointsToggle = Selenide.elements("div>[class*='MuiFormGroup-root']");
     private SelenideElement toggle = Selenide.element("span>input[name='undefinedToggle']");
-    public SelenideElement saveButton = $(new By.ByCssSelector("button[type='button']"));
+    public SelenideElement saveButton = Selenide.element("div>button[id='bottom-bar-cancel-action']");
     private SelenideElement chat = Selenide.element("a[aria-label='Open chat']");
     private SelenideElement rewardsSms = Selenide.$x("//div[contains (text(), 'Reward SMS')]");
     private SelenideElement rewardFulFillMeant = Selenide.$x("//div[contains (text(), 'Reward Fulfillment')]");
@@ -37,8 +37,8 @@ public class CustomizationRewardsPage extends BasePage<CustomizationRewardsPage>
 
 
     public void clickOnSaveButton() {
-        saveButton.click(ClickOptions.usingJavaScript());
 
+        saveButton.shouldBe(visible).click();
 
     }
 
