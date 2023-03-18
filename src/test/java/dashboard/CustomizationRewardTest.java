@@ -6,6 +6,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.dashboard.CustomizationRewardsPage;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
 public class CustomizationRewardTest extends DashboardTestBase {
 
     @BeforeMethod
@@ -15,14 +17,25 @@ public class CustomizationRewardTest extends DashboardTestBase {
 
     }
 
-    @Test(testName = "Verify to open reward page")
-    public void verify() {
+    @Test(testName = "Verify to all toggles enable and disabled functionality")
+    public void verifyAllRewardsTogglesEnableAndDisable() throws InterruptedException {
         CustomizationRewardsPage customizationRewardsPage = new CustomizationRewardsPage();
         customizationRewardsPage.open();
         customizationRewardsPage.clickAllToggles();
         customizationRewardsPage.zoomPage();
         customizationRewardsPage.clickOnSaveButton();
         customizationRewardsPage.resetZoom();
+        Thread.sleep(5000);
+        int activitiesSize = customizationRewardsPage.getActivitiesCount();
+        int togglesSize = customizationRewardsPage.getAllToggles();
+        assertThat(togglesSize).isEqualTo(activitiesSize + 1);
+        customizationRewardsPage.clickAllToggles();
+        customizationRewardsPage.zoomPage();
+        customizationRewardsPage.clickOnSaveButton();
+        customizationRewardsPage.resetZoom();
+        Thread.sleep(3000);
+        assertThat(togglesSize).isNotEqualTo(activitiesSize);
+
 
     }
 }

@@ -13,10 +13,11 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 
-public class CustomizationRewardsPage extends BasePage<CustomizationRewardsPage>  {
+public class CustomizationRewardsPage extends BasePage<CustomizationRewardsPage> {
 
     private List<SelenideElement> pointsToggle = Selenide.elements("div>[class*='MuiFormGroup-root']");
-    private SelenideElement toggle = Selenide.element("span>input[name='undefinedToggle']");
+    private List<SelenideElement> activities = Selenide.elements("div>[style*='display']");
+    private SelenideElement toggles = Selenide.element("span>input[name='undefinedToggle']");
     public SelenideElement saveButton = Selenide.$(By.id("bottom-bar-save-action"));
 
     private SelenideElement chat = Selenide.element("a[aria-label='Open chat']");
@@ -27,6 +28,9 @@ public class CustomizationRewardsPage extends BasePage<CustomizationRewardsPage>
         chat.shouldBe(visible).click();
     }
 
+    public int getActivitiesCount() {
+        return activities.size();
+    }
 
     public void clickRewardFulFillMeant() {
         rewardFulFillMeant.click(ClickOptions.usingJavaScript());
@@ -39,7 +43,7 @@ public class CustomizationRewardsPage extends BasePage<CustomizationRewardsPage>
 
     public void clickOnSaveButton() {
         if (!isSaveButtonDisplayed()) {
-            System.out.println("the button is not present");
+            throw new NoSuchElementException("Save button not found ");
         } else {
             saveButton.click(ClickOptions.usingJavaScript());
         }
@@ -63,9 +67,9 @@ public class CustomizationRewardsPage extends BasePage<CustomizationRewardsPage>
     public void clickAllToggles() {
         int toggleCount = getAllToggles();
         for (int i = 0; i < toggleCount; i++) {
-            SelenideElement toggle = getToggleByIndex(i);
-            if (toggle != null) {
-                toggle.click(ClickOptions.usingJavaScript());
+            toggles = getToggleByIndex(i);
+            if (toggles != null) {
+                toggles.click(ClickOptions.usingJavaScript());
             } else {
                 throw new NoSuchElementException("Toggle element not found for index " + i);
             }
