@@ -24,7 +24,7 @@ public class CustomizationRewardsPage extends BasePage<CustomizationRewardsPage>
     private SelenideElement rewardsSms = Selenide.$x("//div[contains (text(), 'Reward SMS')]");
     private SelenideElement rewardFulFillMeant = Selenide.$x("//div[contains (text(), 'Reward Fulfillment')]");
 
-    public void openBot() {
+    public void openChatBot() {
         chat.shouldBe(visible).click();
     }
 
