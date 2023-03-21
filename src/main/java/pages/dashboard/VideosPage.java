@@ -1,6 +1,7 @@
 package pages.dashboard;
 
 import com.codeborne.selenide.ClickOptions;
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import pages.BasePage;
@@ -12,7 +13,7 @@ public class VideosPage extends BasePage<AccountPage> {
 
 
     public void clickPlayButton() {
-        videoPlayButton.click(ClickOptions.usingJavaScript());
+        videoPlayButton.shouldBe(Condition.enabled).click();
     }
 
     public void closeModal() {
