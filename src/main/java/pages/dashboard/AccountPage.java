@@ -37,6 +37,7 @@ public class AccountPage extends BasePage<AccountPage> {
 
     }
 
+
     @Override
     public void zoomPage() {
         Selenide.executeJavaScript("document.body.style.zoom='150%'");

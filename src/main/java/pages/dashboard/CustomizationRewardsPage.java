@@ -5,7 +5,6 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import pages.BasePage;
-import utils.RandomUtils;
 
 import java.util.List;
 import java.util.NoSuchElementException;
