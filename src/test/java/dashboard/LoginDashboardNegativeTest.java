@@ -2,20 +2,12 @@ package dashboard;
 
 import base.DashboardTestBase;
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selenide;
 import config.Config;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.dashboard.DashboardLoginPage;
 
 
 public class LoginDashboardNegativeTest extends DashboardTestBase {
-
-    @BeforeMethod
-    public void removeAuthToken() {
-        Selenide.localStorage().removeItem("authToken");
-        Selenide.refresh();
-    }
 
     @Test(testName = "Sign in into SV Dashboard without password")
     public void loginSvDashboardWithoutPassword() {
@@ -30,7 +22,6 @@ public class LoginDashboardNegativeTest extends DashboardTestBase {
         DashboardLoginPage loginPage = new DashboardLoginPage();
         loginPage.enterPassword(Config.PASSWORD);
         loginPage.pressSignInButton();
-
         loginPage.emailErrorText.shouldHave(Condition.text("Invalid Email"));
     }
 
@@ -40,7 +31,6 @@ public class LoginDashboardNegativeTest extends DashboardTestBase {
         loginPage.enterEmail("test");
         loginPage.enterPassword(Config.PASSWORD);
         loginPage.pressSignInButton();
-
         loginPage.emailErrorText.shouldHave(Condition.text("Invalid Email"));
     }
 
@@ -50,7 +40,6 @@ public class LoginDashboardNegativeTest extends DashboardTestBase {
         loginPage.enterEmail(Config.EMAIL);
         loginPage.enterPassword(Config.PASSWORD + "incorrect");
         loginPage.pressSignInButton();
-
         loginPage.emailErrorText.shouldHave(Condition.text("Your username and/or password do not match. Try again."));
     }
 }

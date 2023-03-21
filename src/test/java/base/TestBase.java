@@ -5,12 +5,13 @@ import com.codeborne.selenide.Selenide;
 import config.Config;
 import org.testng.annotations.*;
 
+
 public class TestBase {
     @BeforeSuite
     public void initSuite() {
 
         Configuration.browser = Config.BROWSER;
-        Configuration.browserSize = "1700x1000";
+        Configuration.browserSize = "1600x900";
         Configuration.driverManagerEnabled = true;
 
     }

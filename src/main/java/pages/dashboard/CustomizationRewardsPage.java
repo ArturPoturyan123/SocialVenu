@@ -5,9 +5,11 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import pages.BasePage;
+import utils.RandomUtils;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.concurrent.ThreadLocalRandom;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -15,14 +17,29 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class CustomizationRewardsPage extends BasePage<CustomizationRewardsPage> {
 
-    private List<SelenideElement> pointsToggle = Selenide.elements("div>[class*='MuiFormGroup-root']");
-    private List<SelenideElement> activities = Selenide.elements("div>[style*='display']");
+    private final List<SelenideElement> pointsToggle = Selenide.elements("div>[class*='MuiFormGroup-root']");
+    private final List<SelenideElement> activities = Selenide.elements("div>[style*='display']");
     private SelenideElement toggles = Selenide.element("span>input[name='undefinedToggle']");
     public SelenideElement saveButton = Selenide.$(By.id("bottom-bar-save-action"));
 
-    private SelenideElement chat = Selenide.element("a[aria-label='Open chat']");
-    private SelenideElement rewardsSms = Selenide.$x("//div[contains (text(), 'Reward SMS')]");
-    private SelenideElement rewardFulFillMeant = Selenide.$x("//div[contains (text(), 'Reward Fulfillment')]");
+    private final SelenideElement chat = Selenide.element("a[aria-label='Open chat']");
+    private final SelenideElement rewardsSms = Selenide.$x("//div[contains (text(), 'Reward SMS')]");
+    private final SelenideElement rewardFulFillMeant = Selenide.$x("//div[contains (text(), 'Reward Fulfillment')]");
+    private final SelenideElement pointsGoalInput = Selenide.element("[name='points']");
+    private final SelenideElement phonePoint = Selenide.element("span+div[class*='sv-dashboard']>p:last-child");
+
+
+    public int setRandomRewardPointGoal() {
+        int randomNumber = ThreadLocalRandom.current().nextInt(1000);
+        String valueString = "value=" + randomNumber;
+        pointsGoalInput.sendKeys(valueString);
+        return randomNumber;
+    }
+
+    public int getPhonePoints() {
+        return Integer.parseInt(phonePoint.text().split("/")[1].trim());
+    }
+
 
     public void openChatBot() {
         chat.shouldBe(visible).click();
@@ -68,11 +85,7 @@ public class CustomizationRewardsPage extends BasePage<CustomizationRewardsPage>
         int toggleCount = getAllToggles();
         for (int i = 0; i < toggleCount; i++) {
             toggles = getToggleByIndex(i);
-            if (toggles != null) {
-                toggles.click(ClickOptions.usingJavaScript());
-            } else {
-                throw new NoSuchElementException("Toggle element not found for index " + i);
-            }
+            toggles.click(ClickOptions.usingJavaScript());
         }
     }
 
@@ -98,4 +111,6 @@ public class CustomizationRewardsPage extends BasePage<CustomizationRewardsPage>
         Selenide.executeJavaScript("document.body.style.zoom='100%'");
 
     }
+
+
 }

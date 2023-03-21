@@ -9,19 +9,19 @@ public class PropertyLoader {
     private static final Properties configs;
 
     static {
-        configs = readFromFile("/config.properties");
+        configs = readFromFile();
     }
 
-    private static Properties readFromFile(String path) {
+    private static Properties readFromFile() {
         Properties properties = new Properties();
-        try (InputStream input = PropertyLoader.class.getResourceAsStream(path)) {
+        try (InputStream input = PropertyLoader.class.getResourceAsStream("/config.properties")) {
             if (input != null) {
                 properties.load(input);
             } else {
-                throw new RuntimeException("Unable to load properties file " + path);
+                throw new RuntimeException("Unable to load properties file " + "/config.properties");
             }
         } catch (IOException e) {
-            throw new RuntimeException("Error loading properties file " + path, e);
+            throw new RuntimeException("Error loading properties file " + "/config.properties", e);
         }
         return properties;
     }
