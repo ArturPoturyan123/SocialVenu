@@ -14,6 +14,7 @@ public class VideosTest extends DashboardTestBase {
         videosPage.open();
         videosPage.clickElement();
         videosPage.clickPlayButton();
+        videosPage.closeModal();
 
     }
 }

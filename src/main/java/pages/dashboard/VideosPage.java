@@ -8,10 +8,15 @@ import pages.BasePage;
 public class VideosPage extends BasePage<AccountPage> {
     private final SelenideElement videElement = Selenide.elements("tbody>tr[class*='MuiTableRow-root']").get(0);
     private final SelenideElement videoPlayButton = Selenide.element("div>button>video[class*='MuiCardMedia-root']");
+    private final SelenideElement closeVideoPreview = Selenide.element("button[aria-label='Close modal']");
 
 
     public void clickPlayButton() {
         videoPlayButton.click(ClickOptions.usingJavaScript());
+    }
+
+    public void closeModal() {
+        closeVideoPreview.click(ClickOptions.usingJavaScript());
     }
 
 
