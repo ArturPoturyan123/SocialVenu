@@ -6,8 +6,8 @@ import com.codeborne.selenide.SelenideElement;
 import pages.BasePage;
 
 public class VideosPage extends BasePage<AccountPage> {
-    private SelenideElement videElement = Selenide.elements("tbody>tr[class*='MuiTableRow-root']").get(0);
-        private SelenideElement videoPlayButton = Selenide.element("div>button>video[class*='MuiCardMedia-root']");
+    private final SelenideElement videElement = Selenide.elements("tbody>tr[class*='MuiTableRow-root']").get(0);
+    private final SelenideElement videoPlayButton = Selenide.element("div>button>video[class*='MuiCardMedia-root']");
 
 
     public void clickPlayButton() {
