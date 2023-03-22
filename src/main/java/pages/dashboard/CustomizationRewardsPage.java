@@ -5,6 +5,7 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import pages.BasePage;
+import utils.RandomUtils;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -28,11 +29,10 @@ public class CustomizationRewardsPage extends BasePage<CustomizationRewardsPage>
     private final SelenideElement phonePoint = Selenide.element("span+div[class*='sv-dashboard']>p:last-child");
 
 
-    public int setRandomRewardPointGoal() {
-        int randomNumber = ThreadLocalRandom.current().nextInt(1000);
+    public void setRandomRewardPointGoal(int randomNumber) {
+
         String valueString = "value=" + randomNumber;
         pointsGoalInput.sendKeys(valueString);
-        return randomNumber;
     }
 
     public int getPhonePoints() {
@@ -93,23 +93,6 @@ public class CustomizationRewardsPage extends BasePage<CustomizationRewardsPage>
         return "settings/incentive/points";
     }
 
-    @Override
-    public void refreshPage() {
-        Selenide.refresh();
-
-    }
-
-    @Override
-    public void zoomPage() {
-        Selenide.executeJavaScript("document.body.style.zoom='150%'");
-
-    }
-
-    @Override
-    public void resetZoom() {
-        Selenide.executeJavaScript("document.body.style.zoom='100%'");
-
-    }
 
 
 }

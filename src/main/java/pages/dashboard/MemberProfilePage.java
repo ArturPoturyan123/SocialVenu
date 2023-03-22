@@ -33,20 +33,6 @@ public class MemberProfilePage extends BasePage<MemberProfilePage> {
         return null;
     }
 
-    @Override
-    public void refreshPage() {
 
-    }
 
-    @Override
-    public void zoomPage() {
-        Selenide.executeJavaScript("document.body.style.zoom='150%'");
-
-    }
-
-    @Override
-    public void resetZoom() {
-        Selenide.executeJavaScript("document.body.style.zoom='100%'");
-
-    }
 }

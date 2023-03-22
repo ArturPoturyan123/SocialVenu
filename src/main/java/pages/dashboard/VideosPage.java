@@ -31,18 +31,5 @@ public class VideosPage extends BasePage<AccountPage> {
         return "content/all";
     }
 
-    @Override
-    public void refreshPage() {
 
-    }
-
-    @Override
-    public void zoomPage() {
-
-    }
-
-    @Override
-    public void resetZoom() {
-
-    }
 }

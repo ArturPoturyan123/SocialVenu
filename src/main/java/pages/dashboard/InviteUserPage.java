@@ -25,10 +25,7 @@ public class InviteUserPage extends BasePage<InviteUserPage> {
         return "members/invite";
     }
 
-    @Override
-    public void refreshPage() {
 
-    }
 
 
     public InviteUserPage setFirstName(String name) {
@@ -60,15 +57,4 @@ public class InviteUserPage extends BasePage<InviteUserPage> {
         return this;
     }
 
-    @Override
-    public void zoomPage() {
-        Selenide.executeJavaScript("document.body.style.zoom='150%'");
-
-    }
-
-    @Override
-    public void resetZoom() {
-        Selenide.executeJavaScript("document.body.style.zoom='100%'");
-
-    }
 }
