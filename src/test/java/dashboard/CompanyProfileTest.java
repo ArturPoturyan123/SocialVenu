@@ -20,7 +20,7 @@ public class CompanyProfileTest extends DashboardTestBase {
         String randomText = RandomUtils.getString();
         companyProfilePage.setRandomCompanyName(randomText);
         companyProfilePage.zoomPage();
-        Thread.sleep(5000);
+        Thread.sleep(7000);
         companyProfilePage.clickOnSaveButton(companyProfilePage.saveButton);
         companyProfilePage.resetZoom();
         String currentCompanyName = companyProfilePage.setRandomCompanyName(randomText);
@@ -37,7 +37,7 @@ public class CompanyProfileTest extends DashboardTestBase {
         String randomText = RandomUtils.getString();
         companyProfilePage.setRandomCompanyAddress(randomText);
         companyProfilePage.zoomPage();
-        Thread.sleep(5000);
+        Thread.sleep(7000);
         companyProfilePage.clickOnSaveButton(companyProfilePage.saveButton);
         companyProfilePage.resetZoom();
         String currentCompanyAddress = companyProfilePage.setRandomCompanyAddress(randomText);
