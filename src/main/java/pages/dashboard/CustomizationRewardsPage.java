@@ -5,11 +5,8 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import pages.BasePage;
-import utils.RandomUtils;
 
 import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.concurrent.ThreadLocalRandom;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -30,7 +27,6 @@ public class CustomizationRewardsPage extends BasePage<CustomizationRewardsPage>
 
 
     public void setRandomRewardPointGoal(int randomNumber) {
-
         String valueString = "value=" + randomNumber;
         pointsGoalInput.sendKeys(valueString);
     }
@@ -57,20 +53,6 @@ public class CustomizationRewardsPage extends BasePage<CustomizationRewardsPage>
     }
 
 
-    public void clickOnSaveButton() {
-        if (!isSaveButtonDisplayed()) {
-            throw new NoSuchElementException("Save button not found ");
-        } else {
-            saveButton.click(ClickOptions.usingJavaScript());
-        }
-    }
-
-
-    public boolean isSaveButtonDisplayed() {
-        return saveButton.isDisplayed();
-    }
-
-
     private SelenideElement getToggleByIndex(int toggleIndex) {
         return element("span>input[name='undefinedToggle']", toggleIndex);
     }
@@ -92,7 +74,6 @@ public class CustomizationRewardsPage extends BasePage<CustomizationRewardsPage>
     public String getUrl() {
         return "settings/incentive/points";
     }
-
 
 
 }

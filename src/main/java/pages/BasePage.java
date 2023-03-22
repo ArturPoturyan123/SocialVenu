@@ -1,6 +1,11 @@
 package pages;
 
+import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.Keys;
+
+import java.util.NoSuchElementException;
 
 public abstract class BasePage<T> {
     public T open() {
@@ -10,6 +15,7 @@ public abstract class BasePage<T> {
     }
 
     public abstract String getUrl();
+
 
     public void refreshPage() {
         Selenide.refresh();
@@ -26,4 +32,23 @@ public abstract class BasePage<T> {
         Selenide.executeJavaScript("document.body.style.zoom='100%'");
 
     }
+
+    public void eraseAllTextField(SelenideElement element) {
+        element.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+
+    }
+
+    public void clickOnSaveButton(SelenideElement element) {
+        if (!IsButtonDisplayed(element)) {
+            throw new NoSuchElementException("Save button not found ");
+        } else {
+            element.click(ClickOptions.usingJavaScript());
+        }
+    }
+
+
+    public boolean IsButtonDisplayed(SelenideElement element) {
+        return element.isDisplayed();
+    }
+
 }

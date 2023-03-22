@@ -16,7 +16,7 @@ public class CustomizationRewardTest extends DashboardTestBase {
         customizationRewardsPage.open();
         customizationRewardsPage.clickAllToggles();
         customizationRewardsPage.zoomPage();
-        customizationRewardsPage.clickOnSaveButton();
+        customizationRewardsPage.clickOnSaveButton(customizationRewardsPage.saveButton);
         customizationRewardsPage.resetZoom();
         Thread.sleep(5000);
         int activitiesSize = customizationRewardsPage.getActivitiesCount();
@@ -24,7 +24,7 @@ public class CustomizationRewardTest extends DashboardTestBase {
         assertThat(togglesSize).isEqualTo(activitiesSize + 1);
         customizationRewardsPage.clickAllToggles();
         customizationRewardsPage.zoomPage();
-        customizationRewardsPage.clickOnSaveButton();
+        customizationRewardsPage.clickOnSaveButton(customizationRewardsPage.saveButton);
         customizationRewardsPage.resetZoom();
         Thread.sleep(3000);
         assertThat(togglesSize).isNotEqualTo(activitiesSize);
@@ -37,7 +37,7 @@ public class CustomizationRewardTest extends DashboardTestBase {
         int randomNumber = RandomUtils.getInt();
         customizationRewardsPage.setRandomRewardPointGoal(randomNumber);
         customizationRewardsPage.zoomPage();
-        customizationRewardsPage.clickOnSaveButton();
+        customizationRewardsPage.clickOnSaveButton(customizationRewardsPage.saveButton);
         customizationRewardsPage.resetZoom();
         assertThat(randomNumber).isEqualTo(customizationRewardsPage.getPhonePoints());
 
