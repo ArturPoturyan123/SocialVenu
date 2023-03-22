@@ -3,6 +3,7 @@ package dashboard;
 import base.DashboardTestBase;
 import com.codeborne.selenide.Condition;
 import com.github.javafaker.Faker;
+import io.qameta.allure.Epic;
 import org.testng.annotations.Test;
 import pages.dashboard.InviteUserPage;
 import pages.dashboard.MemberManagementPage;
@@ -10,6 +11,8 @@ import pages.dashboard.MemberProfilePage;
 
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
+@Epic("Regression Tests")
 
 public class InviteMemberTest extends DashboardTestBase {
 

@@ -1,11 +1,14 @@
 package dashboard;
 
 import base.DashboardTestBase;
+import io.qameta.allure.Epic;
 import org.testng.annotations.Test;
 import pages.dashboard.CustomizationRewardsPage;
 import utils.RandomUtils;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
+@Epic("Regression Tests")
 
 public class CustomizationRewardTest extends DashboardTestBase {
 

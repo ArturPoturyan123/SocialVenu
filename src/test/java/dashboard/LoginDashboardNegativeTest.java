@@ -3,9 +3,12 @@ package dashboard;
 import base.DashboardTestBase;
 import com.codeborne.selenide.Condition;
 import config.Config;
+import io.qameta.allure.Epic;
 import org.testng.annotations.Test;
 import pages.dashboard.DashboardLoginPage;
 
+
+@Epic("Regression Tests")
 
 public class LoginDashboardNegativeTest extends DashboardTestBase {
 
