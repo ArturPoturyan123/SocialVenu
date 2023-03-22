@@ -24,8 +24,8 @@ public class CustomizationRewardTest extends DashboardTestBase {
         Thread.sleep(5000);
         int activitiesSize = customizationRewardsPage.getActivitiesCount();
         int togglesSize = customizationRewardsPage.getAllToggles();
-        Thread.sleep(2000);
         assertThat(togglesSize).isEqualTo(activitiesSize + 1);
+        Thread.sleep(2000);
         customizationRewardsPage.clickAllToggles();
         customizationRewardsPage.zoomPage();
         customizationRewardsPage.clickOnSaveButton(customizationRewardsPage.saveButton);

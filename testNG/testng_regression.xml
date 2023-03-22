@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Users Test Suite" parallel="false" thread-count="15" data-provider-thread-count="8">
-    <test name="User tests">
+<suite name="SocialVenue Dashboard" parallel="false" thread-count="15" data-provider-thread-count="8">
+    <test name="SocialVenue Dashboard Test Regression">
         <packages>
             <package name="dashboard.*"/>
         </packages>
