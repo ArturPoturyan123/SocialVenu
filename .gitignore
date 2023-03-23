@@ -6,6 +6,8 @@
 **/build/
 !src/**/build/
 
+allure-results/
+
 # Ignore Gradle GUI config
 gradle-app.setting
 
