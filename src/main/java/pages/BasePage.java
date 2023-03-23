@@ -38,7 +38,8 @@ public abstract class BasePage<T> {
 
     }
 
-    public void clickOnSaveButton(SelenideElement element) {
+    public void clickOnSaveButton(SelenideElement element) throws InterruptedException {
+        Thread.sleep(3000);
         if (!IsButtonDisplayed(element)) {
             throw new NoSuchElementException("Save button not found ");
         } else {
