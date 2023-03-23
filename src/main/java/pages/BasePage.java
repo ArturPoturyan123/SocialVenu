@@ -49,7 +49,7 @@ public abstract class BasePage<T> {
 
 
     public boolean IsButtonDisplayed(SelenideElement element) {
-        return element.isDisplayed();
+        return element.exists();
     }
 
 }

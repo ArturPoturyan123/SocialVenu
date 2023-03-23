@@ -20,6 +20,7 @@ public class CompanyProfileTest extends DashboardTestBase {
         String randomText = RandomUtils.getString();
         companyProfilePage.setRandomCompanyName(randomText);
         companyProfilePage.zoomPage();
+        Thread.sleep(2000);
         companyProfilePage.clickOnSaveButton(companyProfilePage.saveButton);
         companyProfilePage.resetZoom();
         String currentCompanyName = companyProfilePage.setRandomCompanyName(randomText);
