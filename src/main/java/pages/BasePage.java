@@ -9,7 +9,6 @@ import java.util.NoSuchElementException;
 
 public abstract class BasePage<T> {
     public T open() {
-
         Selenide.open(getUrl());
         return (T) this;
     }
@@ -22,15 +21,17 @@ public abstract class BasePage<T> {
     }
 
 
-    public void zoomPage() {
-        Selenide.executeJavaScript("document.body.style.zoom='150%'");
+    public void zoomPage(int percent) {
+        Selenide.executeJavaScript(String.format("document.body.style.zoom='%d%'", percent));
+    }
 
+    public void zoomPage() {
+       zoomPage(150);
     }
 
 
     public void resetZoom() {
-        Selenide.executeJavaScript("document.body.style.zoom='100%'");
-
+       zoomPage(100);
     }
 
     public void eraseAllTextField(SelenideElement element) {
@@ -51,5 +52,4 @@ public abstract class BasePage<T> {
     public boolean IsButtonDisplayed(SelenideElement element) {
         return element.exists();
     }
-
 }

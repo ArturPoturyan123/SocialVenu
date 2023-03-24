@@ -4,7 +4,6 @@ import java.util.List;
 
 public interface Countries {
 
-
     static List<String> getCountries() {
         return List.of("Alaska ",
                 "Alabama ",

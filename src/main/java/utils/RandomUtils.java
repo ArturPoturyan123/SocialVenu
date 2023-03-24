@@ -12,8 +12,10 @@ public interface RandomUtils {
     }
 
     static int getInt() {
-        return ThreadLocalRandom.current().nextInt(1000);
-
+        return getInt(1000);
+    }
+    static int getInt(int range) {
+        return ThreadLocalRandom.current().nextInt(range);
     }
 
 }

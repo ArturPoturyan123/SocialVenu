@@ -21,8 +21,6 @@ public class AccountPage extends BasePage<AccountPage> {
         element("ul[class*='MuiList-root']").shouldBe(Condition.visible);
     }
 
-
-
     public void clickLogoutButton() {
         logoutButton.click();
     }
@@ -31,8 +29,4 @@ public class AccountPage extends BasePage<AccountPage> {
     public String getUrl() {
         return "profile/accounts";
     }
-
-
-
-
 }

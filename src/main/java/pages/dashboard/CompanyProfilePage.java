@@ -4,6 +4,7 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import pages.BasePage;
+import utils.RandomUtils;
 
 import java.util.Random;
 
@@ -23,10 +24,8 @@ public class CompanyProfilePage extends BasePage<CompanyProfilePage> {
 
     public String setRandomCityName() {
         eraseAllTextField(cityName);
-
         String[] cityNames = {"New York", "Los Angeles", "Chicago", "Houston", "Philadelphia"};
-        int randomIndex = new Random().nextInt(cityNames.length);
-        String randomCityName = cityNames[randomIndex];
+        String randomCityName = cityNames[RandomUtils.getInt(cityNames.length)];
         cityName.setValue(randomCityName);
         return randomCityName;
     }
