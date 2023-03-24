@@ -49,11 +49,10 @@ public class CompanyProfileTest extends DashboardTestBase {
     public void verifyFunctionalitySavingNewCityName() throws InterruptedException {
         CompanyProfilePage companyProfilePage = new CompanyProfilePage();
         companyProfilePage.open();
-        companyProfilePage.setRandomCityName();
+        String newCityName = companyProfilePage.setRandomCityName();
         companyProfilePage.zoomPage();
         companyProfilePage.clickOnSaveButton(companyProfilePage.saveButton);
         companyProfilePage.resetZoom();
-        String newCityName = companyProfilePage.setRandomCityName();
         String getCurrentCityName = companyProfilePage.getCurrentCityName();
         assertThat(newCityName).isEqualTo(getCurrentCityName);
 

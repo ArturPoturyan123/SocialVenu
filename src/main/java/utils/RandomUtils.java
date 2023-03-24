@@ -11,6 +11,8 @@ public interface RandomUtils {
         return "test " + RandomStringUtils.randomNumeric(5);
     }
 
+      void move();
+
     static int getInt() {
         return getInt(1000);
     }
