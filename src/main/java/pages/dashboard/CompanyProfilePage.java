@@ -19,6 +19,7 @@ public class CompanyProfilePage extends BasePage<CompanyProfilePage> {
         eraseAllTextField(companyName);
         String valueString = "Test Automation Company Name " + randomText;
         companyName.sendKeys(valueString);
+        
         return valueString;
     }
 
