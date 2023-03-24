@@ -3,12 +3,16 @@ package pages;
 import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptException;
 import org.openqa.selenium.Keys;
 
 import java.util.NoSuchElementException;
 
+
 public abstract class BasePage<T> {
+    public SelenideElement saveButton = Selenide.$(By.id("bottom-bar-save-action"));
+
     public T open() {
         Selenide.open(getUrl());
         return (T) this;

@@ -11,7 +11,6 @@ import java.util.Random;
 public class CompanyProfilePage extends BasePage<CompanyProfilePage> {
     private final SelenideElement companyName = Selenide.element("[name='name']");
     private final SelenideElement addressName = Selenide.element("[name='address']");
-    public SelenideElement saveButton = Selenide.$(By.id("bottom-bar-save-action"));
     public final SelenideElement cityName = Selenide.element("[name='city']");
 
 
