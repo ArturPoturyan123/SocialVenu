@@ -214,7 +214,6 @@ tramp
 dist/
 allure-results/
 
-
 # Flycheck
 flycheck_*.el
 
