@@ -47,8 +47,9 @@ public class InviteMemberTest extends DashboardTestBase {
         memberProfilePage.clickOnRevokeInviteButton();
         memberProfilePage.deleteUserPopup.shouldBe(Condition.visible);
         memberProfilePage.deleteMember();
+        Thread.sleep(3000);
         memberManagementPage.refreshPage();
-        Thread.sleep(8000);
+        Thread.sleep(4000);
         assertThat(memberManagementPage.getRowCount()).isEqualTo(rowSize - 1);
 
     }
