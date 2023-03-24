@@ -21,18 +21,12 @@ public abstract class BasePage<T> {
     }
 
 
-    public void zoomPage(int percent) {
-        Selenide.executeJavaScript(String.format("document.body.style.zoom='%d%'", percent));
-    }
-
     public void zoomPage() {
-       zoomPage(150);
-    }
+        Selenide.executeJavaScript("document.body.style.zoom='150%'");    }
 
 
     public void resetZoom() {
-       zoomPage(100);
-    }
+        Selenide.executeJavaScript("document.body.style.zoom='100%'");    }
 
     public void eraseAllTextField(SelenideElement element) {
         element.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));

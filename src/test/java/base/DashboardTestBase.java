@@ -15,7 +15,7 @@ public class DashboardTestBase extends TestBase {
         JsonObject jsonObject = ApiUtils.loginDashboard("arthurp@doublecoconut.com", "123456");
         Selenide.localStorage().setItem("authToken", jsonObject.getAsJsonPrimitive("accessToken").getAsString());
 //        Selenide.localStorage().setItem("selectedVenue", "02ecf7cc-75a0-4288-87e5-e5e868491fa6");
-        Selenide.localStorage().setItem("selectedVenue", "551c53ab-3d34-4a93-98ab-a57a15e58252");
+        Selenide.localStorage().setItem("selectedVenue", "d99fb02b-a31b-418c-a206-36c5fad999ba");
 //        jsonObject.addProperty("accounts", 6);
         Selenide.localStorage().setItem("authResponse", jsonObject.toString());
         Selenide.refresh();
