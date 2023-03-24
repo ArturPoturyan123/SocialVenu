@@ -3,6 +3,7 @@ package pages;
 import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.JavascriptException;
 import org.openqa.selenium.Keys;
 
 import java.util.NoSuchElementException;
@@ -22,11 +23,20 @@ public abstract class BasePage<T> {
 
 
     public void zoomPage() {
-        Selenide.executeJavaScript("document.body.style.zoom='150%'");    }
-
+        try {
+            Selenide.executeJavaScript("document.body.style.zoom='150%'");
+        } catch (JavascriptException e) {
+            System.out.println("Failed to zoom page: " + e.getMessage());
+        }
+    }
 
     public void resetZoom() {
-        Selenide.executeJavaScript("document.body.style.zoom='100%'");    }
+        try {
+            Selenide.executeJavaScript("document.body.style.zoom='100%'");
+        } catch (JavascriptException e) {
+            System.out.println("Failed to reset zoom: " + e.getMessage());
+        }
+    }
 
     public void eraseAllTextField(SelenideElement element) {
         element.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
@@ -35,15 +45,14 @@ public abstract class BasePage<T> {
 
     public void clickOnSaveButton(SelenideElement element) throws InterruptedException {
         Thread.sleep(3000);
-        if (!IsButtonDisplayed(element)) {
+        if (!isButtonDisplayed(element)) {
             throw new NoSuchElementException("Save button not found ");
         } else {
             element.click(ClickOptions.usingJavaScript());
         }
     }
 
-
-    public boolean IsButtonDisplayed(SelenideElement element) {
-        return element.exists();
+    public boolean isButtonDisplayed(SelenideElement element) {
+        return element.exists() && element.isDisplayed();
     }
 }
