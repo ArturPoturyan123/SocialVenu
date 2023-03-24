@@ -1,1 +1,0 @@
-{"uuid":"6cbf676b-e75a-4d24-bdab-4a0668ed184d","name":"Users Test Suite","children":["912e7cde-e99c-4e0a-a2a9-886ca9a63a46"],"befores":[{"name":"initSuite","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1679524137305,"stop":1679524137324}],"afters":[],"start":1679524137274,"stop":1679524285264}
