@@ -62,30 +62,6 @@
         </dependency>
     </dependencies>
     <build>
-            <plugins>
-                <plugin>
-                    <artifactId>maven-clean-plugin</artifactId>
-                    <version>3.1.0</version>
-                    <executions>
-                        <execution>
-                            <id>clean-allure-results</id>
-                            <phase>pre-integration-test</phase>
-                            <goals>
-                                <goal>clean</goal>
-                            </goals>
-                            <configuration>
-                                <filesets>
-                                    <fileset>
-                                        <directory>${project.basedir}/allure-results</directory>
-                                    </fileset>
-                                </filesets>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-                <!-- Add other plugins here -->
-            </plugins>
-
         <finalName>MavenNew</finalName>
         <pluginManagement>
             <plugins>
@@ -182,6 +158,26 @@
                             <reportDirectory>allure-report/</reportDirectory>
                         </configuration>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.1.0</version>
+                    <executions>
+                        <execution>
+                            <id>clean-allure-results</id>
+                            <phase>pre-integration-test</phase>
+                            <goals>
+                                <goal>clean</goal>
+                            </goals>
+                            <configuration>
+                                <filesets>
+                                    <fileset>
+                                        <directory>${project.basedir}/allure-results</directory>
+                                    </fileset>
+                                </filesets>
+                            </configuration>
+                        </execution>
+                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>
