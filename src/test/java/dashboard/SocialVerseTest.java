@@ -56,7 +56,7 @@ public class SocialVerseTest extends DashboardTestBase {
                 createButton.exists() && createButton.isDisplayed());
     }
 
-    @Test(testName = "Verify the functionality of creating a socialVerse without writing any text")
+    @Test(testName = "Verifying the functionality of creating a socialVerse with empty text should trigger an error alert")
     public void createSocialVerseWithoutText() throws InterruptedException {
         SocialVersePage socialVersePage = new SocialVersePage();
         socialVersePage.open();
@@ -67,7 +67,7 @@ public class SocialVerseTest extends DashboardTestBase {
 
     }
 
-    @Test(testName = "Verify Functionality of creating socialVerse using short text")
+    @Test(testName = "Verify entering a SocialVerse name with less than 3 letters triggers error alert")
     public void createSocialVerseUsingShortText() throws InterruptedException {
         SocialVersePage socialVersePage = new SocialVersePage();
         socialVersePage.open();
