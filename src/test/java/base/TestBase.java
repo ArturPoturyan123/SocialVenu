@@ -5,6 +5,11 @@ import com.codeborne.selenide.Selenide;
 import config.Config;
 import org.testng.annotations.*;
 
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 
 public class TestBase {
     @BeforeSuite
@@ -15,6 +20,30 @@ public class TestBase {
 //        Configuration.browserSize = "1500x800";
         Configuration.driverManagerEnabled = true;
 
+        deleteAllureResultsFolder();
+
+    }
+
+    public void deleteAllureResultsFolder() {
+        Path allureResultsPath = Paths.get("allure-results");
+        if (Files.exists(allureResultsPath)) {
+            File allureResultsFolder = allureResultsPath.toFile();
+            deleteFolder(allureResultsFolder);
+        }
+    }
+
+    private void deleteFolder(File folder) {
+        File[] files = folder.listFiles();
+        if (files != null) {
+            for (File file : files) {
+                if (file.isDirectory()) {
+                    deleteFolder(file);
+                } else {
+                    file.delete();
+                }
+            }
+        }
+        folder.delete();
     }
 
 

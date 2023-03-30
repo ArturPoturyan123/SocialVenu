@@ -1,8 +1,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="SocialVenue Dashboard" parallel="false" thread-count="15" data-provider-thread-count="8">
     <test name="SocialVenue Dashboard Test Regression">
-        <packages>
-            <package name="dashboard.*"/>
-        </packages>
+        <classes>
+            <class name="dashboard.InviteMemberTest"/>
+            <class name="dashboard.LoginDashboardTest"/>
+            <class name="dashboard.SocialVerseTest"/>
+        </classes>
     </test>
 </suite>
