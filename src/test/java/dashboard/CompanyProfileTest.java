@@ -51,6 +51,7 @@ public class CompanyProfileTest extends DashboardTestBase {
         companyProfilePage.open();
         String newCityName = companyProfilePage.setRandomCityName();
         companyProfilePage.zoomPage();
+        Thread.sleep(2000);
         companyProfilePage.clickOnSaveButton(companyProfilePage.saveButton);
         companyProfilePage.resetZoom();
         String getCurrentCityName = companyProfilePage.getCurrentCityName();
