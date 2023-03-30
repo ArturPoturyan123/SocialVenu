@@ -18,7 +18,7 @@ public class SocialVerseTest extends DashboardTestBase {
 
     @Test(testName = "Verify the functionality after adding and removing SocialVerse card type")
 
-    public void verifyFunctionalityOfAddSocialVerseCardAndRemove() throws InterruptedException {
+    public void verifyFunctionalityOfAddingSocialVerseCardAndRemove() throws InterruptedException {
         SocialVersePage socialVersePage = new SocialVersePage();
         socialVersePage.open();
         socialVersePage.clickNewSocialVerseButton();
@@ -38,7 +38,7 @@ public class SocialVerseTest extends DashboardTestBase {
 
     @Test(testName = "Verify the functionality after adding and removing SocialVerse Sphere type")
 
-    public void verifyFunctionalityOfAddSocialVerseSpheresAndRemove() throws InterruptedException {
+    public void verifyFunctionalityOfAddingSocialVerseSpheresAndRemove() throws InterruptedException {
         SocialVersePage socialVersePage = new SocialVersePage();
         socialVersePage.open();
         socialVersePage.clickNewSocialVerseButton();
