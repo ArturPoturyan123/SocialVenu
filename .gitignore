@@ -215,6 +215,7 @@ dist/
 allure-results
 allure-2.21.0
 allure-report
+node_modules
 # Flycheck
 flycheck_*.el
 
