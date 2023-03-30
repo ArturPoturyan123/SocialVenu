@@ -1,6 +1,7 @@
 package pages.dashboard;
 
 import com.codeborne.selenide.ClickOptions;
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
@@ -23,15 +24,16 @@ public class SocialVersePage extends BasePage<SocialVersePage> {
 
 
     public void clickNewSocialVerseButton() throws InterruptedException {
-        Thread.sleep(2000);
-
+//        Thread.sleep(2000);
+        createNewSocialVerseButton.shouldBe(Condition.visible);
         createNewSocialVerseButton.click(ClickOptions.usingJavaScript());
 
     }
 
     public void deleteSocialVerseModalYesButton() throws InterruptedException {
         yesDeleteButton.click(ClickOptions.usingJavaScript());
-        Thread.sleep(5000);
+        createNewSocialVerseButton.shouldBe(Condition.visible);
+//        Thread.sleep(5000);
 
     }
 
@@ -77,6 +79,7 @@ public class SocialVersePage extends BasePage<SocialVersePage> {
 
 
     public void clickCardsSocialVerseButton() {
+        createCardsSocialVerseButton.shouldBe(Condition.visible);
         createCardsSocialVerseButton.click(ClickOptions.usingJavaScript());
 
     }

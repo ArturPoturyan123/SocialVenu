@@ -9,23 +9,21 @@ import static com.codeborne.selenide.Selenide.element;
 
 public class InviteUserPage extends BasePage<InviteUserPage> {
 
-    private SelenideElement name = element(By.id("name"));
-    private SelenideElement lastName = element(By.id("lastName"));
-    private SelenideElement email = element(By.id("email"));
-    private SelenideElement phoneNumber = element(By.id("phone"));
+    private final SelenideElement name = element(By.id("name"));
+    private final SelenideElement lastName = element(By.id("lastName"));
+    private final SelenideElement email = element(By.id("email"));
+    private final SelenideElement phoneNumber = element(By.id("phone"));
 
-    private SelenideElement inviteButton = element("[class*='MuiButton-containedPrimary']");
+    private final SelenideElement inviteButton = element("[class*='MuiButton-containedPrimary']");
 
-    private SelenideElement backButton = element("[class*='MuiButton-outlined']");
-    private SelenideElement emptyArea = element("[class*='MuiGrid-spacing-xs-undefined']");
+    private final SelenideElement backButton = element("[class*='MuiButton-outlined']");
+    private final SelenideElement emptyArea = element("[class*='MuiGrid-spacing-xs-undefined']");
 
 
     @Override
     public String getUrl() {
         return "members/invite";
     }
-
-
 
 
     public InviteUserPage setFirstName(String name) {

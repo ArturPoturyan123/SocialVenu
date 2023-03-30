@@ -2,11 +2,8 @@ package pages.dashboard;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
 import pages.BasePage;
 import utils.RandomUtils;
-
-import java.util.Random;
 
 public class CompanyProfilePage extends BasePage<CompanyProfilePage> {
     private final SelenideElement companyName = Selenide.element("[name='name']");

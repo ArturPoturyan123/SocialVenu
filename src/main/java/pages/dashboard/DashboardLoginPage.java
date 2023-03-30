@@ -9,14 +9,14 @@ import pages.BasePage;
 
 public class DashboardLoginPage extends BasePage<DashboardLoginPage> {
 
-    private SelenideElement email = Selenide.element(By.id("email"));
+    private final SelenideElement email = Selenide.element(By.id("email"));
 
     public SelenideElement emailErrorText = Selenide.element(By.id("email-helper-text"));
-    private SelenideElement password = Selenide.element("[name='password']");
+    private final SelenideElement password = Selenide.element("[name='password']");
 
     public SelenideElement passwordErrorText = Selenide.element(By.id("input-meta-title-helper-text"));
 
-    private SelenideElement signInButton = Selenide.element("[type='submit']");
+    private final SelenideElement signInButton = Selenide.element("[type='submit']");
 
 
     public void enterEmail(String text) {

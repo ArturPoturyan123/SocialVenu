@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.ClickOptions;
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
@@ -48,7 +49,8 @@ public abstract class BasePage<T> {
     }
 
     public void clickOnSaveButton(SelenideElement element) throws InterruptedException {
-        Thread.sleep(3000);
+        saveButton.shouldBe(Condition.visible);
+//        Thread.sleep(3000);
         if (!isButtonDisplayed(element)) {
             throw new NoSuchElementException("Save button not found ");
         } else {

@@ -15,11 +15,11 @@ import static com.codeborne.selenide.Selenide.element;
 
 public class MemberManagementPage extends BasePage<MemberManagementPage> {
 
-    private List<SelenideElement> tableRows = Selenide.elements("tbody[class*='MuiTableBody-root'] > tr");
+    private final List<SelenideElement> tableRows = Selenide.elements("tbody[class*='MuiTableBody-root'] > tr");
     public SelenideElement inviteTeamMember = Selenide.element("button[class*='MuiButton-textPrimary']");
-    private SelenideElement toastMessage = Selenide.element("[class*='react-toast-notifications__container']");
+    private final SelenideElement toastMessage = Selenide.element("[class*='react-toast-notifications__container']");
 
-    private SelenideElement editButton = Selenide.elements("tr>td>svg[data-testid='EditIcon']").get(0);
+    private final SelenideElement editButton = Selenide.elements("tr>td>svg[data-testid='EditIcon']").get(0);
 
     public int getRowCount() {
 
@@ -43,8 +43,6 @@ public class MemberManagementPage extends BasePage<MemberManagementPage> {
     public String getUrl() {
         return "accounts/members";
     }
-
-
 
 
 }
