@@ -213,6 +213,7 @@ tramp
 .cask/
 dist/
 allure-results
+allure-2.21.0
 # Flycheck
 flycheck_*.el
 
