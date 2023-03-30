@@ -21,6 +21,7 @@ public class TestBase {
         Configuration.driverManagerEnabled = true;
 
         deleteAllureResultsFolder();
+        deleteAllureReportFolder();
 
     }
 
@@ -29,6 +30,14 @@ public class TestBase {
         if (Files.exists(allureResultsPath)) {
             File allureResultsFolder = allureResultsPath.toFile();
             deleteFolder(allureResultsFolder);
+        }
+    }
+
+    public void deleteAllureReportFolder() {
+        Path allureReportPath = Paths.get("allure-report");
+        if (Files.exists(allureReportPath)) {
+            File allureReportFolder = allureReportPath.toFile();
+            deleteFolder(allureReportFolder);
         }
     }
 
@@ -45,7 +54,6 @@ public class TestBase {
         }
         folder.delete();
     }
-
 
     @AfterMethod
     public void cleanUp() {
