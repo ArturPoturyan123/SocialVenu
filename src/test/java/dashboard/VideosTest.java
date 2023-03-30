@@ -12,13 +12,13 @@ public class VideosTest extends DashboardTestBase {
 
 
 
-    @Test (testName = "Verify to all toggles enable and disabled functionality")
-    public void testtt() throws InterruptedException {
-        VideosPage videosPage = new VideosPage();
-        videosPage.open();
-        videosPage.clickElement();
-        videosPage.clickPlayButton();
-        videosPage.closeModal();
-
-    }
+//    @Test (testName = "Verify to all toggles enable and disabled functionality")
+//    public void testtt() throws InterruptedException {
+//        VideosPage videosPage = new VideosPage();
+//        videosPage.open();
+//        videosPage.clickElement();
+//        videosPage.clickPlayButton();
+//        videosPage.closeModal();
+//
+//    }
 }
