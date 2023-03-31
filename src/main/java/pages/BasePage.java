@@ -43,14 +43,12 @@ public abstract class BasePage<T> {
         }
     }
 
-    public static void eraseAllTextField(SelenideElement element) {
+    public void eraseAllTextField(SelenideElement element) throws InterruptedException {
         element.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 
     }
 
-    public void clickOnSaveButton(SelenideElement element) throws InterruptedException {
-        saveButton.shouldBe(Condition.exist);
-//        Thread.sleep(3000);
+    public void clickSaveButton(SelenideElement element) throws InterruptedException {
         if (!isButtonDisplayed(element)) {
             throw new NoSuchElementException("Save button not found ");
         } else {

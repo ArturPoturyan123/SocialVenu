@@ -1,10 +1,8 @@
 package dashboard;
 
 import base.DashboardTestBase;
-import com.codeborne.selenide.Condition;
 import io.qameta.allure.Epic;
 import org.testng.annotations.Test;
-import pages.BasePage;
 import pages.dashboard.CompanyProfilePage;
 import utils.RandomUtils;
 
@@ -22,11 +20,12 @@ public class CompanyProfileTest extends DashboardTestBase {
         String randomText = RandomUtils.getString();
         companyProfilePage.setRandomCompanyName(randomText);
         companyProfilePage.zoomPage();
-        companyProfilePage.clickOnSaveButton(companyProfilePage.saveButton);
+        companyProfilePage.clickSaveButton(companyProfilePage.saveButton);
         companyProfilePage.resetZoom();
         String currentCompanyName = companyProfilePage.setRandomCompanyName(randomText);
         String getCurrentCompanyName = companyProfilePage.getCurrentCompanyName();
         assertThat(currentCompanyName).isEqualTo(getCurrentCompanyName);
+
 
     }
 
@@ -38,7 +37,7 @@ public class CompanyProfileTest extends DashboardTestBase {
         String randomText = RandomUtils.getString();
         companyProfilePage.setRandomCompanyAddress(randomText);
         companyProfilePage.zoomPage();
-        companyProfilePage.clickOnSaveButton(companyProfilePage.saveButton);
+        companyProfilePage.clickSaveButton(companyProfilePage.saveButton);
         companyProfilePage.resetZoom();
         String currentCompanyAddress = companyProfilePage.setRandomCompanyAddress(randomText);
         String getCurrentCompanyAddress = companyProfilePage.getCurrentCompanyAddress();
@@ -53,7 +52,7 @@ public class CompanyProfileTest extends DashboardTestBase {
         String newCityName = companyProfilePage.setRandomCityName();
         companyProfilePage.zoomPage();
         Thread.sleep(2000);
-        companyProfilePage.clickOnSaveButton(companyProfilePage.saveButton);
+        companyProfilePage.clickSaveButton(companyProfilePage.saveButton);
         companyProfilePage.resetZoom();
         String getCurrentCityName = companyProfilePage.getCurrentCityName();
         assertThat(newCityName).isEqualTo(getCurrentCityName);

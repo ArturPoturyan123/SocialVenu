@@ -66,7 +66,7 @@ public class SocialVersePage extends BasePage<SocialVersePage> {
         return randomSocialVerseName;
     }
 
-    public void writeSocialVerseTextAndDeleteField() {
+    public void writeSocialVerseTextAndDeleteField() throws InterruptedException {
         String text = "Test";
         inputSocialVerseName.setValue(text);
         eraseAllTextField(inputSocialVerseName);

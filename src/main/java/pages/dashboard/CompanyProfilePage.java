@@ -11,14 +11,14 @@ public class CompanyProfilePage extends BasePage<CompanyProfilePage> {
     public final SelenideElement cityName = Selenide.element("[name='city']");
 
 
-    public String setRandomCompanyName(String randomText) {
+    public String setRandomCompanyName(String randomText) throws InterruptedException {
         eraseAllTextField(companyName);
         String valueString = "Test Automation Company Name " + randomText;
         companyName.sendKeys(valueString);
         return valueString;
     }
 
-    public String setRandomCityName() {
+    public String setRandomCityName() throws InterruptedException {
         eraseAllTextField(cityName);
         String[] cityNames = {"New York", "Los Angeles", "Chicago", "Houston", "Philadelphia"};
         String randomCityName = cityNames[RandomUtils.getInt(cityNames.length)];
@@ -26,8 +26,9 @@ public class CompanyProfilePage extends BasePage<CompanyProfilePage> {
         return randomCityName;
     }
 
-    public String setRandomCompanyAddress(String randomText) {
+    public String setRandomCompanyAddress(String randomText) throws InterruptedException {
         eraseAllTextField(addressName);
+
         String valueString = "Test Automation Company Address " + randomText;
         addressName.sendKeys(valueString);
         return valueString;
