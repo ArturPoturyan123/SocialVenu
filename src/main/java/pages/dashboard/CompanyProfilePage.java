@@ -36,6 +36,7 @@ public class CompanyProfilePage extends BasePage<CompanyProfilePage> {
 
     public String setRandomCompanyWebsite() throws InterruptedException {
         eraseAllTextField(webSite);
+        Thread.sleep(3000);
         String[] companyWebsites = {"youtube.com", "sv.com", "nike.com", "adidas.com", "fresh.com"};
         String randomWebsite = "https://" + companyWebsites[RandomUtils.getInt(companyWebsites.length)];
         webSite.sendKeys(randomWebsite);

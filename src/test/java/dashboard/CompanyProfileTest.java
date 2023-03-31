@@ -48,7 +48,6 @@ public class CompanyProfileTest extends DashboardTestBase {
         companyProfilePage.open();
         String newCityName = companyProfilePage.setRandomCityName();
         companyProfilePage.zoomPage();
-        Thread.sleep(2000);
         companyProfilePage.clickSaveButton(companyProfilePage.saveButton);
         companyProfilePage.resetZoom();
         String getCurrentCityName = companyProfilePage.getCurrentCityName();
@@ -61,7 +60,6 @@ public class CompanyProfileTest extends DashboardTestBase {
         companyProfilePage.open();
         String newWebsiteUrl = companyProfilePage.setRandomCompanyWebsite();
         companyProfilePage.zoomPage();
-        Thread.sleep(2000);
         companyProfilePage.clickSaveButton(companyProfilePage.saveButton);
         companyProfilePage.resetZoom();
         String getCurrentWebSiteUrl = companyProfilePage.getCurrentWebSiteUrl();
@@ -74,7 +72,6 @@ public class CompanyProfileTest extends DashboardTestBase {
         companyProfilePage.open();
         String newZipCode = companyProfilePage.setRandomZipCode();
         companyProfilePage.zoomPage();
-        Thread.sleep(2000);
         companyProfilePage.clickSaveButton(companyProfilePage.saveButton);
         companyProfilePage.resetZoom();
         String getCurrentZipCode = companyProfilePage.getCurrentZipCode();

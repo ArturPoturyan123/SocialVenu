@@ -30,8 +30,11 @@ public abstract class BasePage<T> {
     public void zoomPage() {
         try {
             Selenide.executeJavaScript("document.body.style.zoom='150%'");
+            Thread.sleep(3000);
         } catch (JavascriptException e) {
             System.out.println("Failed to zoom page: " + e.getMessage());
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 
