@@ -19,6 +19,7 @@ public class TestBase {
         Configuration.browserSize = "1700x1000";
 //        Configuration.browserSize = "1500x800";
         Configuration.driverManagerEnabled = true;
+//        Configuration.headless = true;
 
         deleteAllureResultsFolder();
         deleteAllureReportFolder();

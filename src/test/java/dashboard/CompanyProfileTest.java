@@ -4,6 +4,7 @@ import base.DashboardTestBase;
 import com.codeborne.selenide.Condition;
 import io.qameta.allure.Epic;
 import org.testng.annotations.Test;
+import pages.BasePage;
 import pages.dashboard.CompanyProfilePage;
 import utils.RandomUtils;
 
@@ -21,7 +22,6 @@ public class CompanyProfileTest extends DashboardTestBase {
         String randomText = RandomUtils.getString();
         companyProfilePage.setRandomCompanyName(randomText);
         companyProfilePage.zoomPage();
-        Thread.sleep(2000);
         companyProfilePage.clickOnSaveButton(companyProfilePage.saveButton);
         companyProfilePage.resetZoom();
         String currentCompanyName = companyProfilePage.setRandomCompanyName(randomText);
