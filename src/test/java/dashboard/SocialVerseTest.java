@@ -18,7 +18,7 @@ public class SocialVerseTest extends DashboardTestBase {
 
     @Test(testName = "Verify the functionality after adding and removing SocialVerse card type")
 
-    public void verifyFunctionalityOfAddingSocialVerseCardAndRemove() throws InterruptedException {
+    public void verifyFunctionalityOfAddingSocialVerseCardAndRemove() {
         SocialVersePage socialVersePage = new SocialVersePage();
         socialVersePage.open();
         socialVersePage.clickNewSocialVerseButton();
@@ -38,7 +38,7 @@ public class SocialVerseTest extends DashboardTestBase {
 
     @Test(testName = "Verify the functionality after adding and removing SocialVerse Sphere type")
 
-    public void verifyFunctionalityOfAddingSocialVerseSpheresAndRemove() throws InterruptedException {
+    public void verifyFunctionalityOfAddingSocialVerseSpheresAndRemove() {
         SocialVersePage socialVersePage = new SocialVersePage();
         socialVersePage.open();
         socialVersePage.clickNewSocialVerseButton();
@@ -68,7 +68,7 @@ public class SocialVerseTest extends DashboardTestBase {
     }
 
     @Test(testName = "Verify entering a SocialVerse name with less than 3 letters triggers error alert")
-    public void createSocialVerseUsingShortText() throws InterruptedException {
+    public void createSocialVerseUsingShortText() {
         SocialVersePage socialVersePage = new SocialVersePage();
         socialVersePage.open();
         socialVersePage.clickNewSocialVerseButton();

@@ -23,17 +23,15 @@ public class SocialVersePage extends BasePage<SocialVersePage> {
     private final SelenideElement arrowBackButton = Selenide.element("div>button>span>svg[data-testid='ArrowBackIcon']");
 
 
-    public void clickNewSocialVerseButton() throws InterruptedException {
-//        Thread.sleep(2000);
+    public void clickNewSocialVerseButton() {
         createNewSocialVerseButton.shouldBe(Condition.visible);
         createNewSocialVerseButton.click(ClickOptions.usingJavaScript());
 
     }
 
-    public void deleteSocialVerseModalYesButton() throws InterruptedException {
+    public void deleteSocialVerseModalYesButton() {
         yesDeleteButton.click(ClickOptions.usingJavaScript());
         createNewSocialVerseButton.shouldBe(Condition.visible);
-//        Thread.sleep(5000);
 
     }
 
