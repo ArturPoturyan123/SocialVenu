@@ -11,22 +11,42 @@ import utils.RandomUtils;
 public class SocialVersePage extends BasePage<SocialVersePage> {
 
     public SelenideElement createNewSocialVerseButton = Selenide.element(By.id("create-socialv-button"));
+    public SelenideElement createSocialVerseButton = Selenide.element("div>button[id='create-sv-button']");
     private final SelenideElement createCardsSocialVerseButton = Selenide.element(By.id("create-sv-card-btn"));
     private final SelenideElement createSpheresSocialVerseButton = Selenide.element(By.id("create-sv-spheres-btn"));
     public SelenideElement inputSocialVerseName = Selenide.element(("div>input[name='name']"));
     public SelenideElement errorText = Selenide.element(("div>p[id='input-meta-title-helper-text']"));
-    private final SelenideElement createSocialVerseButton = Selenide.element(By.id("create-sv-btn-modal"));
+    private final SelenideElement createSvButtonModal = Selenide.element(By.id("create-sv-btn-modal"));
     private final SelenideElement deleteCardButton = Selenide.element(By.id("delete-card-button-0"));
     private final SelenideElement editCardButton = Selenide.element(By.id("edit-card-button-0"));
     private final SelenideElement socialVerseNameInput = Selenide.element(By.id("socialverse-name-input-0"));
     private final SelenideElement yesDeleteButton = Selenide.element(By.id("confirm-delete-socialverse-button"));
     private final SelenideElement arrowBackButton = Selenide.element("div>button>span>svg[data-testid='ArrowBackIcon']");
+    public SelenideElement socialVerseRecordVideos = Selenide.element("div>[data-rbd-droppable-id='droppable']");
+    private final SelenideElement addVideoButton = Selenide.element(By.id("add-video-button-0"));
+
+    private final SelenideElement addVideosEditButton = Selenide.element(By.id("add-videos-button-0"));
+    public SelenideElement videoSocialVenuList = Selenide.element("div>[aria-describedby='rbd-hidden-text-0-hidden-text-0']");
 
 
-    public void clickNewSocialVerseButton() {
-        createNewSocialVerseButton.shouldBe(Condition.visible);
-        createNewSocialVerseButton.click(ClickOptions.usingJavaScript());
+    public void clickNewSocialVerseButton() throws InterruptedException {
+        Thread.sleep(3000);
+        if (createNewSocialVerseButton.isDisplayed() && createNewSocialVerseButton.exists()) {
+            createNewSocialVerseButton.click(ClickOptions.usingJavaScript());
+        } else {
+            createSocialVerseButton.click(ClickOptions.usingJavaScript());
+        }
+    }
 
+
+    public void clickAddVideoEditButton() {
+        addVideosEditButton.click(ClickOptions.usingJavaScript());
+    }
+
+    public void clickAddVideoButton() throws InterruptedException {
+        scrollToAndClick(addVideoButton);
+        Thread.sleep(3000);
+//        addVideoButton.click(ClickOptions.usingJavaScript());
     }
 
     public void deleteSocialVerseModalYesButton() {
@@ -54,7 +74,8 @@ public class SocialVersePage extends BasePage<SocialVersePage> {
     }
 
     public void clickCreateSocialVerseButton() {
-        createSocialVerseButton.click(ClickOptions.usingJavaScript());
+        createSvButtonModal.shouldBe(Condition.visible);
+        createSvButtonModal.click(ClickOptions.usingJavaScript());
     }
 
     public String setRandomSocialVerseName() {
@@ -83,6 +104,7 @@ public class SocialVersePage extends BasePage<SocialVersePage> {
     }
 
     public void clickSpheresSocialVerseButton() {
+        createSpheresSocialVerseButton.shouldBe(Condition.visible);
         createSpheresSocialVerseButton.click(ClickOptions.usingJavaScript());
 
     }

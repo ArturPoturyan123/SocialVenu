@@ -13,7 +13,7 @@ import pages.dashboard.DashboardLoginPage;
 public class LoginDashboardNegativeTest extends DashboardTestBase {
 
     @Test(testName = "Sign in into SV Dashboard without password")
-    public void loginSvDashboardWithoutPassword() {
+    public void verifyFunctionalityLoginSvDashboardWithoutPassword() {
         DashboardLoginPage loginPage = new DashboardLoginPage();
         loginPage.enterEmail(Config.EMAIL);
         loginPage.pressSignInButton();
@@ -21,7 +21,7 @@ public class LoginDashboardNegativeTest extends DashboardTestBase {
     }
 
     @Test(testName = "Sign in into SV Dashboard without email")
-    public void loginSvDashboardWithoutEmail() {
+    public void verifyFunctionalityLoginSvDashboardWithoutEmail() {
         DashboardLoginPage loginPage = new DashboardLoginPage();
         loginPage.enterPassword(Config.PASSWORD);
         loginPage.pressSignInButton();
@@ -29,7 +29,7 @@ public class LoginDashboardNegativeTest extends DashboardTestBase {
     }
 
     @Test(testName = "Sign in into SV Dashboard with invalid email")
-    public void loginSvDashboardWithInvalidEmail() {
+    public void verifyFunctionalityLoginSvDashboardWithInvalidEmail() {
         DashboardLoginPage loginPage = new DashboardLoginPage();
         loginPage.enterEmail("test");
         loginPage.enterPassword(Config.PASSWORD);
@@ -38,7 +38,7 @@ public class LoginDashboardNegativeTest extends DashboardTestBase {
     }
 
     @Test(testName = "Sign in into SV Dashboard with invalid credentials")
-    public void loginSvDashboardWithInvalidCredentials() {
+    public void verifyFunctionalityLoginSvDashboardWithInvalidCredentials() {
         DashboardLoginPage loginPage = new DashboardLoginPage();
         loginPage.enterEmail(Config.EMAIL);
         loginPage.enterPassword(Config.PASSWORD + "incorrect");

@@ -54,7 +54,7 @@ public class CompanyProfilePage extends BasePage<CompanyProfilePage> {
 
     public String setRandomZipCode() throws InterruptedException {
         eraseAllTextField(zipCode);
-        String randomZipCode = String.valueOf(10000 + new Random().nextInt(90000)); // Generates a random 5-digit number
+        String randomZipCode = String.valueOf(10000 + new Random().nextInt(90000));
         zipCode.setValue(randomZipCode);
         return randomZipCode;
     }

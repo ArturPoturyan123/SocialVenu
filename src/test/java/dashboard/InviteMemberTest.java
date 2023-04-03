@@ -18,7 +18,7 @@ public class InviteMemberTest extends DashboardTestBase {
 
     @Test(testName = "Verify invite team member added without any issues")
 
-    public void verifyInvitationFunctionality() throws InterruptedException {
+    public void verifyFunctionalityOFInvitationMember() throws InterruptedException {
         Faker faker = new Faker();
         MemberManagementPage memberManagementPage = new MemberManagementPage();
         memberManagementPage.open();
@@ -37,7 +37,7 @@ public class InviteMemberTest extends DashboardTestBase {
     }
 
     @Test(testName = "Verify to delete Member from Member Management list")
-    public void verifyDeleteMemberFunctionality() throws InterruptedException {
+    public void verifyFunctionalityDeleteMember() throws InterruptedException {
         MemberManagementPage memberManagementPage = new MemberManagementPage();
         MemberProfilePage memberProfilePage = new MemberProfilePage();
         memberManagementPage.open();

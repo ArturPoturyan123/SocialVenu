@@ -14,31 +14,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class SocialVerseTest extends DashboardTestBase {
 
 
-    @Epic("Regression Tests")
-
-    @Test(testName = "Verify the functionality after adding and removing SocialVerse card type")
-
-    public void verifyFunctionalityOfAddingSocialVerseCardAndRemove() {
-        SocialVersePage socialVersePage = new SocialVersePage();
-        socialVersePage.open();
-        socialVersePage.clickNewSocialVerseButton();
-        socialVersePage.clickCardsSocialVerseButton();
-        String newCreatedSocialVerseCardName = socialVersePage.setRandomSocialVerseName();
-        socialVersePage.clickCreateSocialVerseButton();
-        socialVersePage.clickArrowBackButton();
-        socialVersePage.editCardButton();
-        String getCurrentSocialVerseName = socialVersePage.getCurrentSocialVerseName();
-        assertThat(newCreatedSocialVerseCardName).isEqualTo(getCurrentSocialVerseName);
-        socialVersePage.deleteTheSocialVerseCard();
-        socialVersePage.deleteSocialVerseModalYesButton();
-        SelenideElement createButton = socialVersePage.createNewSocialVerseButton;
-        assertThat("Error: The create new SocialVerse button does not exist or is not visible.",
-                createButton.exists() && createButton.isDisplayed());
-    }
-
-    @Test(testName = "Verify the functionality after adding and removing SocialVerse Sphere type")
-
-    public void verifyFunctionalityOfAddingSocialVerseSpheresAndRemove() {
+    public void creatingSocialVerseSpheresType() throws InterruptedException {
         SocialVersePage socialVersePage = new SocialVersePage();
         socialVersePage.open();
         socialVersePage.clickNewSocialVerseButton();
@@ -49,6 +25,28 @@ public class SocialVerseTest extends DashboardTestBase {
         socialVersePage.editCardButton();
         String getCurrentSocialVerseSpheresName = socialVersePage.getCurrentSocialVerseName();
         assertThat(newCreatedSocialVerseSpheresName).isEqualTo(getCurrentSocialVerseSpheresName);
+    }
+
+    public void creatingSocialVerseCardType() throws InterruptedException {
+        SocialVersePage socialVersePage = new SocialVersePage();
+        socialVersePage.open();
+        socialVersePage.clickNewSocialVerseButton();
+        socialVersePage.clickCardsSocialVerseButton();
+        String newCreatedSocialVerseCardName = socialVersePage.setRandomSocialVerseName();
+        socialVersePage.clickCreateSocialVerseButton();
+        socialVersePage.clickArrowBackButton();
+        socialVersePage.editCardButton();
+        String getCurrentSocialVerseName = socialVersePage.getCurrentSocialVerseName();
+        assertThat(newCreatedSocialVerseCardName).isEqualTo(getCurrentSocialVerseName);
+    }
+
+    @Epic("Regression Tests")
+
+    @Test(testName = "Verify the functionality of creating and removing SocialVerse card type")
+
+    public void verifyFunctionalityOfCreatingSocialVerseCardAndRemove() throws InterruptedException {
+        SocialVersePage socialVersePage = new SocialVersePage();
+        creatingSocialVerseCardType();
         socialVersePage.deleteTheSocialVerseCard();
         socialVersePage.deleteSocialVerseModalYesButton();
         SelenideElement createButton = socialVersePage.createNewSocialVerseButton;
@@ -56,8 +54,20 @@ public class SocialVerseTest extends DashboardTestBase {
                 createButton.exists() && createButton.isDisplayed());
     }
 
-    @Test(testName = "Verifying the functionality of creating a socialVerse with empty text should trigger an error alert")
-    public void createSocialVerseWithoutText() throws InterruptedException {
+    @Test(testName = "Verify the functionality of creating and removing SocialVerse Sphere type")
+    public void verifyFunctionalityOfCreatingSocialVerseSpheresAndRemove() throws InterruptedException {
+        SocialVersePage socialVersePage = new SocialVersePage();
+        creatingSocialVerseSpheresType();
+        socialVersePage.deleteTheSocialVerseCard();
+        socialVersePage.deleteSocialVerseModalYesButton();
+        SelenideElement createButton = socialVersePage.createNewSocialVerseButton;
+        assertThat("Error: The create new SocialVerse button does not exist or is not visible.",
+                createButton.exists() && createButton.isDisplayed());
+    }
+
+    @Test(testName = "Verifying the functionality of creating a " +
+            "socialVerse with empty text should trigger an error alert")
+    public void verifyFunctionalityOfCreateSocialVerseWithoutText() throws InterruptedException {
         SocialVersePage socialVersePage = new SocialVersePage();
         socialVersePage.open();
         socialVersePage.clickNewSocialVerseButton();
@@ -67,8 +77,8 @@ public class SocialVerseTest extends DashboardTestBase {
 
     }
 
-    @Test(testName = "Verify entering a SocialVerse name with less than 3 letters triggers error alert")
-    public void createSocialVerseUsingShortText() {
+    @Test(testName = "Verify the entering a SocialVerse name with less than 3 letters triggers error alert")
+    public void verifyFunctionalityOfCreateSocialVerseUsingShortText() throws InterruptedException {
         SocialVersePage socialVersePage = new SocialVersePage();
         socialVersePage.open();
         socialVersePage.clickNewSocialVerseButton();
@@ -76,5 +86,18 @@ public class SocialVerseTest extends DashboardTestBase {
         socialVersePage.writeSocialVerseShortText();
         socialVersePage.errorText.shouldHave(Condition.text("Name must be at least 3 characters long"));
 
+    }
+
+    @Test(testName = "Verify the functionality of Adding video in socialVerse list")
+    public void verifyFunctionalityOfAddingVideoInSocialVeuList() throws InterruptedException {
+        SocialVersePage socialVersePage = new SocialVersePage();
+        creatingSocialVerseCardType();
+        socialVersePage.clickAddVideoEditButton();
+        socialVersePage.clickAddVideoButton();
+        assertThat("The Video is not appear in socialVerse List ",
+                socialVersePage.isButtonDisplayed(socialVersePage.socialVerseRecordVideos));
+        socialVersePage.clickArrowBackButton();
+        socialVersePage.deleteTheSocialVerseCard();
+        socialVersePage.deleteSocialVerseModalYesButton();
     }
 }

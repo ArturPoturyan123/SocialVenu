@@ -1,14 +1,17 @@
 package pages;
 
 import com.codeborne.selenide.ClickOptions;
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.ex.ElementNotFound;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptException;
 import org.openqa.selenium.Keys;
 
 import java.util.NoSuchElementException;
+
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 
 public abstract class BasePage<T> {
@@ -29,7 +32,7 @@ public abstract class BasePage<T> {
 
     public void zoomPage() {
         try {
-            Selenide.executeJavaScript("document.body.style.zoom='150%'");
+            executeJavaScript("document.body.style.zoom='150%'");
             Thread.sleep(3000);
         } catch (JavascriptException e) {
             System.out.println("Failed to zoom page: " + e.getMessage());
@@ -40,7 +43,7 @@ public abstract class BasePage<T> {
 
     public void resetZoom() {
         try {
-            Selenide.executeJavaScript("document.body.style.zoom='100%'");
+            executeJavaScript("document.body.style.zoom='100%'");
         } catch (JavascriptException e) {
             System.out.println("Failed to reset zoom: " + e.getMessage());
         }
@@ -51,7 +54,7 @@ public abstract class BasePage<T> {
 
     }
 
-    public void clickSaveButton(SelenideElement element) throws InterruptedException {
+    public void clickSaveButton(SelenideElement element) {
         if (!isButtonDisplayed(element)) {
             throw new NoSuchElementException("Save button not found ");
         } else {
@@ -61,5 +64,29 @@ public abstract class BasePage<T> {
 
     public boolean isButtonDisplayed(SelenideElement element) {
         return element.exists() && element.isDisplayed();
+    }
+
+    public void scrollToElement(String elementId) {
+        boolean isElementPresent = false;
+        while (!isElementPresent) {
+            try {
+                Selenide.element(elementId).shouldBe(visible);
+                isElementPresent = true;
+            } catch (ElementNotFound e) {
+                executeJavaScript("window.scrollBy(0, 500)");
+            }
+        }
+    }
+
+    public void scrollToAndClick(SelenideElement elementId) {
+        boolean isElementPresent = false;
+        while (!isElementPresent) {
+            try {
+                Selenide.element(elementId).click(ClickOptions.usingJavaScript());
+                isElementPresent = true;
+            } catch (ElementNotFound e) {
+                executeJavaScript("window.scrollBy(0, 500)");
+            }
+        }
     }
 }

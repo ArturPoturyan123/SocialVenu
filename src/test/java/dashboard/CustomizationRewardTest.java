@@ -14,7 +14,7 @@ public class CustomizationRewardTest extends DashboardTestBase {
 
 
     @Test(testName = "Verify to all toggles enable and disabled functionality")
-    public void verifyAllRewardsTogglesEnableAndDisable() throws InterruptedException {
+    public void verifyFunctionalityAllRewardsTogglesEnableAndDisable() throws InterruptedException {
         CustomizationRewardsPage customizationRewardsPage = new CustomizationRewardsPage();
         customizationRewardsPage.open();
         customizationRewardsPage.clickAllToggles();
@@ -35,7 +35,7 @@ public class CustomizationRewardTest extends DashboardTestBase {
     }
 
     @Test(testName = "Verify set your Rewards Points Goal")
-    public void verifySetRewardsPointsGoal() throws InterruptedException {
+    public void verifyFunctionalitySetRewardsPointsGoal() throws InterruptedException {
         CustomizationRewardsPage customizationRewardsPage = new CustomizationRewardsPage();
         customizationRewardsPage.open();
         int randomNumber = RandomUtils.getInt();
