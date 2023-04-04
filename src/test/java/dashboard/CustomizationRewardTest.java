@@ -35,7 +35,7 @@ public class CustomizationRewardTest extends DashboardTestBase {
     }
 
     @Test(testName = "Verify set your Rewards Points Goal")
-    public void verifyFunctionalitySetRewardsPointsGoal() throws InterruptedException {
+    public void verifyFunctionalitySetRewardsPointsGoal(){
         CustomizationRewardsPage customizationRewardsPage = new CustomizationRewardsPage();
         customizationRewardsPage.open();
         int randomNumber = RandomUtils.getInt();
