@@ -49,9 +49,8 @@ public class SocialVerseTest extends DashboardTestBase {
         creatingSocialVerseCardType();
         socialVersePage.deleteTheSocialVerseCard();
         socialVersePage.deleteSocialVerseModalYesButton();
-        SelenideElement createButton = socialVersePage.createNewSocialVerseButton;
         assertThat("Error: The create new SocialVerse button does not exist or is not visible.",
-                createButton.exists() && createButton.isDisplayed());
+                socialVersePage.isButtonDisplayed(socialVersePage.createNewSocialVerseButton));
     }
 
     @Test(testName = "Verify the functionality of creating and removing SocialVerse Sphere type")
@@ -60,9 +59,8 @@ public class SocialVerseTest extends DashboardTestBase {
         creatingSocialVerseSpheresType();
         socialVersePage.deleteTheSocialVerseCard();
         socialVersePage.deleteSocialVerseModalYesButton();
-        SelenideElement createButton = socialVersePage.createNewSocialVerseButton;
         assertThat("Error: The create new SocialVerse button does not exist or is not visible.",
-                createButton.exists() && createButton.isDisplayed());
+                socialVersePage.isButtonDisplayed(socialVersePage.createNewSocialVerseButton));
     }
 
     @Test(testName = "Verifying the functionality of creating a " +

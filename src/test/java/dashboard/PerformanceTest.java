@@ -5,6 +5,8 @@ import io.qameta.allure.Epic;
 import org.testng.annotations.Test;
 import pages.dashboard.PerformancePage;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+
 @Epic("Regression Tests")
 public class PerformanceTest extends DashboardTestBase {
 
@@ -51,5 +53,15 @@ public class PerformanceTest extends DashboardTestBase {
         performancePage.clickStatisticBlock(performancePage.statisticBlockCreators, "Creators");
     }
 
+
+    @Test(testName = "verify the functionality of opening Calendar")
+    public void verifyFunctionalityOfOpeningCalendar() {
+        PerformancePage performancePage = new PerformancePage();
+        performancePage.open();
+        performancePage.clickCalendarButton();
+        assertThat("Error: Calendar is not opens", performancePage.isButtonDisplayed
+                (performancePage.sinceBeginningButton));
+
+    }
 }
 

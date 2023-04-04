@@ -1,5 +1,6 @@
 package pages.dashboard;
 
+import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
@@ -17,6 +18,13 @@ public class PerformancePage extends BasePage<PerformancePage> {
     public SelenideElement statisticBlockCreators = Selenide.element(By.id("statistic-block-Creators"));
     public SelenideElement topBarTitle = Selenide.element(By.id("chart-topbar-title"));
     private final SelenideElement calendarButton = Selenide.element("div>svg[data-testid='CalendarTodayIcon']");
+    public SelenideElement sinceBeginningButton = Selenide.element(By.id("since_beginning-date-range-button"));
+
+
+    public void clickCalendarButton() {
+        calendarButton.click(ClickOptions.usingJavaScript());
+
+    }
 
 
     public void clickStatisticBlock(SelenideElement statisticBlock, String expectedTopBarTitle) throws InterruptedException {
