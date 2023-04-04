@@ -1,82 +1,79 @@
 package pages.dashboard;
 
-import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
 import pages.BasePage;
-import utils.Countries;
 import utils.RandomUtils;
 
 import java.util.Random;
 
 public class CompanyProfilePage extends BasePage<CompanyProfilePage> {
-    private final SelenideElement companyName = Selenide.element("[name='name']");
-    private final SelenideElement addressName = Selenide.element("[name='address']");
-    public final SelenideElement cityName = Selenide.element("[name='city']");
-    public final SelenideElement webSite = Selenide.element("[name='website']");
-    public final SelenideElement zipCode = Selenide.element("[name='zip']");
+    private final SelenideElement companyNameField = Selenide.element("[name='name']");
+    private final SelenideElement addressNameField = Selenide.element("[name='address']");
+    public final SelenideElement cityNameField = Selenide.element("[name='city']");
+    public final SelenideElement webSiteField = Selenide.element("[name='website']");
+    public final SelenideElement zipCodeField = Selenide.element("[name='zip']");
 
 
     public String setRandomCompanyName(String randomText) throws InterruptedException {
-        eraseAllTextField(companyName);
+        eraseAllTextField(companyNameField);
         String valueString = "Test Automation Company Name " + randomText;
-        companyName.sendKeys(valueString);
+        companyNameField.sendKeys(valueString);
         return valueString;
     }
 
 
     public String setRandomCityName() throws InterruptedException {
-        eraseAllTextField(cityName);
+        eraseAllTextField(cityNameField);
         String[] cityNames = {"New York", "Los Angeles", "Chicago", "Houston", "Philadelphia"};
         String randomCityName = cityNames[RandomUtils.getInt(cityNames.length)];
-        cityName.sendKeys(randomCityName);
+        cityNameField.sendKeys(randomCityName);
         return randomCityName;
     }
 
     public String setRandomCompanyWebsite() throws InterruptedException {
-        eraseAllTextField(webSite);
+        eraseAllTextField(webSiteField);
         Thread.sleep(3000);
         String[] companyWebsites = {"youtube.com", "sv.com", "nike.com", "adidas.com", "fresh.com"};
         String randomWebsite = "https://" + companyWebsites[RandomUtils.getInt(companyWebsites.length)];
-        webSite.sendKeys(randomWebsite);
+        webSiteField.sendKeys(randomWebsite);
         return randomWebsite;
     }
 
 
     public String setRandomCompanyAddress(String randomText) throws InterruptedException {
-        eraseAllTextField(addressName);
+        eraseAllTextField(addressNameField);
         String valueString = "Test Automation Company Address " + randomText;
-        addressName.sendKeys(valueString);
+        addressNameField.sendKeys(valueString);
         return valueString;
     }
 
 
     public String setRandomZipCode() throws InterruptedException {
-        eraseAllTextField(zipCode);
+        eraseAllTextField(zipCodeField);
         String randomZipCode = String.valueOf(10000 + new Random().nextInt(90000));
-        zipCode.setValue(randomZipCode);
+        zipCodeField.setValue(randomZipCode);
         return randomZipCode;
     }
 
     public String getCurrentCompanyName() {
-        return companyName.getValue();
+        return companyNameField.getValue();
     }
 
     public String getCurrentCompanyAddress() {
-        return addressName.getValue();
+        return addressNameField.getValue();
     }
 
     public String getCurrentCityName() {
-        return cityName.getValue();
+        return cityNameField.getValue();
     }
 
     public String getCurrentWebSiteUrl() {
-        return "https://" + webSite.getValue();
+        return "https://" + webSiteField.getValue();
     }
 
     public String getCurrentZipCode() {
-        return zipCode.getValue();
+        return zipCodeField.getValue();
     }
 
 

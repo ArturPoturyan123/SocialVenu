@@ -1,6 +1,5 @@
 package pages.dashboard;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import pages.BasePage;
@@ -9,10 +8,10 @@ import static com.codeborne.selenide.Selenide.element;
 
 public class InviteUserPage extends BasePage<InviteUserPage> {
 
-    private final SelenideElement name = element(By.id("name"));
-    private final SelenideElement lastName = element(By.id("lastName"));
-    private final SelenideElement email = element(By.id("email"));
-    private final SelenideElement phoneNumber = element(By.id("phone"));
+    private final SelenideElement nameField = element(By.id("name"));
+    private final SelenideElement lastNameField = element(By.id("lastName"));
+    private final SelenideElement emailField = element(By.id("email"));
+    private final SelenideElement phoneNumberField = element(By.id("phone"));
 
     private final SelenideElement inviteButton = element("[class*='MuiButton-containedPrimary']");
 
@@ -27,22 +26,22 @@ public class InviteUserPage extends BasePage<InviteUserPage> {
 
 
     public InviteUserPage setFirstName(String name) {
-        this.name.setValue(name);
+        this.nameField.setValue(name);
         return this;
     }
 
     public InviteUserPage setLastName(String name) {
-        this.lastName.setValue(name);
+        this.lastNameField.setValue(name);
         return this;
     }
 
-    public InviteUserPage setEmail(String email) {
-        this.email.setValue(email);
+    public InviteUserPage setEmailField(String emailField) {
+        this.emailField.setValue(emailField);
         return this;
     }
 
     public InviteUserPage setPhone(String phone) {
-        this.phoneNumber.setValue(phone);
+        this.phoneNumberField.setValue(phone);
         return this;
     }
 

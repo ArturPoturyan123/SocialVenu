@@ -9,10 +9,10 @@ import pages.BasePage;
 
 public class DashboardLoginPage extends BasePage<DashboardLoginPage> {
 
-    private final SelenideElement email = Selenide.element(By.id("email"));
+    private final SelenideElement emailField = Selenide.element(By.id("email"));
 
     public SelenideElement emailErrorText = Selenide.element(By.id("email-helper-text"));
-    private final SelenideElement password = Selenide.element("[name='password']");
+    private final SelenideElement passwordField = Selenide.element("[name='password']");
 
     public SelenideElement passwordErrorText = Selenide.element(By.id("input-meta-title-helper-text"));
 
@@ -21,12 +21,12 @@ public class DashboardLoginPage extends BasePage<DashboardLoginPage> {
 
     public void enterEmail(String text) {
 
-        this.email.sendKeys(text);
+        this.emailField.sendKeys(text);
     }
 
     public void enterPassword(String text) {
 
-        this.password.sendKeys(text);
+        this.passwordField.sendKeys(text);
     }
 
     public void pressSignInButton() {

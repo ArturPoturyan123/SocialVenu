@@ -16,6 +16,7 @@ public class PerformancePage extends BasePage<PerformancePage> {
     public SelenideElement statisticBlockClicks = Selenide.element(By.id("statistic-block-Clicks"));
     public SelenideElement statisticBlockCreators = Selenide.element(By.id("statistic-block-Creators"));
     public SelenideElement topBarTitle = Selenide.element(By.id("chart-topbar-title"));
+    private final SelenideElement calendarButton = Selenide.element("div>svg[data-testid='CalendarTodayIcon']");
 
 
     public void clickStatisticBlock(SelenideElement statisticBlock, String expectedTopBarTitle) throws InterruptedException {

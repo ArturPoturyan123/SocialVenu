@@ -19,9 +19,9 @@ public class CustomizationRewardsPage extends BasePage<CustomizationRewardsPage>
     private SelenideElement toggles = Selenide.element("span>input[name='undefinedToggle']");
     public SelenideElement saveButton = Selenide.$(By.id("bottom-bar-save-action"));
 
-    private final SelenideElement chat = Selenide.element("a[aria-label='Open chat']");
-    private final SelenideElement rewardsSms = Selenide.$x("//div[contains (text(), 'Reward SMS')]");
-    private final SelenideElement rewardFulFillMeant = Selenide.$x("//div[contains (text(), 'Reward Fulfillment')]");
+    private final SelenideElement crispChatButton = Selenide.element("a[aria-label='Open chat']");
+    private final SelenideElement rewardsSmsButton = Selenide.$x("//div[contains (text(), 'Reward SMS')]");
+    private final SelenideElement rewardFulFillMeantButton = Selenide.$x("//div[contains (text(), 'Reward Fulfillment')]");
     private final SelenideElement pointsGoalInput = Selenide.element("[name='points']");
     private final SelenideElement phonePoint = Selenide.element("span+div[class*='sv-dashboard']>p:last-child");
 
@@ -37,7 +37,7 @@ public class CustomizationRewardsPage extends BasePage<CustomizationRewardsPage>
 
 
     public void openChatBot() {
-        chat.shouldBe(visible).click();
+        crispChatButton.shouldBe(visible).click();
     }
 
     public int getActivitiesCount() {
@@ -45,11 +45,11 @@ public class CustomizationRewardsPage extends BasePage<CustomizationRewardsPage>
     }
 
     public void clickRewardFulFillMeant() {
-        rewardFulFillMeant.click(ClickOptions.usingJavaScript());
+        rewardFulFillMeantButton.click(ClickOptions.usingJavaScript());
     }
 
     public void clickRewardsSms() {
-        rewardsSms.click(ClickOptions.usingJavaScript());
+        rewardsSmsButton.click(ClickOptions.usingJavaScript());
     }
 
 

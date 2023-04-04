@@ -88,6 +88,7 @@ public class SocialVersePage extends BasePage<SocialVersePage> {
     public void writeSocialVerseTextAndDeleteField() throws InterruptedException {
         String text = "Test";
         inputSocialVerseName.setValue(text);
+        Thread.sleep(2000);
         eraseAllTextField(inputSocialVerseName);
     }
 

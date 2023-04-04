@@ -27,7 +27,7 @@ public class InviteMemberTest extends DashboardTestBase {
         new InviteUserPage().open()
                 .setFirstName(faker.name().firstName())
                 .setLastName(faker.name().lastName())
-                .setEmail(faker.internet().emailAddress())
+                .setEmailField(faker.internet().emailAddress())
                 .setPhone(faker.phoneNumber().cellPhone())
                 .clickEmptyArea() //bug should be fixed https://socialvenu.atlassian.net/browse/SV-166
                 .clickInviteButton();
