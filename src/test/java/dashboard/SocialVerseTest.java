@@ -11,6 +11,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+@Epic("Regression Tests")
 public class SocialVerseTest extends DashboardTestBase {
 
 
@@ -40,7 +41,6 @@ public class SocialVerseTest extends DashboardTestBase {
         assertThat(newCreatedSocialVerseCardName).isEqualTo(getCurrentSocialVerseName);
     }
 
-    @Epic("Regression Tests")
 
     @Test(testName = "Verify the functionality of creating and removing SocialVerse card type")
 
