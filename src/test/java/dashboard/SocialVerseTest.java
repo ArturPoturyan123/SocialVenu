@@ -2,7 +2,6 @@ package dashboard;
 
 import base.DashboardTestBase;
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Epic;
 import org.testng.annotations.Test;
 import pages.dashboard.SocialVersePage;
