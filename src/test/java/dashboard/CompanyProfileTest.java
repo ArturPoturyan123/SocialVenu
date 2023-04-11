@@ -20,7 +20,7 @@ public class CompanyProfileTest extends DashboardTestBase {
         String randomText = RandomUtils.getString();
         companyProfilePage.setRandomCompanyName(randomText);
         companyProfilePage.zoomPage();
-        companyProfilePage.clickSaveButton(companyProfilePage.saveButton);
+        companyProfilePage.clickSaveButton();
         companyProfilePage.resetZoom();
         String currentCompanyName = companyProfilePage.setRandomCompanyName(randomText);
         String getCurrentCompanyName = companyProfilePage.getCurrentCompanyName();
@@ -35,7 +35,7 @@ public class CompanyProfileTest extends DashboardTestBase {
         String randomText = RandomUtils.getString();
         companyProfilePage.setRandomCompanyAddress(randomText);
         companyProfilePage.zoomPage();
-        companyProfilePage.clickSaveButton(companyProfilePage.saveButton);
+        companyProfilePage.clickSaveButton();
         companyProfilePage.resetZoom();
         String currentCompanyAddress = companyProfilePage.setRandomCompanyAddress(randomText);
         String getCurrentCompanyAddress = companyProfilePage.getCurrentCompanyAddress();
@@ -48,7 +48,7 @@ public class CompanyProfileTest extends DashboardTestBase {
         companyProfilePage.open();
         String newCityName = companyProfilePage.setRandomCityName();
         companyProfilePage.zoomPage();
-        companyProfilePage.clickSaveButton(companyProfilePage.saveButton);
+        companyProfilePage.clickSaveButton();
         companyProfilePage.resetZoom();
         String getCurrentCityName = companyProfilePage.getCurrentCityName();
         assertThat(newCityName).isEqualTo(getCurrentCityName);
@@ -60,19 +60,19 @@ public class CompanyProfileTest extends DashboardTestBase {
         companyProfilePage.open();
         String newWebsiteUrl = companyProfilePage.setRandomCompanyWebsite();
         companyProfilePage.zoomPage();
-        companyProfilePage.clickSaveButton(companyProfilePage.saveButton);
+        companyProfilePage.clickSaveButton();
         companyProfilePage.resetZoom();
         String getCurrentWebSiteUrl = companyProfilePage.getCurrentWebSiteUrl();
         assertThat(newWebsiteUrl).isEqualTo(getCurrentWebSiteUrl);
     }
 
     @Test(testName = "Verify Functionality of saving Zip Code")
-    public void verifyFunctionalitySavingNewZipCode() throws InterruptedException {
+    public void verifyFunctionalitySavingNewZipCode(){
         CompanyProfilePage companyProfilePage = new CompanyProfilePage();
         companyProfilePage.open();
         String newZipCode = companyProfilePage.setRandomZipCode();
         companyProfilePage.zoomPage();
-        companyProfilePage.clickSaveButton(companyProfilePage.saveButton);
+        companyProfilePage.clickSaveButton();
         companyProfilePage.resetZoom();
         String getCurrentZipCode = companyProfilePage.getCurrentZipCode();
         assertThat(newZipCode).isEqualTo(getCurrentZipCode);

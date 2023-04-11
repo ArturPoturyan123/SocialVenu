@@ -15,7 +15,7 @@ public class CompanyProfilePage extends BasePage<CompanyProfilePage> {
     public final SelenideElement zipCodeField = Selenide.element("[name='zip']");
 
 
-    public String setRandomCompanyName(String randomText) throws InterruptedException {
+    public String setRandomCompanyName(String randomText){
         eraseAllTextField(companyNameField);
         String valueString = "Test Automation Company Name " + randomText;
         companyNameField.sendKeys(valueString);
@@ -23,7 +23,7 @@ public class CompanyProfilePage extends BasePage<CompanyProfilePage> {
     }
 
 
-    public String setRandomCityName() throws InterruptedException {
+    public String setRandomCityName() {
         eraseAllTextField(cityNameField);
         String[] cityNames = {"New York", "Los Angeles", "Chicago", "Houston", "Philadelphia"};
         String randomCityName = cityNames[RandomUtils.getInt(cityNames.length)];
@@ -41,7 +41,7 @@ public class CompanyProfilePage extends BasePage<CompanyProfilePage> {
     }
 
 
-    public String setRandomCompanyAddress(String randomText) throws InterruptedException {
+    public String setRandomCompanyAddress(String randomText){
         eraseAllTextField(addressNameField);
         String valueString = "Test Automation Company Address " + randomText;
         addressNameField.sendKeys(valueString);
@@ -49,7 +49,7 @@ public class CompanyProfilePage extends BasePage<CompanyProfilePage> {
     }
 
 
-    public String setRandomZipCode() throws InterruptedException {
+    public String setRandomZipCode() {
         eraseAllTextField(zipCodeField);
         String randomZipCode = String.valueOf(10000 + new Random().nextInt(90000));
         zipCodeField.setValue(randomZipCode);

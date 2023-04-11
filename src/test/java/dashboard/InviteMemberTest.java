@@ -29,7 +29,7 @@ public class InviteMemberTest extends DashboardTestBase {
                 .setLastName(faker.name().lastName())
                 .setEmailField(faker.internet().emailAddress())
                 .setPhone(faker.phoneNumber().cellPhone())
-                .clickEmptyArea() //bug should be fixed https://socialvenu.atlassian.net/browse/SV-166
+                .clickEmptyArea()
                 .clickInviteButton();
         Thread.sleep(3000);
         assertThat(memberManagementPage.getRowCount()).isEqualTo(rowSize + 1);

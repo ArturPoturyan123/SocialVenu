@@ -15,7 +15,7 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 
 public abstract class BasePage<T> {
-    public SelenideElement saveButton = Selenide.$(By.id("bottom-bar-save-action"));
+    private SelenideElement saveButton = Selenide.$(By.id("bottom-bar-save-action"));
 
     public T open() {
         Selenide.open(getUrl());
@@ -49,16 +49,16 @@ public abstract class BasePage<T> {
         }
     }
 
-    public void eraseAllTextField(SelenideElement element) throws InterruptedException {
+    public void eraseAllTextField(SelenideElement element) {
         element.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 
     }
 
-    public void clickSaveButton(SelenideElement element) {
-        if (!isButtonDisplayed(element)) {
+    public void clickSaveButton() {
+        if (!isButtonDisplayed(saveButton)) {
             throw new NoSuchElementException("Save button not found ");
         } else {
-            element.click(ClickOptions.usingJavaScript());
+            saveButton.click(ClickOptions.usingJavaScript());
         }
     }
 

@@ -3,23 +3,24 @@ package dashboard;
 import base.DashboardTestBase;
 import io.qameta.allure.Epic;
 import org.testng.annotations.Test;
-import pages.dashboard.CustomizationRewardsPage;
+import pages.dashboard.CustomizationRewardsTabPointsActivitiesPage;
 import utils.RandomUtils;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @Epic("Regression Tests")
 
-public class CustomizationRewardTest extends DashboardTestBase {
+public class CustomizationRewardsTabPointsActivitiesTest extends DashboardTestBase {
 
 
     @Test(testName = "Verify to all toggles enable and disabled functionality")
     public void verifyFunctionalityAllRewardsTogglesEnableAndDisable() throws InterruptedException {
-        CustomizationRewardsPage customizationRewardsPage = new CustomizationRewardsPage();
+        CustomizationRewardsTabPointsActivitiesPage customizationRewardsPage =
+                new CustomizationRewardsTabPointsActivitiesPage();
         customizationRewardsPage.open();
         customizationRewardsPage.clickAllToggles();
         customizationRewardsPage.zoomPage();
-        customizationRewardsPage.clickSaveButton(customizationRewardsPage.saveButton);
+        customizationRewardsPage.clickSaveButton();
         customizationRewardsPage.resetZoom();
         Thread.sleep(5000);
         int activitiesSize = customizationRewardsPage.getActivitiesCount();
@@ -28,7 +29,7 @@ public class CustomizationRewardTest extends DashboardTestBase {
         Thread.sleep(2000);
         customizationRewardsPage.clickAllToggles();
         customizationRewardsPage.zoomPage();
-        customizationRewardsPage.clickSaveButton(customizationRewardsPage.saveButton);
+        customizationRewardsPage.clickSaveButton();
         customizationRewardsPage.resetZoom();
         Thread.sleep(3000);
         assertThat(togglesSize).isNotEqualTo(activitiesSize);
@@ -36,12 +37,13 @@ public class CustomizationRewardTest extends DashboardTestBase {
 
     @Test(testName = "Verify set your Rewards Points Goal")
     public void verifyFunctionalitySetRewardsPointsGoal() {
-        CustomizationRewardsPage customizationRewardsPage = new CustomizationRewardsPage();
+        CustomizationRewardsTabPointsActivitiesPage customizationRewardsPage =
+                new CustomizationRewardsTabPointsActivitiesPage();
         customizationRewardsPage.open();
         int randomNumber = RandomUtils.getInt();
         customizationRewardsPage.setRandomRewardPointGoal(randomNumber);
         customizationRewardsPage.zoomPage();
-        customizationRewardsPage.clickSaveButton(customizationRewardsPage.saveButton);
+        customizationRewardsPage.clickSaveButton();
         customizationRewardsPage.resetZoom();
         assertThat(randomNumber).isEqualTo(customizationRewardsPage.getPhonePoints());
 
