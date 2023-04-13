@@ -12,7 +12,7 @@ import pages.dashboard.DashboardLoginPage;
 
 public class LoginDashboardNegativeTest extends DashboardTestBase {
 
-    @Test(testName = "Sign in into SV Dashboard without password")
+    @Test(testName = "Verify the functionality of Sign in into SV Dashboard without password")
     public void verifyFunctionalityLoginSvDashboardWithoutPassword() {
         DashboardLoginPage loginPage = new DashboardLoginPage();
         loginPage.enterEmail(Config.EMAIL);
@@ -20,7 +20,7 @@ public class LoginDashboardNegativeTest extends DashboardTestBase {
         loginPage.passwordErrorText.shouldHave(Condition.text("Incorrect password"));
     }
 
-    @Test(testName = "Sign in into SV Dashboard without email")
+    @Test(testName = "Verify the functionality of Sign in into SV Dashboard without email")
     public void verifyFunctionalityLoginSvDashboardWithoutEmail() {
         DashboardLoginPage loginPage = new DashboardLoginPage();
         loginPage.enterPassword(Config.PASSWORD);
@@ -28,7 +28,7 @@ public class LoginDashboardNegativeTest extends DashboardTestBase {
         loginPage.emailErrorText.shouldHave(Condition.text("Invalid Email"));
     }
 
-    @Test(testName = "Sign in into SV Dashboard with invalid email")
+    @Test(testName = "Verify the functionality of Sign in into SV Dashboard with invalid email")
     public void verifyFunctionalityLoginSvDashboardWithInvalidEmail() {
         DashboardLoginPage loginPage = new DashboardLoginPage();
         loginPage.enterEmail("test");
@@ -37,7 +37,7 @@ public class LoginDashboardNegativeTest extends DashboardTestBase {
         loginPage.emailErrorText.shouldHave(Condition.text("Invalid Email"));
     }
 
-    @Test(testName = "Sign in into SV Dashboard with invalid credentials")
+    @Test(testName = "Verify the functionality of Sign in into SV Dashboard with invalid credentials")
     public void verifyFunctionalityLoginSvDashboardWithInvalidCredentials() {
         DashboardLoginPage loginPage = new DashboardLoginPage();
         loginPage.enterEmail(Config.EMAIL);

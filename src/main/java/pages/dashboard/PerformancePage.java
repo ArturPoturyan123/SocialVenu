@@ -4,9 +4,13 @@ import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import helper.WaitHelper;
 import org.openqa.selenium.By;
 import pages.BasePage;
 
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.appear;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class PerformancePage extends BasePage<PerformancePage> {
@@ -18,7 +22,7 @@ public class PerformancePage extends BasePage<PerformancePage> {
     public SelenideElement statisticBlockCreators = Selenide.element(By.id("statistic-block-Creators"));
     public SelenideElement topBarTitle = Selenide.element(By.id("chart-topbar-title"));
     private final SelenideElement calendarButton = Selenide.element("div>svg[data-testid='CalendarTodayIcon']");
-    public SelenideElement sinceBeginningButton = Selenide.element(By.id("since_beginning-date-range-button"));
+    public static SelenideElement sinceBeginningButton = Selenide.element(By.id("since_beginning-date-range-button"));
 
 
     public void clickCalendarButton() {
@@ -27,15 +31,15 @@ public class PerformancePage extends BasePage<PerformancePage> {
     }
 
 
-    public void clickStatisticBlock(SelenideElement statisticBlock, String expectedTopBarTitle) throws InterruptedException {
-        statisticBlock.shouldBe(Condition.visible).click();
-        Thread.sleep(2000);
+    public void clickStatisticBlock(SelenideElement statisticBlock, String expectedTopBarTitle) {
+        WaitHelper.waitElementToPresent(statisticBlock,appear, Duration.ofSeconds(2));
+        statisticBlock.click();
         String actualTopBarTitle = topBarTitle.getText();
         assertEquals(expectedTopBarTitle, actualTopBarTitle);
     }
 
 
-    public void clickAllStatisticBlocks() throws InterruptedException {
+    public void clickAllStatisticBlocks()  {
         SelenideElement[] statisticBlocks = {statisticBlockVideos, statisticBlockShares,
                 statisticBlockViews, statisticBlockClicks, statisticBlockCreators};
         String[] expectedTitles = {"Videos", "Shares", "Views", "Clicks", "Creators"};

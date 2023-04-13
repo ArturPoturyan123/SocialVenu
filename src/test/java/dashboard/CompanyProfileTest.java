@@ -13,8 +13,8 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class CompanyProfileTest extends DashboardTestBase {
 
 
-    @Test(testName = "Verify Functionality of saving Company Name")
-    public void verifyFunctionalitySavingNewCompanyName() throws InterruptedException {
+    @Test(testName = "Verify the functionality of saving Company Name")
+    public void verifyFunctionalitySavingNewCompanyName() {
         CompanyProfilePage companyProfilePage = new CompanyProfilePage();
         companyProfilePage.open();
         String randomText = RandomUtils.getString();
@@ -27,9 +27,9 @@ public class CompanyProfileTest extends DashboardTestBase {
         assertThat(currentCompanyName).isEqualTo(getCurrentCompanyName);
     }
 
-    @Test(testName = "Verify Functionality of saving Company Address")
+    @Test(testName = "Verify the functionality of saving Company Address")
 
-    public void verifyFunctionalitySavingNewCompanyAddress() throws InterruptedException {
+    public void verifyFunctionalitySavingNewCompanyAddress() {
         CompanyProfilePage companyProfilePage = new CompanyProfilePage();
         companyProfilePage.open();
         String randomText = RandomUtils.getString();
@@ -42,8 +42,8 @@ public class CompanyProfileTest extends DashboardTestBase {
         assertThat(currentCompanyAddress).isEqualTo(getCurrentCompanyAddress);
     }
 
-    @Test(testName = "Verify Functionality of saving City")
-    public void verifyFunctionalitySavingNewCityName() throws InterruptedException {
+    @Test(testName = "Verify the functionality of saving City")
+    public void verifyFunctionalitySavingNewCityName() {
         CompanyProfilePage companyProfilePage = new CompanyProfilePage();
         companyProfilePage.open();
         String newCityName = companyProfilePage.setRandomCityName();
@@ -54,8 +54,8 @@ public class CompanyProfileTest extends DashboardTestBase {
         assertThat(newCityName).isEqualTo(getCurrentCityName);
     }
 
-    @Test(testName = "Verify Functionality of saving Company Web site url")
-    public void verifyFunctionalitySavingNewCompanyWebSite() throws InterruptedException {
+    @Test(testName = "Verify the functionality of saving Company Web site url")
+    public void verifyFunctionalitySavingNewCompanyWebSite() {
         CompanyProfilePage companyProfilePage = new CompanyProfilePage();
         companyProfilePage.open();
         String newWebsiteUrl = companyProfilePage.setRandomCompanyWebsite();
@@ -66,8 +66,8 @@ public class CompanyProfileTest extends DashboardTestBase {
         assertThat(newWebsiteUrl).isEqualTo(getCurrentWebSiteUrl);
     }
 
-    @Test(testName = "Verify Functionality of saving Zip Code")
-    public void verifyFunctionalitySavingNewZipCode() throws InterruptedException {
+    @Test(testName = "Verify the functionality of saving Zip Code")
+    public void verifyFunctionalitySavingNewZipCode() {
         CompanyProfilePage companyProfilePage = new CompanyProfilePage();
         companyProfilePage.open();
         String newZipCode = companyProfilePage.setRandomZipCode();

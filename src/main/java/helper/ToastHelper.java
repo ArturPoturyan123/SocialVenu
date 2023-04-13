@@ -3,6 +3,8 @@ package helper;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.disappear;
 
@@ -22,6 +24,6 @@ public class ToastHelper {
 
     public static void waitForToastToDisappear() {
         SelenideElement toast = getToastElement();
-        toast.shouldBe(disappear);
+        toast.shouldBe(disappear, Duration.ofSeconds(2));
     }
 }

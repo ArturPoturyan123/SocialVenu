@@ -6,7 +6,7 @@ import pages.BasePage;
 
 import static com.codeborne.selenide.Selenide.element;
 
-public class InviteUserPage extends BasePage<InviteUserPage> {
+public class InviteMemberPage extends BasePage<InviteMemberPage> {
 
     private final SelenideElement nameField = element(By.id("name"));
     private final SelenideElement lastNameField = element(By.id("lastName"));
@@ -25,22 +25,22 @@ public class InviteUserPage extends BasePage<InviteUserPage> {
     }
 
 
-    public InviteUserPage setFirstName(String name) {
+    public InviteMemberPage setFirstName(String name) {
         this.nameField.setValue(name);
         return this;
     }
 
-    public InviteUserPage setLastName(String name) {
+    public InviteMemberPage setLastName(String name) {
         this.lastNameField.setValue(name);
         return this;
     }
 
-    public InviteUserPage setEmailField(String emailField) {
+    public InviteMemberPage setEmailField(String emailField) {
         this.emailField.setValue(emailField);
         return this;
     }
 
-    public InviteUserPage setPhone(String phone) {
+    public InviteMemberPage setPhone(String phone) {
         this.phoneNumberField.setValue(phone);
         return this;
     }
@@ -49,7 +49,7 @@ public class InviteUserPage extends BasePage<InviteUserPage> {
         inviteButton.shouldBe().click();
     }
 
-    public InviteUserPage clickEmptyArea() {
+    public InviteMemberPage clickEmptyArea() {
         emptyArea.click();
         return this;
     }

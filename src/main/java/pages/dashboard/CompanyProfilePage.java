@@ -1,11 +1,16 @@
 package pages.dashboard;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import helper.WaitHelper;
 import pages.BasePage;
 import utils.RandomUtils;
 
+import java.time.Duration;
 import java.util.Random;
+
+import static com.codeborne.selenide.Condition.empty;
 
 public class CompanyProfilePage extends BasePage<CompanyProfilePage> {
     private final SelenideElement companyNameField = Selenide.element("[name='name']");
@@ -15,7 +20,7 @@ public class CompanyProfilePage extends BasePage<CompanyProfilePage> {
     public final SelenideElement zipCodeField = Selenide.element("[name='zip']");
 
 
-    public String setRandomCompanyName(String randomText){
+    public String setRandomCompanyName(String randomText) {
         eraseAllTextField(companyNameField);
         String valueString = "Test Automation Company Name " + randomText;
         companyNameField.sendKeys(valueString);
@@ -31,9 +36,10 @@ public class CompanyProfilePage extends BasePage<CompanyProfilePage> {
         return randomCityName;
     }
 
-    public String setRandomCompanyWebsite() throws InterruptedException {
+    public String setRandomCompanyWebsite() {
         eraseAllTextField(webSiteField);
-        Thread.sleep(3000);
+        WaitHelper.waitTextFiledShouldBeEmpty(webSiteField, empty, Duration.ofSeconds(2));
+        webSiteField.shouldBe(empty, Duration.ofSeconds(2));
         String[] companyWebsites = {"youtube.com", "sv.com", "nike.com", "adidas.com", "fresh.com"};
         String randomWebsite = "https://" + companyWebsites[RandomUtils.getInt(companyWebsites.length)];
         webSiteField.sendKeys(randomWebsite);
@@ -41,7 +47,7 @@ public class CompanyProfilePage extends BasePage<CompanyProfilePage> {
     }
 
 
-    public String setRandomCompanyAddress(String randomText){
+    public String setRandomCompanyAddress(String randomText) {
         eraseAllTextField(addressNameField);
         String valueString = "Test Automation Company Address " + randomText;
         addressNameField.sendKeys(valueString);

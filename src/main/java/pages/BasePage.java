@@ -8,16 +8,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptException;
 import org.openqa.selenium.Keys;
 
+import java.time.Duration;
 import java.util.NoSuchElementException;
 
 import static com.codeborne.selenide.Condition.*;
 
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
+import static helper.WaitHelper.waitElementToPresent;
 
 
 public abstract class BasePage<T> {
-    private final SelenideElement saveButton = Selenide.$(By.id("bottom-bar-save-action"));
+    private final SelenideElement saveButton = Selenide.element(By.id("bottom-bar-save-action"));
 
 
     public abstract String getUrl();
@@ -27,6 +28,24 @@ public abstract class BasePage<T> {
         Selenide.refresh();
     }
 
+
+    public void eraseAllTextField(SelenideElement element) {
+        element.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+
+    }
+
+    public void clickSaveButton() {
+        waitElementToPresent(saveButton, appear, Duration.ofSeconds(2));
+        if (!isElementDisplayed(saveButton)) {
+            throw new NoSuchElementException("Save button not found ");
+        } else {
+            saveButton.click(ClickOptions.usingJavaScript());
+        }
+    }
+
+    public static boolean isElementDisplayed(SelenideElement element) {
+        return element.exists() && element.isDisplayed();
+    }
 
     public void zoomPage() {
         try {
@@ -47,23 +66,6 @@ public abstract class BasePage<T> {
         }
     }
 
-    public void eraseAllTextField(SelenideElement element) {
-        element.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
-
-    }
-
-    public void clickSaveButton() throws InterruptedException {
-        Thread.sleep(3000);
-        if (!isElementDisplayed(saveButton)) {
-            throw new NoSuchElementException("Save button not found ");
-        } else {
-            saveButton.click(ClickOptions.usingJavaScript());
-        }
-    }
-
-    public boolean isElementDisplayed(SelenideElement element) {
-        return element.exists() && element.isDisplayed();
-    }
 
     public void scrollToElement(String elementId) {
         boolean isElementPresent = false;

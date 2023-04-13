@@ -17,22 +17,19 @@ public class DashboardLoginPage extends BasePage<DashboardLoginPage> {
     public SelenideElement passwordErrorText = Selenide.element(By.id("input-meta-title-helper-text"));
 
     private final SelenideElement signInButton = Selenide.element("[type='submit']");
+    public static SelenideElement allAccountsButton = Selenide.element(By.xpath("//p[contains(text(),'All Accounts')]"));
 
 
     public void enterEmail(String text) {
-
         this.emailField.sendKeys(text);
     }
 
     public void enterPassword(String text) {
-
         this.passwordField.sendKeys(text);
     }
 
     public void pressSignInButton() {
         this.signInButton.shouldBe(Condition.enabled).pressEnter();
-
-
     }
 
     @Override

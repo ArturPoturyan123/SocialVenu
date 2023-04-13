@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.$x;
 public class MemberProfilePage extends BasePage<MemberProfilePage> {
     private final SelenideElement revokeInviteButton = Selenide.element("p.MuiTypography-root.MuiTypography-body1.css-1gollgz");
     private final SelenideElement deleteThisUserButton = $x("//p[contains(text(), 'Delete This User')][not(contains(., 'Delete This User?'))]");
-    public SelenideElement deleteUserPopup = Selenide.$x("//p[contains(text(), 'Delete This User')]");
+    public static SelenideElement deleteUserPopup = Selenide.$x("//p[contains(text(), 'Delete This User')]");
 
 
     public void deleteMember() {

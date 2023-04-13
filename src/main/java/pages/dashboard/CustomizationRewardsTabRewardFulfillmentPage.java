@@ -3,8 +3,13 @@ package pages.dashboard;
 import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import helper.WaitHelper;
 import pages.BasePage;
 import utils.RandomUtils;
+
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.empty;
 
 public class CustomizationRewardsTabRewardFulfillmentPage extends
         BasePage<CustomizationRewardsTabRewardFulfillmentPage> {
@@ -24,9 +29,9 @@ public class CustomizationRewardsTabRewardFulfillmentPage extends
 
     }
 
-    public String setWebHookUrl() throws InterruptedException {
+    public String setWebHookUrl() {
         eraseAllTextField(webHookUrlInput);
-        Thread.sleep(3000);
+        WaitHelper.waitTextFiledShouldBeEmpty(webHookUrlInput, empty, Duration.ofSeconds(2));
         String[] companyWebsites = {"youtube.com", "sv.com", "nike.com", "adidas.com", "fresh.com"};
         String randomWebsite = "https://" + companyWebsites[RandomUtils.getInt(companyWebsites.length)];
         webHookUrlInput.sendKeys(randomWebsite);

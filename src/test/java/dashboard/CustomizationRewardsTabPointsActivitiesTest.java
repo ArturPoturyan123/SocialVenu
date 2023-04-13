@@ -1,6 +1,7 @@
 package dashboard;
 
 import base.DashboardTestBase;
+import helper.ToastHelper;
 import io.qameta.allure.Epic;
 import org.testng.annotations.Test;
 import pages.dashboard.CustomizationRewardsTabPointsActivitiesPage;
@@ -13,30 +14,31 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class CustomizationRewardsTabPointsActivitiesTest extends DashboardTestBase {
 
 
-    @Test(testName = "Verify to all toggles enable and disabled functionality")
-    public void verifyFunctionalityAllRewardsTogglesEnableAndDisable() throws InterruptedException {
+    @Test(testName = "Verify the functionality of all toggles enable and disabled functionality")
+    public void verifyFunctionalityAllRewardsTogglesEnableAndDisable() {
         CustomizationRewardsTabPointsActivitiesPage customizationRewardsPage =
                 new CustomizationRewardsTabPointsActivitiesPage();
         customizationRewardsPage.open();
         customizationRewardsPage.clickAllToggles();
         customizationRewardsPage.zoomPage();
         customizationRewardsPage.clickSaveButton();
+        ToastHelper.waitForToastToAppear();
         customizationRewardsPage.resetZoom();
-        Thread.sleep(5000);
+        ToastHelper.waitForToastToDisappear();
         int activitiesSize = customizationRewardsPage.getActivitiesCount();
         int togglesSize = customizationRewardsPage.getAllToggles();
         assertThat(togglesSize).isEqualTo(activitiesSize + 1);
-        Thread.sleep(2000);
         customizationRewardsPage.clickAllToggles();
         customizationRewardsPage.zoomPage();
         customizationRewardsPage.clickSaveButton();
+        ToastHelper.waitForToastToAppear();
         customizationRewardsPage.resetZoom();
-        Thread.sleep(3000);
+        ToastHelper.waitForToastToDisappear();
         assertThat(togglesSize).isNotEqualTo(activitiesSize);
     }
 
-    @Test(testName = "Verify set your Rewards Points Goal")
-    public void verifyFunctionalitySetRewardsPointsGoal() throws InterruptedException {
+    @Test(testName = "Verify the functionality of set your Rewards Points Goal")
+    public void verifyFunctionalitySetRewardsPointsGoal() {
         CustomizationRewardsTabPointsActivitiesPage customizationRewardsPage =
                 new CustomizationRewardsTabPointsActivitiesPage();
         customizationRewardsPage.open();

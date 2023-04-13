@@ -1,35 +1,32 @@
 package pages.dashboard;
 
 import com.codeborne.selenide.ClickOptions;
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import helper.WaitHelper;
 import pages.BasePage;
 
 import java.time.Duration;
 import java.util.List;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.element;
 
 
 public class MemberManagementPage extends BasePage<MemberManagementPage> {
 
     private final List<SelenideElement> tableRows = Selenide.elements("tbody[class*='MuiTableBody-root'] > tr");
-    public SelenideElement inviteTeamMember = Selenide.element("button[class*='MuiButton-textPrimary']");
 
-    private final SelenideElement editButton = Selenide.elements("tr>td>svg[data-testid='EditIcon']").get(0);
+    private final SelenideElement editButtonIndex = Selenide.elements("tr>td>svg[data-testid='EditIcon']").get(0);
+    public static SelenideElement editButton = Selenide.element("tr>td>svg[data-testid='EditIcon']");
 
     public int getRowCount() {
-
         return tableRows.size();
     }
 
 
     public void clickEditButton() {
-        element("tr>td>svg[data-testid='EditIcon']").shouldBe(Condition.visible);
-        editButton.click(ClickOptions.usingJavaScript());
-        element("tr>td>svg[data-testid='EditIcon']").should(disappear, Duration.ofSeconds(10));
+        WaitHelper.waitElementToPresent(editButton, appear, Duration.ofSeconds(2));
+        editButtonIndex.click(ClickOptions.usingJavaScript());
 
     }
 

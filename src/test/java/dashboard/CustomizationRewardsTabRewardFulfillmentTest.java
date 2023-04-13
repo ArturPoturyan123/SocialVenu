@@ -7,12 +7,13 @@ import pages.dashboard.CustomizationRewardsTabRewardFulfillmentPage;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static pages.BasePage.isElementDisplayed;
 
 public class CustomizationRewardsTabRewardFulfillmentTest extends DashboardTestBase {
 
 
-    @Test(testName = "verify the functionality of enabling Manual SMS option")
-    public void verifyFunctionalityEnablingManualSMS() throws InterruptedException {
+    @Test(testName = "Verify the functionality of enabling Manual SMS option")
+    public void verifyFunctionalityEnablingManualSMS() {
         CustomizationRewardsTabRewardFulfillmentPage customizationRewardsTabRewardFulfillmentPage =
                 new CustomizationRewardsTabRewardFulfillmentPage();
         customizationRewardsTabRewardFulfillmentPage.open();
@@ -23,13 +24,12 @@ public class CustomizationRewardsTabRewardFulfillmentTest extends DashboardTestB
         ToastHelper.waitForToastToDisappear();
         customizationRewardsTabRewardFulfillmentPage.resetZoom();
         assertThat("Error: poster Manual SMS image is not appear",
-                customizationRewardsTabRewardFulfillmentPage.isElementDisplayed
-                        (customizationRewardsTabRewardFulfillmentPage.posterManualSMS));
+                isElementDisplayed(customizationRewardsTabRewardFulfillmentPage.posterManualSMS));
 
     }
 
-    @Test(testName = "verify the functionality of enabling Automate SMS option")
-    public void verifyFunctionalityEnablingAutomaticSMS() throws InterruptedException {
+    @Test(testName = "Verify the functionality of enabling Automate SMS option")
+    public void verifyFunctionalityEnablingAutomaticSMS() {
         CustomizationRewardsTabRewardFulfillmentPage customizationRewardsTabRewardFulfillmentPage =
                 new CustomizationRewardsTabRewardFulfillmentPage();
         customizationRewardsTabRewardFulfillmentPage.open();
@@ -40,13 +40,12 @@ public class CustomizationRewardsTabRewardFulfillmentTest extends DashboardTestB
         ToastHelper.waitForToastToDisappear();
         customizationRewardsTabRewardFulfillmentPage.resetZoom();
         assertThat("Error: poster Automatic SMS image is not appear",
-                customizationRewardsTabRewardFulfillmentPage.isElementDisplayed
-                        (customizationRewardsTabRewardFulfillmentPage.posterAutomaticSMS));
+                isElementDisplayed(customizationRewardsTabRewardFulfillmentPage.posterAutomaticSMS));
 
     }
 
-    @Test(testName = "verify the functionality of enabling WebHook SMS option")
-    public void verifyFunctionalityEnablingWebHookSMS() throws InterruptedException {
+    @Test(testName = "Verify the functionality of enabling WebHook SMS option")
+    public void verifyFunctionalityEnablingWebHookSMS() {
         CustomizationRewardsTabRewardFulfillmentPage customizationRewardsTabRewardFulfillmentPage =
                 new CustomizationRewardsTabRewardFulfillmentPage();
         customizationRewardsTabRewardFulfillmentPage.open();
@@ -60,8 +59,7 @@ public class CustomizationRewardsTabRewardFulfillmentTest extends DashboardTestB
         ToastHelper.waitForToastToDisappear();
         customizationRewardsTabRewardFulfillmentPage.resetZoom();
         assertThat("Error: poster web Hook image is not appear",
-                customizationRewardsTabRewardFulfillmentPage.isElementDisplayed
-                        (customizationRewardsTabRewardFulfillmentPage.incentiveWebHook));
+                isElementDisplayed(customizationRewardsTabRewardFulfillmentPage.incentiveWebHook));
 
     }
 }
