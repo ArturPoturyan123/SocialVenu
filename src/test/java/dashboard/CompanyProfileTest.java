@@ -67,7 +67,7 @@ public class CompanyProfileTest extends DashboardTestBase {
     }
 
     @Test(testName = "Verify Functionality of saving Zip Code")
-    public void verifyFunctionalitySavingNewZipCode(){
+    public void verifyFunctionalitySavingNewZipCode() throws InterruptedException {
         CompanyProfilePage companyProfilePage = new CompanyProfilePage();
         companyProfilePage.open();
         String newZipCode = companyProfilePage.setRandomZipCode();

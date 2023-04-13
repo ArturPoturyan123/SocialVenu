@@ -36,7 +36,7 @@ public class CustomizationRewardsTabPointsActivitiesTest extends DashboardTestBa
     }
 
     @Test(testName = "Verify set your Rewards Points Goal")
-    public void verifyFunctionalitySetRewardsPointsGoal() {
+    public void verifyFunctionalitySetRewardsPointsGoal() throws InterruptedException {
         CustomizationRewardsTabPointsActivitiesPage customizationRewardsPage =
                 new CustomizationRewardsTabPointsActivitiesPage();
         customizationRewardsPage.open();

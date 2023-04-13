@@ -11,13 +11,15 @@ public class CustomizationRewardsTabRewardFulfillmentTest extends DashboardTestB
 
 
     @Test(testName = "verify the functionality of enabling Manual SMS option")
-    public void verifyFunctionalityEnablingManualSMS() {
+    public void verifyFunctionalityEnablingManualSMS() throws InterruptedException {
         CustomizationRewardsTabRewardFulfillmentPage customizationRewardsTabRewardFulfillmentPage =
                 new CustomizationRewardsTabRewardFulfillmentPage();
         customizationRewardsTabRewardFulfillmentPage.open();
         customizationRewardsTabRewardFulfillmentPage.clickManualSMSButton();
         customizationRewardsTabRewardFulfillmentPage.zoomPage();
         customizationRewardsTabRewardFulfillmentPage.clickSaveButton();
+        customizationRewardsTabRewardFulfillmentPage.waitForToastToAppear();
+        customizationRewardsTabRewardFulfillmentPage.waitForToastToDisappear();
         customizationRewardsTabRewardFulfillmentPage.resetZoom();
         assertThat("Error: poster Manual SMS image is not appear",
                 customizationRewardsTabRewardFulfillmentPage.isButtonDisplayed
@@ -26,13 +28,15 @@ public class CustomizationRewardsTabRewardFulfillmentTest extends DashboardTestB
     }
 
     @Test(testName = "verify the functionality of enabling Automate SMS option")
-    public void verifyFunctionalityEnablingAutomaticSMS() {
+    public void verifyFunctionalityEnablingAutomaticSMS() throws InterruptedException {
         CustomizationRewardsTabRewardFulfillmentPage customizationRewardsTabRewardFulfillmentPage =
                 new CustomizationRewardsTabRewardFulfillmentPage();
         customizationRewardsTabRewardFulfillmentPage.open();
         customizationRewardsTabRewardFulfillmentPage.clickAutomaticSMSButton();
         customizationRewardsTabRewardFulfillmentPage.zoomPage();
         customizationRewardsTabRewardFulfillmentPage.clickSaveButton();
+        customizationRewardsTabRewardFulfillmentPage.waitForToastToAppear();
+        customizationRewardsTabRewardFulfillmentPage.waitForToastToDisappear();
         customizationRewardsTabRewardFulfillmentPage.resetZoom();
         assertThat("Error: poster Automatic SMS image is not appear",
                 customizationRewardsTabRewardFulfillmentPage.isButtonDisplayed
@@ -51,6 +55,8 @@ public class CustomizationRewardsTabRewardFulfillmentTest extends DashboardTestB
         assertThat(newWebhookUrl).isEqualTo(getCurrentWebHookUrl);
         customizationRewardsTabRewardFulfillmentPage.zoomPage();
         customizationRewardsTabRewardFulfillmentPage.clickSaveButton();
+        customizationRewardsTabRewardFulfillmentPage.waitForToastToAppear();
+        customizationRewardsTabRewardFulfillmentPage.waitForToastToDisappear();
         customizationRewardsTabRewardFulfillmentPage.resetZoom();
         assertThat("Error: poster web Hook image is not appear",
                 customizationRewardsTabRewardFulfillmentPage.isButtonDisplayed

@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.ClickOptions;
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.ex.ElementNotFound;
@@ -10,16 +11,29 @@ import org.openqa.selenium.Keys;
 
 import java.util.NoSuchElementException;
 
+import static com.codeborne.selenide.Condition.*;
+
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 
 public abstract class BasePage<T> {
-    private SelenideElement saveButton = Selenide.$(By.id("bottom-bar-save-action"));
+    private final SelenideElement saveButton = Selenide.$(By.id("bottom-bar-save-action"));
+    private static final SelenideElement toastNotificationSuccess = Selenide.element
+            ("div[class*='react-toast-notifications__toast--success']");
 
-    public T open() {
-        Selenide.open(getUrl());
-        return (T) this;
+    private static SelenideElement getToastElement() {
+        return toastNotificationSuccess;
+    }
+
+    public void waitForToastToAppear() {
+        SelenideElement toast = getToastElement();
+        toast.shouldBe(appear);
+    }
+
+    public void waitForToastToDisappear() {
+        SelenideElement toast = getToastElement();
+        toast.shouldBe(disappear);
     }
 
     public abstract String getUrl();
@@ -54,7 +68,8 @@ public abstract class BasePage<T> {
 
     }
 
-    public void clickSaveButton() {
+    public void clickSaveButton() throws InterruptedException {
+        Thread.sleep(3000);
         if (!isButtonDisplayed(saveButton)) {
             throw new NoSuchElementException("Save button not found ");
         } else {
@@ -63,7 +78,7 @@ public abstract class BasePage<T> {
     }
 
     public boolean isButtonDisplayed(SelenideElement element) {
-        return element.exists() && element.isDisplayed();
+        return element.exists() && element.isDisplayed() && element.isEnabled();
     }
 
     public void scrollToElement(String elementId) {
@@ -88,5 +103,10 @@ public abstract class BasePage<T> {
                 executeJavaScript("window.scrollBy(0, 500)");
             }
         }
+    }
+
+    public T open() {
+        Selenide.open(getUrl());
+        return (T) this;
     }
 }
