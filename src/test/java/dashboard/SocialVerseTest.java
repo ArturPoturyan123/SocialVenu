@@ -49,7 +49,7 @@ public class SocialVerseTest extends DashboardTestBase {
         socialVersePage.deleteTheSocialVerseCard();
         socialVersePage.deleteSocialVerseModalYesButton();
         assertThat("Error: The create new SocialVerse button does not exist or is not visible.",
-                socialVersePage.isButtonDisplayed(socialVersePage.createNewSocialVerseButton));
+                socialVersePage.isElementDisplayed(socialVersePage.createNewSocialVerseButton));
     }
 
     @Test(testName = "Verify the functionality of creating and removing SocialVerse Sphere type")
@@ -59,7 +59,7 @@ public class SocialVerseTest extends DashboardTestBase {
         socialVersePage.deleteTheSocialVerseCard();
         socialVersePage.deleteSocialVerseModalYesButton();
         assertThat("Error: The create new SocialVerse button does not exist or is not visible.",
-                socialVersePage.isButtonDisplayed(socialVersePage.createNewSocialVerseButton));
+                socialVersePage.isElementDisplayed(socialVersePage.createNewSocialVerseButton));
     }
 
     @Test(testName = "Verifying the functionality of creating a " +
@@ -92,7 +92,7 @@ public class SocialVerseTest extends DashboardTestBase {
         socialVersePage.clickAddVideoEditButton();
         socialVersePage.clickAddVideoButton();
         assertThat("The Video is not appear in socialVerse List ",
-                socialVersePage.isButtonDisplayed(socialVersePage.socialVerseRecordVideos));
+                socialVersePage.isElementDisplayed(socialVersePage.socialVerseRecordVideos));
         socialVersePage.clickArrowBackButton();
         socialVersePage.deleteTheSocialVerseCard();
         socialVersePage.deleteSocialVerseModalYesButton();

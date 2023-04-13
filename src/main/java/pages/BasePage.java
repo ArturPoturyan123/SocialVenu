@@ -1,7 +1,6 @@
 package pages;
 
 import com.codeborne.selenide.ClickOptions;
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.ex.ElementNotFound;
@@ -19,22 +18,7 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public abstract class BasePage<T> {
     private final SelenideElement saveButton = Selenide.$(By.id("bottom-bar-save-action"));
-    private static final SelenideElement toastNotificationSuccess = Selenide.element
-            ("div[class*='react-toast-notifications__toast--success']");
 
-    private static SelenideElement getToastElement() {
-        return toastNotificationSuccess;
-    }
-
-    public void waitForToastToAppear() {
-        SelenideElement toast = getToastElement();
-        toast.shouldBe(appear);
-    }
-
-    public void waitForToastToDisappear() {
-        SelenideElement toast = getToastElement();
-        toast.shouldBe(disappear);
-    }
 
     public abstract String getUrl();
 
@@ -70,15 +54,15 @@ public abstract class BasePage<T> {
 
     public void clickSaveButton() throws InterruptedException {
         Thread.sleep(3000);
-        if (!isButtonDisplayed(saveButton)) {
+        if (!isElementDisplayed(saveButton)) {
             throw new NoSuchElementException("Save button not found ");
         } else {
             saveButton.click(ClickOptions.usingJavaScript());
         }
     }
 
-    public boolean isButtonDisplayed(SelenideElement element) {
-        return element.exists() && element.isDisplayed() && element.isEnabled();
+    public boolean isElementDisplayed(SelenideElement element) {
+        return element.exists() && element.isDisplayed();
     }
 
     public void scrollToElement(String elementId) {

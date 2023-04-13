@@ -17,7 +17,6 @@ public class MemberManagementPage extends BasePage<MemberManagementPage> {
 
     private final List<SelenideElement> tableRows = Selenide.elements("tbody[class*='MuiTableBody-root'] > tr");
     public SelenideElement inviteTeamMember = Selenide.element("button[class*='MuiButton-textPrimary']");
-    private final SelenideElement toastMessage = Selenide.element("[class*='react-toast-notifications__container']");
 
     private final SelenideElement editButton = Selenide.elements("tr>td>svg[data-testid='EditIcon']").get(0);
 
@@ -32,10 +31,6 @@ public class MemberManagementPage extends BasePage<MemberManagementPage> {
         editButton.click(ClickOptions.usingJavaScript());
         element("tr>td>svg[data-testid='EditIcon']").should(disappear, Duration.ofSeconds(10));
 
-    }
-
-    public void toastMessageAppear() {
-        toastMessage.shouldBe(visible);
     }
 
 

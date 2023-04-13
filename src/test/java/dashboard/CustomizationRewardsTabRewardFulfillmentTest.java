@@ -1,6 +1,7 @@
 package dashboard;
 
 import base.DashboardTestBase;
+import helper.ToastHelper;
 import org.testng.annotations.Test;
 import pages.dashboard.CustomizationRewardsTabRewardFulfillmentPage;
 
@@ -18,11 +19,11 @@ public class CustomizationRewardsTabRewardFulfillmentTest extends DashboardTestB
         customizationRewardsTabRewardFulfillmentPage.clickManualSMSButton();
         customizationRewardsTabRewardFulfillmentPage.zoomPage();
         customizationRewardsTabRewardFulfillmentPage.clickSaveButton();
-        customizationRewardsTabRewardFulfillmentPage.waitForToastToAppear();
-        customizationRewardsTabRewardFulfillmentPage.waitForToastToDisappear();
+        ToastHelper.waitForToastToAppear();
+        ToastHelper.waitForToastToDisappear();
         customizationRewardsTabRewardFulfillmentPage.resetZoom();
         assertThat("Error: poster Manual SMS image is not appear",
-                customizationRewardsTabRewardFulfillmentPage.isButtonDisplayed
+                customizationRewardsTabRewardFulfillmentPage.isElementDisplayed
                         (customizationRewardsTabRewardFulfillmentPage.posterManualSMS));
 
     }
@@ -35,11 +36,11 @@ public class CustomizationRewardsTabRewardFulfillmentTest extends DashboardTestB
         customizationRewardsTabRewardFulfillmentPage.clickAutomaticSMSButton();
         customizationRewardsTabRewardFulfillmentPage.zoomPage();
         customizationRewardsTabRewardFulfillmentPage.clickSaveButton();
-        customizationRewardsTabRewardFulfillmentPage.waitForToastToAppear();
-        customizationRewardsTabRewardFulfillmentPage.waitForToastToDisappear();
+        ToastHelper.waitForToastToAppear();
+        ToastHelper.waitForToastToDisappear();
         customizationRewardsTabRewardFulfillmentPage.resetZoom();
         assertThat("Error: poster Automatic SMS image is not appear",
-                customizationRewardsTabRewardFulfillmentPage.isButtonDisplayed
+                customizationRewardsTabRewardFulfillmentPage.isElementDisplayed
                         (customizationRewardsTabRewardFulfillmentPage.posterAutomaticSMS));
 
     }
@@ -55,11 +56,11 @@ public class CustomizationRewardsTabRewardFulfillmentTest extends DashboardTestB
         assertThat(newWebhookUrl).isEqualTo(getCurrentWebHookUrl);
         customizationRewardsTabRewardFulfillmentPage.zoomPage();
         customizationRewardsTabRewardFulfillmentPage.clickSaveButton();
-        customizationRewardsTabRewardFulfillmentPage.waitForToastToAppear();
-        customizationRewardsTabRewardFulfillmentPage.waitForToastToDisappear();
+        ToastHelper.waitForToastToAppear();
+        ToastHelper.waitForToastToDisappear();
         customizationRewardsTabRewardFulfillmentPage.resetZoom();
         assertThat("Error: poster web Hook image is not appear",
-                customizationRewardsTabRewardFulfillmentPage.isButtonDisplayed
+                customizationRewardsTabRewardFulfillmentPage.isElementDisplayed
                         (customizationRewardsTabRewardFulfillmentPage.incentiveWebHook));
 
     }

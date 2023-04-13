@@ -59,7 +59,7 @@ public class PerformanceTest extends DashboardTestBase {
         PerformancePage performancePage = new PerformancePage();
         performancePage.open();
         performancePage.clickCalendarButton();
-        assertThat("Error: Calendar is not opens", performancePage.isButtonDisplayed
+        assertThat("Error: Calendar is not opens", performancePage.isElementDisplayed
                 (performancePage.sinceBeginningButton));
 
     }
