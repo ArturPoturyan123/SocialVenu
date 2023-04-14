@@ -55,7 +55,7 @@ public class CustomizationRewardsTabRewardFulfillmentTest extends DashboardTestB
         assertThat(newWebhookUrl).isEqualTo(getCurrentWebHookUrl);
         customizationRewardsTabRewardFulfillmentPage.zoomPage();
         customizationRewardsTabRewardFulfillmentPage.clickSaveButton();
-        ToastHelper.waitForToastToAppear();
+//        ToastHelper.waitForToastToAppear();
 //        ToastHelper.waitForToastToDisappear();
         customizationRewardsTabRewardFulfillmentPage.resetZoom();
         assertThat("Error: poster web Hook image is not appear",

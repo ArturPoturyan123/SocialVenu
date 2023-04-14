@@ -17,7 +17,7 @@ public class DashboardLoginPage extends BasePage<DashboardLoginPage> {
     public SelenideElement passwordErrorText = Selenide.element(By.id("input-meta-title-helper-text"));
 
     private final SelenideElement signInButton = Selenide.element("[type='submit']");
-    public static SelenideElement allAccountsButton = Selenide.element(By.xpath("//p[contains(text(),'All Accounts')]"));
+    public static SelenideElement allAccountsButton = Selenide.$x(("//p[contains(text(),'All Accounts')]"));
 
 
     public void enterEmail(String text) {

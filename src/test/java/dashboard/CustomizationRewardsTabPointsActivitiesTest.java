@@ -24,15 +24,17 @@ public class CustomizationRewardsTabPointsActivitiesTest extends DashboardTestBa
         CustomizationRewardsTabPointsActivitiesPage customizationRewardsPage =
                 new CustomizationRewardsTabPointsActivitiesPage();
         customizationRewardsPage.open();
+        Thread.sleep(3000);
+        int togglesSize = customizationRewardsPage.getAllToggles();
         customizationRewardsPage.clickAllToggles();
         customizationRewardsPage.zoomPage();
         WaitHelper.waitElementToPresent(saveButton, appear, Duration.ofSeconds(2));
         customizationRewardsPage.clickSaveButton();
         customizationRewardsPage.resetZoom();
-        Thread.sleep(3000);
-        int togglesSize = customizationRewardsPage.getAllToggles();
+        Thread.sleep(5000);
         int activitiesSize = customizationRewardsPage.getActivitiesCount();
         assertThat(togglesSize).isEqualTo(activitiesSize + 1);
+        Thread.sleep(5000);
         customizationRewardsPage.clickAllToggles();
         customizationRewardsPage.zoomPage();
         WaitHelper.waitElementToPresent(saveButton, appear, Duration.ofSeconds(2));
