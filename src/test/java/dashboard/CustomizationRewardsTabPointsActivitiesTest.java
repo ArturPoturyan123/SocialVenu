@@ -3,6 +3,8 @@ package dashboard;
 import base.DashboardTestBase;
 import helper.WaitHelper;
 import io.qameta.allure.Epic;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.dashboard.CustomizationRewardsTabPointsActivitiesPage;
 import utils.RandomUtils;
@@ -24,23 +26,19 @@ public class CustomizationRewardsTabPointsActivitiesTest extends DashboardTestBa
         CustomizationRewardsTabPointsActivitiesPage customizationRewardsPage =
                 new CustomizationRewardsTabPointsActivitiesPage();
         customizationRewardsPage.open();
+        customizationRewardsPage.clickAllToggles();
+        customizationRewardsPage.zoomPage();
+        customizationRewardsPage.clickSaveButton();
+        customizationRewardsPage.resetZoom();
+        int initialTogglesCount = customizationRewardsPage.getAllToggles();
+        int activitiesCount = customizationRewardsPage.getActivitiesCount();
+        assertThat(initialTogglesCount).isEqualTo(activitiesCount + 1);
+        customizationRewardsPage.clickAllToggles();
+        customizationRewardsPage.zoomPage();
+        customizationRewardsPage.clickSaveButton();
         Thread.sleep(3000);
-        int togglesSize = customizationRewardsPage.getAllToggles();
-        customizationRewardsPage.clickAllToggles();
-        customizationRewardsPage.zoomPage();
-        WaitHelper.waitElementToPresent(saveButton, appear, Duration.ofSeconds(2));
-        customizationRewardsPage.clickSaveButton();
         customizationRewardsPage.resetZoom();
-        Thread.sleep(5000);
-        int activitiesSize = customizationRewardsPage.getActivitiesCount();
-        assertThat(togglesSize).isEqualTo(activitiesSize + 1);
-        Thread.sleep(5000);
-        customizationRewardsPage.clickAllToggles();
-        customizationRewardsPage.zoomPage();
-        WaitHelper.waitElementToPresent(saveButton, appear, Duration.ofSeconds(2));
-        customizationRewardsPage.clickSaveButton();
-        customizationRewardsPage.resetZoom();
-        assertThat(togglesSize).isNotEqualTo(activitiesSize);
+        assertThat(initialTogglesCount).isNotEqualTo(activitiesCount);
     }
 
     @Test(testName = "Verify the functionality of set your Rewards Points Goal")

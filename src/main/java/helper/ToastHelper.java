@@ -24,6 +24,6 @@ public class ToastHelper {
 
     public static void waitForToastToDisappear() {
         SelenideElement toast = getToastElement();
-        toast.shouldBe(disappear, Duration.ofSeconds(2));
+        toast.shouldBe(disappear, Duration.ofSeconds(5));
     }
 }

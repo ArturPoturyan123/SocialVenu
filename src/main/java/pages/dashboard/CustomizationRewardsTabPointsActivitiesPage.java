@@ -30,7 +30,8 @@ public class CustomizationRewardsTabPointsActivitiesPage extends BasePage<Custom
     }
 
 
-    public int getActivitiesCount() {
+    public int getActivitiesCount() throws InterruptedException {
+        Thread.sleep(3000);
         return activities.size();
     }
 
@@ -39,7 +40,8 @@ public class CustomizationRewardsTabPointsActivitiesPage extends BasePage<Custom
     }
 
 
-    public int getAllToggles() {
+    public int getAllToggles() throws InterruptedException {
+        Thread.sleep(3000);
         return pointsToggle.size();
     }
 
@@ -48,8 +50,6 @@ public class CustomizationRewardsTabPointsActivitiesPage extends BasePage<Custom
         for (int i = 0; i < toggleCount; i++) {
             toggles = getToggleByIndex(i);
             toggles.click(ClickOptions.usingJavaScript());
-            Thread.sleep(2000);
-
         }
     }
 
