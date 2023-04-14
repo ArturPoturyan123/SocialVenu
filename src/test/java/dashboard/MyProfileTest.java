@@ -24,7 +24,7 @@ public class MyProfileTest extends DashboardTestBase {
         myProfilePage.setNameOnAccount(randomText);
         myProfilePage.clickSaveChangesButton();
         ToastHelper.waitForToastToAppear();
-        ToastHelper.waitForToastToDisappear();
+//        ToastHelper.waitForToastToDisappear();
         String currentCompanyAddress = myProfilePage.setNameOnAccount(randomText);
         String getCurrentCompanyAddress = myProfilePage.getCurrentAccountName();
         assertThat(currentCompanyAddress).isEqualTo(getCurrentCompanyAddress);

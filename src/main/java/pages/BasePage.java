@@ -8,17 +8,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptException;
 import org.openqa.selenium.Keys;
 
-import java.time.Duration;
 import java.util.NoSuchElementException;
 
 import static com.codeborne.selenide.Condition.*;
 
 import static com.codeborne.selenide.Selenide.executeJavaScript;
-import static helper.WaitHelper.waitElementToPresent;
 
 
 public abstract class BasePage<T> {
-    private final SelenideElement saveButton = Selenide.element(By.id("bottom-bar-save-action"));
+    public static SelenideElement saveButton = Selenide.element(By.id("bottom-bar-save-action"));
 
 
     public abstract String getUrl();
@@ -35,7 +33,6 @@ public abstract class BasePage<T> {
     }
 
     public void clickSaveButton() {
-        waitElementToPresent(saveButton, appear, Duration.ofSeconds(2));
         if (!isElementDisplayed(saveButton)) {
             throw new NoSuchElementException("Save button not found ");
         } else {

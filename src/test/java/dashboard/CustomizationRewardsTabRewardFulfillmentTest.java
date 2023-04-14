@@ -21,7 +21,7 @@ public class CustomizationRewardsTabRewardFulfillmentTest extends DashboardTestB
         customizationRewardsTabRewardFulfillmentPage.zoomPage();
         customizationRewardsTabRewardFulfillmentPage.clickSaveButton();
         ToastHelper.waitForToastToAppear();
-        ToastHelper.waitForToastToDisappear();
+//        ToastHelper.waitForToastToDisappear();
         customizationRewardsTabRewardFulfillmentPage.resetZoom();
         assertThat("Error: poster Manual SMS image is not appear",
                 isElementDisplayed(customizationRewardsTabRewardFulfillmentPage.posterManualSMS));
@@ -37,7 +37,7 @@ public class CustomizationRewardsTabRewardFulfillmentTest extends DashboardTestB
         customizationRewardsTabRewardFulfillmentPage.zoomPage();
         customizationRewardsTabRewardFulfillmentPage.clickSaveButton();
         ToastHelper.waitForToastToAppear();
-        ToastHelper.waitForToastToDisappear();
+//        ToastHelper.waitForToastToDisappear();
         customizationRewardsTabRewardFulfillmentPage.resetZoom();
         assertThat("Error: poster Automatic SMS image is not appear",
                 isElementDisplayed(customizationRewardsTabRewardFulfillmentPage.posterAutomaticSMS));
@@ -56,7 +56,7 @@ public class CustomizationRewardsTabRewardFulfillmentTest extends DashboardTestB
         customizationRewardsTabRewardFulfillmentPage.zoomPage();
         customizationRewardsTabRewardFulfillmentPage.clickSaveButton();
         ToastHelper.waitForToastToAppear();
-        ToastHelper.waitForToastToDisappear();
+//        ToastHelper.waitForToastToDisappear();
         customizationRewardsTabRewardFulfillmentPage.resetZoom();
         assertThat("Error: poster web Hook image is not appear",
                 isElementDisplayed(customizationRewardsTabRewardFulfillmentPage.incentiveWebHook));

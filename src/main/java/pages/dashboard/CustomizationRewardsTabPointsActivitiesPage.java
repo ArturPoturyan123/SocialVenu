@@ -3,19 +3,17 @@ package pages.dashboard;
 import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
 import pages.BasePage;
 
 import java.util.List;
 
-import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 
 public class CustomizationRewardsTabPointsActivitiesPage extends BasePage<CustomizationRewardsTabPointsActivitiesPage> {
 
     private final List<SelenideElement> pointsToggle = Selenide.elements("div>[class*='MuiFormGroup-root']");
-    private final List<SelenideElement> activities = Selenide.elements("div>[style*='display']");
+    public List<SelenideElement> activities = Selenide.elements("div>[style*='display']");
     private SelenideElement toggles = Selenide.element("span>input[name='undefinedToggle']");
 
     private final SelenideElement pointsGoalInput = Selenide.element("[name='points']");
@@ -45,11 +43,13 @@ public class CustomizationRewardsTabPointsActivitiesPage extends BasePage<Custom
         return pointsToggle.size();
     }
 
-    public void clickAllToggles() {
+    public void clickAllToggles() throws InterruptedException {
         int toggleCount = getAllToggles();
         for (int i = 0; i < toggleCount; i++) {
             toggles = getToggleByIndex(i);
             toggles.click(ClickOptions.usingJavaScript());
+            Thread.sleep(2000);
+
         }
     }
 
