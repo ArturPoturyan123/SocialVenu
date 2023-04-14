@@ -45,14 +45,10 @@ public class CustomizationRewardsTabRewardFulfillmentPage extends
 
     public void clickAutomaticSMSButton() {
         automaticSMSButton.click(ClickOptions.usingJavaScript());
-
-
     }
 
     public void clickWebHookButton() {
         webHookButton.click(ClickOptions.usingJavaScript());
-
-
     }
 
 

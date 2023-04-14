@@ -24,5 +24,6 @@ public class MemberProfileTest extends DashboardTestBase {
         Thread.sleep(3000);
         int newRowSize = memberManagementPage.getRowCount();
         assertThat(newRowSize).isEqualTo(currentRowSize - 1);
+
     }
 }
