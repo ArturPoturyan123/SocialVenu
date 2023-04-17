@@ -9,11 +9,7 @@ import org.testng.annotations.Test;
 import pages.dashboard.CustomizationRewardsTabPointsActivitiesPage;
 import utils.RandomUtils;
 
-import java.time.Duration;
-
-import static com.codeborne.selenide.Condition.appear;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static pages.BasePage.saveButton;
 
 
 @Epic("Regression Tests")
