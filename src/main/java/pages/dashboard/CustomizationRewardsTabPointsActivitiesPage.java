@@ -14,6 +14,7 @@ public class CustomizationRewardsTabPointsActivitiesPage extends BasePage<Custom
 
     private final List<SelenideElement> pointsToggle = Selenide.elements("div>[class*='MuiFormGroup-root']");
     public List<SelenideElement> activities = Selenide.elements("div>[style*='display']");
+
     private SelenideElement toggles = Selenide.element("span>input[name='undefinedToggle']");
 
     private final SelenideElement pointsGoalInput = Selenide.element("[name='points']");
