@@ -4,10 +4,13 @@ import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.ex.ElementNotFound;
+import helper.ToastHelper;
+import helper.WaitHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptException;
 import org.openqa.selenium.Keys;
 
+import java.time.Duration;
 import java.util.NoSuchElementException;
 
 import static com.codeborne.selenide.Condition.*;
@@ -33,10 +36,12 @@ public abstract class BasePage<T> {
     }
 
     public void clickSaveButton() {
+        WaitHelper.waitElementToPresent(saveButton, appear, Duration.ofSeconds(3));
         if (!isElementDisplayed(saveButton)) {
             throw new NoSuchElementException("Save button not found ");
         } else {
             saveButton.click(ClickOptions.usingJavaScript());
+            ToastHelper.waitForToastToDisappear();
         }
     }
 
