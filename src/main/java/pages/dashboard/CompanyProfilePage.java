@@ -1,6 +1,5 @@
 package pages.dashboard;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import helper.WaitHelper;
