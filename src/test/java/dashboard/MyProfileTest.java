@@ -4,9 +4,15 @@ import base.DashboardTestBase;
 import helper.ToastHelper;
 import helper.WaitHelper;
 import io.qameta.allure.Epic;
+import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.dashboard.MyProfilePage;
 import utils.RandomUtils;
+
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -28,7 +34,5 @@ public class MyProfileTest extends DashboardTestBase {
         String currentCompanyAddress = myProfilePage.setNameOnAccount(randomText);
         String getCurrentCompanyAddress = myProfilePage.getCurrentAccountName();
         assertThat(currentCompanyAddress).isEqualTo(getCurrentCompanyAddress);
-
-
     }
 }
