@@ -75,7 +75,6 @@ public class SocialVerseTest extends DashboardTestBase {
         socialVersePage.clickCardsSocialVerseButton();
         socialVersePage.writeSocialVerseTextAndDeleteField();
         socialVersePage.errorText.shouldHave(Condition.text("name is a required field"));
-
     }
 
     @Test(testName = "Verify the functionality of SocialVerse name with less than 3 letters triggers error alert")
@@ -85,7 +84,6 @@ public class SocialVerseTest extends DashboardTestBase {
         socialVersePage.clickCardsSocialVerseButton();
         socialVersePage.writeSocialVerseShortText();
         socialVersePage.errorText.shouldHave(Condition.text("Name must be at least 3 characters long"));
-
     }
 
     @Test(testName = "Verify the functionality of Adding video in socialVerse list")

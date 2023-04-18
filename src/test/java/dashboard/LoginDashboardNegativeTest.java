@@ -29,7 +29,6 @@ public class LoginDashboardNegativeTest extends DashboardTestBase {
         loginPage.enterPassword(Config.PASSWORD);
         loginPage.pressSignInButton();
         loginPage.emailErrorText.shouldHave(Condition.text("Invalid Email"));
-
     }
 
     @Test(testName = "Verify the functionality of Sign in into SV Dashboard with invalid email")

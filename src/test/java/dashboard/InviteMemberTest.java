@@ -36,6 +36,5 @@ public class InviteMemberTest extends DashboardTestBase {
                 .clickInviteButton();
         WaitHelper.waitElementToPresent(editButton, appear, Duration.ofSeconds(2));
         assertThat(memberManagementPage.getRowCount()).isEqualTo(rowSize + 1);
-
     }
 }

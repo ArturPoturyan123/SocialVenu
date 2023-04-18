@@ -20,6 +20,10 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public abstract class BasePage<T> {
     public static SelenideElement saveButton = Selenide.element(By.id("bottom-bar-save-action"));
+    public static SelenideElement helpButton = Selenide.element(
+            "button>svg[data-testid='HelpOutlineRoundedIcon']");
+    public static SelenideElement rewardYourCustomerText =
+            Selenide.$x("//div//p[contains(text(),'Reward your customers')]");
 
 
     public abstract String getUrl();
@@ -27,6 +31,10 @@ public abstract class BasePage<T> {
 
     public void refreshPage() {
         Selenide.refresh();
+    }
+
+    public static void clickHelpButton() {
+        helpButton.shouldBe(appear, Duration.ofSeconds(2)).click(ClickOptions.usingJavaScript());
     }
 
 

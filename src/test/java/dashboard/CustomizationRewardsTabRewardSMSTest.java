@@ -11,9 +11,7 @@ import java.time.Duration;
 import static com.codeborne.selenide.Condition.appear;
 import static helper.WaitHelper.waitElementToPresent;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static pages.BasePage.isElementDisplayed;
-import static pages.BasePage.saveButton;
-
+import static pages.BasePage.*;
 public class CustomizationRewardsTabRewardSMSTest extends DashboardTestBase {
 
 
@@ -25,8 +23,6 @@ public class CustomizationRewardsTabRewardSMSTest extends DashboardTestBase {
         customizationRewardsTabRewardSMSPage.clickSendSampleButton();
         assertThat("Error: Sample Text popup is not present ",
                 isElementDisplayed(customizationRewardsTabRewardSMSPage.sampleTextPopup));
-
-
     }
 
     @Test(testName = "Verify the functionality of update SMS message")
@@ -43,5 +39,14 @@ public class CustomizationRewardsTabRewardSMSTest extends DashboardTestBase {
         customizationRewardsTabRewardSMSPage.resetZoom();
         String getCurrentRewardsSmsText = customizationRewardsTabRewardSMSPage.getCurrentRewardSmsMessage();
         AssertionsForClassTypes.assertThat(currentRewardsSmsText).isEqualTo(getCurrentRewardsSmsText);
+    }
+
+    @Test(testName = "Verify the functionality of the 'Reward Your Customer' modal appear on Reward SMS section ")
+    public void verifyFunctionalityRewardYourCustomerModalAppear() {
+        CustomizationRewardsTabRewardSMSPage customizationRewardsTabRewardSMSPage =
+                new CustomizationRewardsTabRewardSMSPage();
+        customizationRewardsTabRewardSMSPage.open();
+        clickHelpButton();
+        assertThat("Reward your Customer Text in not present ", isElementDisplayed(rewardYourCustomerText));
     }
 }

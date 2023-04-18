@@ -4,10 +4,11 @@ import base.DashboardTestBase;
 import helper.ToastHelper;
 import org.testng.annotations.Test;
 import pages.dashboard.CustomizationRewardsTabRewardFulfillmentPage;
+import pages.dashboard.CustomizationRewardsTabRewardSMSPage;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static pages.BasePage.isElementDisplayed;
+import static pages.BasePage.*;
 
 public class CustomizationRewardsTabRewardFulfillmentTest extends DashboardTestBase {
 
@@ -25,7 +26,6 @@ public class CustomizationRewardsTabRewardFulfillmentTest extends DashboardTestB
         customizationRewardsTabRewardFulfillmentPage.resetZoom();
         assertThat("Error: poster Manual SMS image is not appear",
                 isElementDisplayed(customizationRewardsTabRewardFulfillmentPage.posterManualSMS));
-
     }
 
     @Test(testName = "Verify the functionality of enabling Automate SMS option")
@@ -41,7 +41,6 @@ public class CustomizationRewardsTabRewardFulfillmentTest extends DashboardTestB
         customizationRewardsTabRewardFulfillmentPage.resetZoom();
         assertThat("Error: poster Automatic SMS image is not appear",
                 isElementDisplayed(customizationRewardsTabRewardFulfillmentPage.posterAutomaticSMS));
-
     }
 
     @Test(testName = "Verify the functionality of enabling WebHook SMS option")
@@ -60,6 +59,14 @@ public class CustomizationRewardsTabRewardFulfillmentTest extends DashboardTestB
         customizationRewardsTabRewardFulfillmentPage.resetZoom();
         assertThat("Error: poster web Hook image is not appear",
                 isElementDisplayed(customizationRewardsTabRewardFulfillmentPage.incentiveWebHook));
+    }
 
+    @Test(testName = "Verify the functionality of the 'Reward Your Customer' modal appear on Fulfilment section ")
+    public void verifyFunctionalityRewardYourCustomerModalAppear() {
+        CustomizationRewardsTabRewardSMSPage customizationRewardsTabRewardSMSPage =
+                new CustomizationRewardsTabRewardSMSPage();
+        customizationRewardsTabRewardSMSPage.open();
+        clickHelpButton();
+        assertThat("Reward your Customer Text in not present ", isElementDisplayed(rewardYourCustomerText));
     }
 }

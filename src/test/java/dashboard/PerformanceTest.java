@@ -10,6 +10,7 @@ import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.appear;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static pages.BasePage.isElementDisplayed;
 import static pages.dashboard.PerformancePage.sinceBeginningButton;
 
 @Epic("Regression Tests")
@@ -65,9 +66,8 @@ public class PerformanceTest extends DashboardTestBase {
         performancePage.open();
         performancePage.clickCalendarButton();
         WaitHelper.waitElementToPresent(sinceBeginningButton, appear, Duration.ofSeconds(2));
-        assertThat("Error: Calendar is not opens", performancePage.isElementDisplayed
+        assertThat("Error: Calendar is not opens", isElementDisplayed
                 (sinceBeginningButton));
-
     }
 }
 

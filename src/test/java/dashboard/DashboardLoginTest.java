@@ -34,6 +34,5 @@ public class DashboardLoginTest extends DashboardTestBase {
         dashboardLoginPage.pressSignInButton();
         WaitHelper.waitElementToPresent(allAccountsButton, appear, Duration.ofSeconds(2));
         assertThat("Error: The user is not sign in ", isElementDisplayed(allAccountsButton));
-
     }
 }
