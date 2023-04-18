@@ -16,7 +16,7 @@ public class CustomizationRewardsTabRewardSMSPage extends BasePage<Customization
             Selenide.$x("//button[contains(text(),'Send a Sample Text')]");
     public SelenideElement sampleTextPopup =
             Selenide.$x("//div//p[contains(text(),'Send a sample SMS message to…')]");
-    private final SelenideElement updateSmsMessageInput = Selenide.element("textarea[autocomplete='none']");
+    private final SelenideElement updateSmsMessageInput = Selenide.element(By.id("message-builder-textarea-input"));
 
 
     public String setRewardsSmsMessage(String randomText) {
