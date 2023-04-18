@@ -27,7 +27,7 @@ public class CustomizationRewardsTabRewardSMSPage extends BasePage<Customization
         return valueString;
     }
 
-    public String getCurrentRewardSmsMessage() {
+    public String getRewardSmsMessage() {
         return updateSmsMessageInput.getValue();
     }
 

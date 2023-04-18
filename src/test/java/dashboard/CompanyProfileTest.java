@@ -6,12 +6,7 @@ import org.testng.annotations.Test;
 import pages.dashboard.CompanyProfilePage;
 import utils.RandomUtils;
 
-import java.time.Duration;
-
-import static com.codeborne.selenide.Condition.appear;
-import static helper.WaitHelper.waitElementToPresent;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static pages.BasePage.saveButton;
 
 
 @Epic("Regression Tests")
@@ -51,10 +46,9 @@ public class CompanyProfileTest extends DashboardTestBase {
     public void verifyFunctionalitySavingNewCityName() {
         CompanyProfilePage companyProfilePage = new CompanyProfilePage();
         companyProfilePage.open();
+        companyProfilePage.zoomPage();
         companyProfilePage.setRandomCityName();
         String newCityName = companyProfilePage.getCityName();
-        companyProfilePage.zoomPage();
-        waitElementToPresent(saveButton, appear, Duration.ofSeconds(4));
         companyProfilePage.clickSaveButton();
         companyProfilePage.resetZoom();
         String getCurrentCityName = companyProfilePage.getCityName();

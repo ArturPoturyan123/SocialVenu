@@ -10,7 +10,6 @@ import utils.RandomUtils;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.appear;
-import static helper.WaitHelper.waitElementToPresent;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static pages.BasePage.*;
 public class CustomizationRewardsTabRewardSMSTest extends DashboardTestBase {
@@ -32,12 +31,12 @@ public class CustomizationRewardsTabRewardSMSTest extends DashboardTestBase {
                 = new CustomizationRewardsTabRewardSMSPage();
         customizationRewardsTabRewardSMSPage.open();
         String randomText = RandomUtils.getString();
-        customizationRewardsTabRewardSMSPage.setRewardsSmsMessage(randomText);
-        String currentRewardsSmsText = customizationRewardsTabRewardSMSPage.getCurrentRewardSmsMessage();
         customizationRewardsTabRewardSMSPage.zoomPage();
+        customizationRewardsTabRewardSMSPage.setRewardsSmsMessage(randomText);
+        String currentRewardsSmsText = customizationRewardsTabRewardSMSPage.getRewardSmsMessage();
         customizationRewardsTabRewardSMSPage.clickSaveButton();
         customizationRewardsTabRewardSMSPage.resetZoom();
-        String getCurrentRewardsSmsText = customizationRewardsTabRewardSMSPage.getCurrentRewardSmsMessage();
+        String getCurrentRewardsSmsText = customizationRewardsTabRewardSMSPage.getRewardSmsMessage();
         AssertionsForClassTypes.assertThat(currentRewardsSmsText).isEqualTo(getCurrentRewardsSmsText);
     }
 
