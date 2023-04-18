@@ -29,13 +29,13 @@ public class CustomizationRewardsTabRewardFulfillmentPage extends
 
     }
 
-    public String setWebHookUrl() {
+    public void setWebHookUrl() {
+        scrollToElement(webHookUrlInput);
         eraseAllTextField(webHookUrlInput);
         WaitHelper.waitTextFiledShouldBeEmpty(webHookUrlInput, empty, Duration.ofSeconds(2));
         String[] companyWebsites = {"youtube.com", "sv.com", "nike.com", "adidas.com", "fresh.com"};
         String randomWebsite = "https://" + companyWebsites[RandomUtils.getInt(companyWebsites.length)];
         webHookUrlInput.sendKeys(randomWebsite);
-        return randomWebsite;
 
     }
 

@@ -65,23 +65,23 @@ public class CompanyProfilePage extends BasePage<CompanyProfilePage> {
         return randomZipCode;
     }
 
-    public String getCurrentCompanyName() {
+    public String getCompanyName() {
         return companyNameField.getValue();
     }
 
-    public String getCurrentCompanyAddress() {
+    public String getCompanyAddress() {
         return addressNameField.getValue();
     }
 
-    public String getCurrentCityName() {
+    public String getCityName() {
         return cityNameField.getValue();
     }
 
-    public String getCurrentWebSiteUrl() {
+    public String getWebSiteUrl() {
         return "https://" + webSiteField.getValue();
     }
 
-    public String getCurrentZipCode() {
+    public String getZipCode() {
         return zipCodeField.getValue();
     }
 

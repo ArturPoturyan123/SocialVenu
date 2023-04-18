@@ -26,7 +26,7 @@ public class MyProfilePage extends BasePage<MyProfilePage> {
     }
 
 
-    public String getCurrentAccountName() {
+    public String getAccountName() {
         return name.getValue();
     }
 

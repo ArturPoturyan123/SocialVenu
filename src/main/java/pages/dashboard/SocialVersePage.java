@@ -4,7 +4,6 @@ import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import helper.ToastHelper;
 import helper.WaitHelper;
 import org.openqa.selenium.By;
 import pages.BasePage;
@@ -18,13 +17,13 @@ import static com.codeborne.selenide.Condition.empty;
 public class SocialVersePage extends BasePage<SocialVersePage> {
 
     public static SelenideElement createNewSocialVerseButton = Selenide.element(By.id("create-socialv-button"));
-    public SelenideElement createSocialVerseButton = Selenide.element("div>button[id='create-sv-button']");
+    public static SelenideElement createSocialVerseButton = Selenide.element("div>button[id='create-sv-button']");
     private final SelenideElement createCardsSocialVerseButton = Selenide.element(By.id("create-sv-card-btn"));
     private final SelenideElement createSpheresSocialVerseButton = Selenide.element(By.id("create-sv-spheres-btn"));
     public SelenideElement inputSocialVerseName = Selenide.element(("div>input[name='name']"));
     public SelenideElement errorText = Selenide.element(("div>p[id='input-meta-title-helper-text']"));
     private final SelenideElement createSvButtonModal = Selenide.element(By.id("create-sv-btn-modal"));
-    private final SelenideElement deleteCardButton = Selenide.element(By.id("delete-card-button-0"));
+    public static SelenideElement deleteCardButton = Selenide.element(By.id("delete-card-button-0"));
     private final SelenideElement editCardButton = Selenide.element(By.id("edit-card-button-0"));
     private final SelenideElement socialVerseNameInput = Selenide.element(By.id("socialverse-name-input-0"));
     private final SelenideElement yesDeleteButton = Selenide.element(By.id("confirm-delete-socialverse-button"));
@@ -42,6 +41,7 @@ public class SocialVersePage extends BasePage<SocialVersePage> {
         } else {
             createSocialVerseButton.click(ClickOptions.usingJavaScript());
         }
+
     }
 
 
@@ -73,7 +73,7 @@ public class SocialVersePage extends BasePage<SocialVersePage> {
 
     }
 
-    public String getCurrentSocialVerseName() {
+    public String getSocialVerseName() {
         return socialVerseNameInput.getValue();
     }
 

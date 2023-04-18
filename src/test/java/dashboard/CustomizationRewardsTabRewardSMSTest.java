@@ -35,7 +35,6 @@ public class CustomizationRewardsTabRewardSMSTest extends DashboardTestBase {
         customizationRewardsTabRewardSMSPage.setRewardsSmsMessage(randomText);
         String currentRewardsSmsText = customizationRewardsTabRewardSMSPage.getCurrentRewardSmsMessage();
         customizationRewardsTabRewardSMSPage.zoomPage();
-        waitElementToPresent(saveButton, appear, Duration.ofSeconds(5));
         customizationRewardsTabRewardSMSPage.clickSaveButton();
         customizationRewardsTabRewardSMSPage.resetZoom();
         String getCurrentRewardsSmsText = customizationRewardsTabRewardSMSPage.getCurrentRewardSmsMessage();

@@ -24,12 +24,12 @@ public class CompanyProfileTest extends DashboardTestBase {
         companyProfilePage.open();
         String randomText = RandomUtils.getString();
         companyProfilePage.setRandomCompanyName(randomText);
+        String setNewCompanyName = companyProfilePage.getCompanyName();
         companyProfilePage.zoomPage();
         companyProfilePage.clickSaveButton();
         companyProfilePage.resetZoom();
-        String currentCompanyName = companyProfilePage.setRandomCompanyName(randomText);
-        String getCurrentCompanyName = companyProfilePage.getCurrentCompanyName();
-        assertThat(currentCompanyName).isEqualTo(getCurrentCompanyName);
+        String getCurrentCompanyName = companyProfilePage.getCompanyName();
+        assertThat(setNewCompanyName).isEqualTo(getCurrentCompanyName);
     }
 
     @Test(testName = "Verify the functionality of saving Company Address")
@@ -39,24 +39,25 @@ public class CompanyProfileTest extends DashboardTestBase {
         companyProfilePage.open();
         String randomText = RandomUtils.getString();
         companyProfilePage.setRandomCompanyAddress(randomText);
+        String setNewCompanyAddress = companyProfilePage.getCompanyAddress();
         companyProfilePage.zoomPage();
         companyProfilePage.clickSaveButton();
         companyProfilePage.resetZoom();
-        String currentCompanyAddress = companyProfilePage.setRandomCompanyAddress(randomText);
-        String getCurrentCompanyAddress = companyProfilePage.getCurrentCompanyAddress();
-        assertThat(currentCompanyAddress).isEqualTo(getCurrentCompanyAddress);
+        String getCurrentCompanyAddress = companyProfilePage.getCompanyAddress();
+        assertThat(setNewCompanyAddress).isEqualTo(getCurrentCompanyAddress);
     }
 
     @Test(testName = "Verify the functionality of saving City name")
     public void verifyFunctionalitySavingNewCityName() {
         CompanyProfilePage companyProfilePage = new CompanyProfilePage();
         companyProfilePage.open();
-        String newCityName = companyProfilePage.setRandomCityName();
+        companyProfilePage.setRandomCityName();
+        String newCityName = companyProfilePage.getCityName();
         companyProfilePage.zoomPage();
         waitElementToPresent(saveButton, appear, Duration.ofSeconds(4));
         companyProfilePage.clickSaveButton();
         companyProfilePage.resetZoom();
-        String getCurrentCityName = companyProfilePage.getCurrentCityName();
+        String getCurrentCityName = companyProfilePage.getCityName();
         assertThat(newCityName).isEqualTo(getCurrentCityName);
     }
 
@@ -64,11 +65,12 @@ public class CompanyProfileTest extends DashboardTestBase {
     public void verifyFunctionalitySavingNewCompanyWebSite() {
         CompanyProfilePage companyProfilePage = new CompanyProfilePage();
         companyProfilePage.open();
-        String newWebsiteUrl = companyProfilePage.setRandomCompanyWebsite();
+        companyProfilePage.setRandomCompanyWebsite();
+        String newWebsiteUrl = companyProfilePage.getWebSiteUrl();
         companyProfilePage.zoomPage();
         companyProfilePage.clickSaveButton();
         companyProfilePage.resetZoom();
-        String getCurrentWebSiteUrl = companyProfilePage.getCurrentWebSiteUrl();
+        String getCurrentWebSiteUrl = companyProfilePage.getWebSiteUrl();
         assertThat(newWebsiteUrl).isEqualTo(getCurrentWebSiteUrl);
     }
 
@@ -76,11 +78,12 @@ public class CompanyProfileTest extends DashboardTestBase {
     public void verifyFunctionalitySavingNewZipCode() {
         CompanyProfilePage companyProfilePage = new CompanyProfilePage();
         companyProfilePage.open();
-        String newZipCode = companyProfilePage.setRandomZipCode();
+        companyProfilePage.setRandomZipCode();
+        String newZipCode = companyProfilePage.getZipCode();
         companyProfilePage.zoomPage();
         companyProfilePage.clickSaveButton();
         companyProfilePage.resetZoom();
-        String getCurrentZipCode = companyProfilePage.getCurrentZipCode();
+        String getCurrentZipCode = companyProfilePage.getZipCode();
         assertThat(newZipCode).isEqualTo(getCurrentZipCode);
     }
 }

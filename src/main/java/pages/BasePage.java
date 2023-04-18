@@ -8,6 +8,7 @@ import helper.ToastHelper;
 import helper.WaitHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 
 import java.time.Duration;
@@ -16,6 +17,7 @@ import java.util.NoSuchElementException;
 import static com.codeborne.selenide.Condition.*;
 
 import static com.codeborne.selenide.Selenide.executeJavaScript;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 
 public abstract class BasePage<T> {
@@ -50,7 +52,7 @@ public abstract class BasePage<T> {
     }
 
     public void clickSaveButton() {
-        WaitHelper.waitElementToPresent(saveButton, appear, Duration.ofSeconds(3));
+        WaitHelper.waitElementToPresent(saveButton, appear, Duration.ofSeconds(5));
         if (!isElementDisplayed(saveButton)) {
             throw new NoSuchElementException("Save button not found ");
         } else {
@@ -83,15 +85,9 @@ public abstract class BasePage<T> {
     }
 
 
-    public void scrollToElement(String elementId) {
-        boolean isElementPresent = false;
-        while (!isElementPresent) {
-            try {
-                Selenide.element(elementId).shouldBe(visible);
-                isElementPresent = true;
-            } catch (ElementNotFound e) {
-                executeJavaScript("window.scrollBy(0, 500)");
-            }
+    public void scrollToElement(SelenideElement element) {
+        if (!isElementDisplayed(element)){
+            element.scrollIntoView(true).shouldBe(appear);
         }
     }
 

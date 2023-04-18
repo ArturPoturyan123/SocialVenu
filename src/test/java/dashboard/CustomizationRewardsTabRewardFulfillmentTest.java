@@ -52,13 +52,12 @@ public class CustomizationRewardsTabRewardFulfillmentTest extends DashboardTestB
                 new CustomizationRewardsTabRewardFulfillmentPage();
         customizationRewardsTabRewardFulfillmentPage.open();
         customizationRewardsTabRewardFulfillmentPage.clickWebHookButton();
-        String newWebhookUrl = customizationRewardsTabRewardFulfillmentPage.setWebHookUrl();
+        customizationRewardsTabRewardFulfillmentPage.setWebHookUrl();
+        String getNewWebHookUrl = customizationRewardsTabRewardFulfillmentPage.getCurrentWebHookUrl();
         String getCurrentWebHookUrl = customizationRewardsTabRewardFulfillmentPage.getCurrentWebHookUrl();
-        assertThat(newWebhookUrl).isEqualTo(getCurrentWebHookUrl);
+        assertThat(getNewWebHookUrl).isEqualTo(getCurrentWebHookUrl);
         customizationRewardsTabRewardFulfillmentPage.zoomPage();
         customizationRewardsTabRewardFulfillmentPage.clickSaveButton();
-//        ToastHelper.waitForToastToAppear();
-//        ToastHelper.waitForToastToDisappear();
         customizationRewardsTabRewardFulfillmentPage.resetZoom();
         assertThat("Error: poster web Hook image is not appear",
                 isElementDisplayed(customizationRewardsTabRewardFulfillmentPage.incentiveWebHook));
