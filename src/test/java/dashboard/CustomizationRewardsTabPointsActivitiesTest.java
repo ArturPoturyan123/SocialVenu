@@ -4,13 +4,13 @@ import base.DashboardTestBase;
 import helper.WaitHelper;
 import io.qameta.allure.Epic;
 import org.hamcrest.MatcherAssert;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.dashboard.CustomizationRewardsTabPointsActivitiesPage;
-import pages.dashboard.CustomizationRewardsTabRewardSMSPage;
 import utils.RandomUtils;
 
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.appear;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static pages.BasePage.*;
 
@@ -55,10 +55,12 @@ public class CustomizationRewardsTabPointsActivitiesTest extends DashboardTestBa
 
     @Test(testName = "Verify the functionality of the 'Reward Your Customer' modal appear on Points/Activities section")
     public void verifyFunctionalityRewardYourCustomerModalAppear() {
-        CustomizationRewardsTabRewardSMSPage customizationRewardsTabRewardSMSPage =
-                new CustomizationRewardsTabRewardSMSPage();
-        customizationRewardsTabRewardSMSPage.open();
-        clickHelpButton();
-        MatcherAssert.assertThat("Reward your Customer Text in not present ", isElementDisplayed(rewardYourCustomerText));
+        CustomizationRewardsTabPointsActivitiesPage customizationRewardsTabPointsActivitiesPage =
+                new CustomizationRewardsTabPointsActivitiesPage();
+        customizationRewardsTabPointsActivitiesPage.open();
+        clickHelpButton(helpButton);
+        WaitHelper.waitElementToPresent(rewardYourCustomerModal, appear, Duration.ofSeconds(3));
+        MatcherAssert.assertThat("Reward your Customer Text in not present ",
+                isElementDisplayed(rewardYourCustomerModal));
     }
 }

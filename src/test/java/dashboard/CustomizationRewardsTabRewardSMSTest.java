@@ -1,6 +1,7 @@
 package dashboard;
 
 import base.DashboardTestBase;
+import helper.WaitHelper;
 import org.assertj.core.api.AssertionsForClassTypes;
 import org.testng.annotations.Test;
 import pages.dashboard.CustomizationRewardsTabRewardSMSPage;
@@ -46,7 +47,8 @@ public class CustomizationRewardsTabRewardSMSTest extends DashboardTestBase {
         CustomizationRewardsTabRewardSMSPage customizationRewardsTabRewardSMSPage =
                 new CustomizationRewardsTabRewardSMSPage();
         customizationRewardsTabRewardSMSPage.open();
-        clickHelpButton();
-        assertThat("Reward your Customer Text in not present ", isElementDisplayed(rewardYourCustomerText));
+        clickHelpButton(helpButton);
+        WaitHelper.waitElementToPresent(rewardYourCustomerModal, appear, Duration.ofSeconds(3));
+        assertThat("Reward your Customer Text in not present ", isElementDisplayed(rewardYourCustomerModal));
     }
 }

@@ -2,10 +2,13 @@ package dashboard;
 
 import base.DashboardTestBase;
 import helper.ToastHelper;
+import helper.WaitHelper;
 import org.testng.annotations.Test;
 import pages.dashboard.CustomizationRewardsTabRewardFulfillmentPage;
-import pages.dashboard.CustomizationRewardsTabRewardSMSPage;
 
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.appear;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static pages.BasePage.*;
@@ -63,10 +66,11 @@ public class CustomizationRewardsTabRewardFulfillmentTest extends DashboardTestB
 
     @Test(testName = "Verify the functionality of the 'Reward Your Customer' modal appear on Fulfilment section ")
     public void verifyFunctionalityRewardYourCustomerModalAppear() {
-        CustomizationRewardsTabRewardSMSPage customizationRewardsTabRewardSMSPage =
-                new CustomizationRewardsTabRewardSMSPage();
-        customizationRewardsTabRewardSMSPage.open();
-        clickHelpButton();
-        assertThat("Reward your Customer Text in not present ", isElementDisplayed(rewardYourCustomerText));
+        CustomizationRewardsTabRewardFulfillmentPage customizationRewardsTabRewardFulfillmentPage =
+                new CustomizationRewardsTabRewardFulfillmentPage();
+        customizationRewardsTabRewardFulfillmentPage.open();
+        clickHelpButton(helpButton);
+        WaitHelper.waitElementToPresent(rewardYourCustomerModal, appear, Duration.ofSeconds(3));
+        assertThat("Reward your Customer Text in not present ", isElementDisplayed(rewardYourCustomerModal));
     }
 }

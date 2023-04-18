@@ -22,8 +22,14 @@ public abstract class BasePage<T> {
     public static SelenideElement saveButton = Selenide.element(By.id("bottom-bar-save-action"));
     public static SelenideElement helpButton = Selenide.element(
             "button>svg[data-testid='HelpOutlineRoundedIcon']");
-    public static SelenideElement rewardYourCustomerText =
+    public static SelenideElement rewardYourCustomerModal =
             Selenide.$x("//div//p[contains(text(),'Reward your customers')]");
+    public static SelenideElement sayHelloToYourVideoAppModal =
+            Selenide.$x("//div//h3[contains(text(),'Say hello to your Video App')]");
+    public static SelenideElement trackingPixelsModal =
+            Selenide.$x("//div//p[contains(text(),'Tracking Pixels')]");
+    public static SelenideElement inviteYourCustomerModal =
+            Selenide.$x("//div//p[contains(text(),'Upload Customer Information')]");
 
 
     public abstract String getUrl();
@@ -33,8 +39,8 @@ public abstract class BasePage<T> {
         Selenide.refresh();
     }
 
-    public static void clickHelpButton() {
-        helpButton.shouldBe(appear, Duration.ofSeconds(2)).click(ClickOptions.usingJavaScript());
+    public static void clickHelpButton(SelenideElement element) {
+        element.shouldBe(appear, Duration.ofSeconds(2)).click(ClickOptions.usingJavaScript());
     }
 
 
