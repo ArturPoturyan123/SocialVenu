@@ -59,10 +59,6 @@ public class SocialVerseTest extends DashboardTestBase {
         String newCreatedSocialVerseCardName = socialVersePage.getSocialVerseName();
         String getCurrentSocialVerseName = socialVersePage.getSocialVerseName();
         assertThat(newCreatedSocialVerseCardName).isEqualTo(getCurrentSocialVerseName);
-//        socialVersePage.deleteTheSocialVerseCard();
-//        socialVersePage.deleteSocialVerseModalYesButton();
-//        assertThat("Error: The create new SocialVerse button does not exist or is not visible.",
-//                isElementDisplayed(createNewSocialVerseButton));
     }
 
     @Test(testName = "Verify the functionality of creating a " +
