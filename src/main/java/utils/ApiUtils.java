@@ -15,6 +15,7 @@ public class ApiUtils {
         client = new OkHttpClient();
     }
 
+
     public static JsonObject loginDashboard(String username, String password) {
         MediaType mediaType = MediaType.parse("application/json");
         RequestBody body = RequestBody.create(mediaType, String.format("{\"email\": \"%s\",\"password\":\"%s\"}", username, password));

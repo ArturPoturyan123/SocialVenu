@@ -3,6 +3,7 @@ package pages.dashboard;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import helper.WaitHelper;
+import org.openqa.selenium.WebElement;
 import pages.BasePage;
 import utils.RandomUtils;
 

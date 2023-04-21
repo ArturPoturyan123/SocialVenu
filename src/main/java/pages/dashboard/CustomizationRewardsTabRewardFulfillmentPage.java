@@ -3,7 +3,9 @@ package pages.dashboard;
 import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import comands.Click;
 import helper.WaitHelper;
+import org.openqa.selenium.WebDriver;
 import pages.BasePage;
 import utils.RandomUtils;
 
@@ -26,7 +28,6 @@ public class CustomizationRewardsTabRewardFulfillmentPage extends
 
     public void clickManualSMSButton() {
         manualSMSButton.click(ClickOptions.usingJavaScript());
-
     }
 
     public void setWebHookUrl() {
@@ -36,7 +37,6 @@ public class CustomizationRewardsTabRewardFulfillmentPage extends
         String[] companyWebsites = {"youtube.com", "sv.com", "nike.com", "adidas.com", "fresh.com"};
         String randomWebsite = "https://" + companyWebsites[RandomUtils.getInt(companyWebsites.length)];
         webHookUrlInput.sendKeys(randomWebsite);
-
     }
 
     public String getCurrentWebHookUrl() {
