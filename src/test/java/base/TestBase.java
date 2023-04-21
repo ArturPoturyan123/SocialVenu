@@ -23,7 +23,6 @@ public class TestBase {
 
         deleteAllureResultsFolder();
         deleteAllureReportFolder();
-
     }
 
     public void deleteAllureResultsFolder() {

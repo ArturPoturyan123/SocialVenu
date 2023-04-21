@@ -19,50 +19,45 @@ public class CompanyProfilePage extends BasePage<CompanyProfilePage> {
     public final SelenideElement zipCodeField = Selenide.element("[name='zip']");
 
 
-    public String setRandomCompanyName(String randomText) {
+    public void setRandomCompanyName(String randomText) {
         eraseAllTextField(companyNameField);
         WaitHelper.waitTextFiledShouldBeEmpty(companyNameField,empty,Duration.ofSeconds(2));
         String valueString = "Test Automation Company Name " + randomText;
         companyNameField.sendKeys(valueString);
-        return valueString;
     }
 
 
-    public String setRandomCityName() {
+    public void setRandomCityName() {
         eraseAllTextField(cityNameField);
         WaitHelper.waitTextFiledShouldBeEmpty(cityNameField,empty,Duration.ofSeconds(2));
         String[] cityNames = {"New York", "Los Angeles", "Chicago", "Houston", "Philadelphia"};
         String randomCityName = cityNames[RandomUtils.getInt(cityNames.length)];
         cityNameField.sendKeys(randomCityName);
-        return randomCityName;
     }
 
-    public String setRandomCompanyWebsite() {
+    public void setRandomCompanyWebsite() {
         eraseAllTextField(webSiteField);
         WaitHelper.waitTextFiledShouldBeEmpty(webSiteField, empty, Duration.ofSeconds(2));
         webSiteField.shouldBe(empty, Duration.ofSeconds(2));
         String[] companyWebsites = {"youtube.com", "sv.com", "nike.com", "adidas.com", "fresh.com"};
         String randomWebsite = "https://" + companyWebsites[RandomUtils.getInt(companyWebsites.length)];
         webSiteField.sendKeys(randomWebsite);
-        return randomWebsite;
     }
 
 
-    public String setRandomCompanyAddress(String randomText) {
+    public void setRandomCompanyAddress(String randomText) {
         eraseAllTextField(addressNameField);
         WaitHelper.waitTextFiledShouldBeEmpty(addressNameField, empty, Duration.ofSeconds(2));
         String valueString = "Test Automation Company Address " + randomText;
         addressNameField.sendKeys(valueString);
-        return valueString;
     }
 
 
-    public String setRandomZipCode() {
+    public void setRandomZipCode() {
         eraseAllTextField(zipCodeField);
         WaitHelper.waitTextFiledShouldBeEmpty(zipCodeField, empty, Duration.ofSeconds(2));
         String randomZipCode = String.valueOf(10000 + new Random().nextInt(90000));
         zipCodeField.setValue(randomZipCode);
-        return randomZipCode;
     }
 
     public String getCompanyName() {

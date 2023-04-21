@@ -21,6 +21,4 @@ public class DashboardTestBase extends TestBase {
         Selenide.localStorage().setItem("authResponse", jsonObject.toString());
         Selenide.refresh();
     }
-
-
 }

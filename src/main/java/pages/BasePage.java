@@ -8,7 +8,6 @@ import helper.ToastHelper;
 import helper.WaitHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptException;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 
 import java.time.Duration;
@@ -17,7 +16,6 @@ import java.util.NoSuchElementException;
 import static com.codeborne.selenide.Condition.*;
 
 import static com.codeborne.selenide.Selenide.executeJavaScript;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 
 public abstract class BasePage<T> {

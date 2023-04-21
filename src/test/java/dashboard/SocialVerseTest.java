@@ -80,8 +80,9 @@ public class SocialVerseTest extends DashboardTestBase {
         socialVersePage.errorText.shouldHave(Condition.text("Name must be at least 3 characters long"));
     }
 
+
     @Test(testName = "Verify the functionality of Adding video in socialVerse list")
-    public void verifyFunctionalityOfAddingVideoInSocialVeuList() throws InterruptedException {
+    public void verifyFunctionalityOfAddingVideoInSocialVeuList() {
         SocialVersePage socialVersePage = new SocialVersePage();
         socialVersePage.clickNewSocialVerseButton();
         socialVersePage.clickCardsSocialVerseButton();
