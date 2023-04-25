@@ -55,7 +55,7 @@ public class Click implements Command<SelenideElement> {
         }
     }
 
-    public void click(Driver driver, WebElement webElement, ClickOptions clickOptions) {
+    protected void click(Driver driver, WebElement webElement, ClickOptions clickOptions) {
         Duration timeout = clickOptions.timeout();
         if (timeout == null || timeout.toMillis() == driver.config().pageLoadTimeout()) {
             doClick(driver, webElement, clickOptions);
