@@ -12,7 +12,7 @@ import java.time.Duration;
 public class CustomizationRewardsTabRewardSMSPage extends BasePage<CustomizationRewardsTabRewardSMSPage> {
 
 
-    private final SelenideElement sendSampleTextButton =
+    public static SelenideElement sendSampleTextButton =
             Selenide.$x("//button[contains(text(),'Send a Sample Text')]");
     public SelenideElement sampleTextPopup =
             Selenide.$x("//div//p[contains(text(),'Send a sample SMS message to…')]");

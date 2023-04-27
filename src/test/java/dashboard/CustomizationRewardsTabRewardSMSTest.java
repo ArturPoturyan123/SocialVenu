@@ -12,6 +12,8 @@ import java.time.Duration;
 import static com.codeborne.selenide.Condition.appear;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static pages.BasePage.*;
+import static pages.dashboard.CustomizationRewardsTabRewardSMSPage.sendSampleTextButton;
+
 public class CustomizationRewardsTabRewardSMSTest extends DashboardTestBase {
 
 
@@ -20,6 +22,7 @@ public class CustomizationRewardsTabRewardSMSTest extends DashboardTestBase {
         CustomizationRewardsTabRewardSMSPage customizationRewardsTabRewardSMSPage
                 = new CustomizationRewardsTabRewardSMSPage();
         customizationRewardsTabRewardSMSPage.open();
+        WaitHelper.waitElementToPresent(sendSampleTextButton,appear,Duration.ofSeconds(3));
         customizationRewardsTabRewardSMSPage.clickSendSampleButton();
         assertThat("Error: Sample Text popup is not present ",
                 isElementDisplayed(customizationRewardsTabRewardSMSPage.sampleTextPopup));
