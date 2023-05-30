@@ -19,12 +19,7 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public abstract class BasePage<T> {
     public static SelenideElement saveButton = Selenide.element(By.id("bottom-bar-save-action"));
-    public static SelenideElement helpButton = Selenide.element(
-            "button>svg[data-testid='HelpOutlineRoundedIcon']");
-    public static SelenideElement rewardYourCustomerModal =
-            Selenide.$x("//div//p[contains(text(),'Reward your customers')]");
-    public static SelenideElement sayHelloToYourVideoAppModal =
-            Selenide.$x("//div//h3[contains(text(),'Say hello to your Video App')]");
+
     public static SelenideElement trackingPixelsModal =
             Selenide.$x("//div//p[contains(text(),'Tracking Pixels')]");
     public static SelenideElement inviteYourCustomerModal =
