@@ -1,14 +1,20 @@
 package utils;
 
-import org.apache.commons.lang3.RandomStringUtils;
-
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public interface RandomUtils {
-
+    public static String getRandomNumericString(int length) {
+        Random random = new Random();
+        StringBuilder sb = new StringBuilder(length);
+        for (int i = 0; i < length; i++) {
+            sb.append(random.nextInt(10));
+        }
+        return sb.toString();
+    }
 
     static String getString() {
-        return "test " + RandomStringUtils.randomNumeric(5);
+        return "test " + getRandomNumericString(5);
     }
 
     static int getInt() {

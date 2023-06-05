@@ -4,15 +4,13 @@ import base.DashboardTestBase;
 import com.codeborne.selenide.Condition;
 import helper.WaitHelper;
 import io.qameta.allure.Epic;
+import org.testng.Assert;
 import org.testng.annotations.*;
 import pages.dashboard.SocialVersePage;
 
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.appear;
-import static org.hamcrest.MatcherAssert.assertThat;
-
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static pages.BasePage.isElementDisplayed;
 import static pages.dashboard.SocialVersePage.*;
 
@@ -44,7 +42,7 @@ public class SocialVerseTest extends DashboardTestBase {
         socialVersePage.editCardButton();
         String newCreatedSocialVerseCardName = socialVersePage.getSocialVerseName();
         String getCurrentSocialVerseName = socialVersePage.getSocialVerseName();
-        assertThat(newCreatedSocialVerseCardName).isEqualTo(getCurrentSocialVerseName);
+        Assert.assertEquals(newCreatedSocialVerseCardName,getCurrentSocialVerseName);
     }
 
     @Test(testName = "Verify the functionality of creating and removing SocialVerse Sphere type")
@@ -58,7 +56,7 @@ public class SocialVerseTest extends DashboardTestBase {
         socialVersePage.editCardButton();
         String newCreatedSocialVerseCardName = socialVersePage.getSocialVerseName();
         String getCurrentSocialVerseName = socialVersePage.getSocialVerseName();
-        assertThat(newCreatedSocialVerseCardName).isEqualTo(getCurrentSocialVerseName);
+        Assert.assertEquals(newCreatedSocialVerseCardName,getCurrentSocialVerseName);
     }
 
     @Test(testName = "Verify the functionality of creating a " +
@@ -90,7 +88,7 @@ public class SocialVerseTest extends DashboardTestBase {
         socialVersePage.clickCreateSocialVerseButton();
         socialVersePage.clickAddVideoButton();
         WaitHelper.waitElementToPresent(socialVerseRecordVideos, appear, Duration.ofSeconds(2));
-        assertThat("The Video is not appear in socialVerse List ",
-                isElementDisplayed(socialVerseRecordVideos));
+        Assert.assertTrue(isElementDisplayed(socialVerseRecordVideos),
+                "The Video is not appear in socialVerse List ");
     }
 }

@@ -2,11 +2,11 @@ package dashboard;
 
 import base.DashboardTestBase;
 import io.qameta.allure.Epic;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.dashboard.CompanyProfilePage;
 import utils.RandomUtils;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 
 @Epic("Regression Tests")
@@ -24,7 +24,7 @@ public class CompanyProfileTest extends DashboardTestBase {
         companyProfilePage.clickSaveButton();
         companyProfilePage.resetZoom();
         String getCurrentCompanyName = companyProfilePage.getCompanyName();
-        assertThat(setNewCompanyName).isEqualTo(getCurrentCompanyName);
+        Assert.assertEquals(setNewCompanyName,getCurrentCompanyName);
     }
 
     @Test(testName = "Verify the functionality of saving Company Address")
@@ -39,7 +39,7 @@ public class CompanyProfileTest extends DashboardTestBase {
         companyProfilePage.clickSaveButton();
         companyProfilePage.resetZoom();
         String getCurrentCompanyAddress = companyProfilePage.getCompanyAddress();
-        assertThat(setNewCompanyAddress).isEqualTo(getCurrentCompanyAddress);
+        Assert.assertEquals(setNewCompanyAddress,getCurrentCompanyAddress);
     }
 
     @Test(testName = "Verify the functionality of saving City name")
@@ -52,7 +52,7 @@ public class CompanyProfileTest extends DashboardTestBase {
         companyProfilePage.clickSaveButton();
         companyProfilePage.resetZoom();
         String getCurrentCityName = companyProfilePage.getCityName();
-        assertThat(newCityName).isEqualTo(getCurrentCityName);
+        Assert.assertEquals(newCityName,getCurrentCityName);
     }
 
     @Test(testName = "Verify the functionality of saving Company Web site url")
@@ -65,7 +65,7 @@ public class CompanyProfileTest extends DashboardTestBase {
         companyProfilePage.clickSaveButton();
         companyProfilePage.resetZoom();
         String getCurrentWebSiteUrl = companyProfilePage.getWebSiteUrl();
-        assertThat(newWebsiteUrl).isEqualTo(getCurrentWebSiteUrl);
+        Assert.assertEquals(newWebsiteUrl,getCurrentWebSiteUrl);
     }
 
     @Test(testName = "Verify the functionality of saving Zip Code")
@@ -78,6 +78,6 @@ public class CompanyProfileTest extends DashboardTestBase {
         companyProfilePage.clickSaveButton();
         companyProfilePage.resetZoom();
         String getCurrentZipCode = companyProfilePage.getZipCode();
-        assertThat(newZipCode).isEqualTo(getCurrentZipCode);
+        Assert.assertEquals(newZipCode,getCurrentZipCode);
     }
 }

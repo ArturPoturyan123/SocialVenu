@@ -1,14 +1,12 @@
 package pages.dashboard;
 
 import com.codeborne.selenide.ClickOptions;
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import pages.BasePage;
 
 import static com.codeborne.selenide.Condition.appear;
-import static org.testng.AssertJUnit.assertEquals;
 
 public class PerformancePage extends BasePage<PerformancePage> {
 

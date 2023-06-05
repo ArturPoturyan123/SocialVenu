@@ -2,10 +2,12 @@ package utils;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.squareup.okhttp.*;
 import config.Config;
+import okhttp3.*;
 
 import java.io.IOException;
+
+import static okhttp3.RequestBody.create;
 
 public class ApiUtils {
 
@@ -18,7 +20,7 @@ public class ApiUtils {
 
     public static JsonObject loginDashboard(String username, String password) {
         MediaType mediaType = MediaType.parse("application/json");
-        RequestBody body = RequestBody.create(mediaType, String.format("{\"email\": \"%s\",\"password\":\"%s\"}", username, password));
+        RequestBody body = create(mediaType, String.format("{\"email\": \"%s\",\"password\":\"%s\"}", username, password));
         Request request = new Request.Builder()
                 .addHeader("content-type", "application/json")
                 .url(Config.BACKEND_URL + "/api/v1/auth/customer")

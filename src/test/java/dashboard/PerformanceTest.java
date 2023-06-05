@@ -3,13 +3,13 @@ package dashboard;
 import base.DashboardTestBase;
 import helper.WaitHelper;
 import io.qameta.allure.Epic;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.dashboard.PerformancePage;
 
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.appear;
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.AssertJUnit.assertEquals;
 import static pages.BasePage.isElementDisplayed;
 import static pages.dashboard.PerformancePage.sinceBeginningButton;
@@ -71,8 +71,8 @@ public class PerformanceTest extends DashboardTestBase {
         performancePage.open();
         performancePage.clickCalendarButton();
         WaitHelper.waitElementToPresent(sinceBeginningButton, appear, Duration.ofSeconds(2));
-        assertThat("Error: Calendar is not opens", isElementDisplayed
-                (sinceBeginningButton));
+        Assert.assertTrue(isElementDisplayed
+                (sinceBeginningButton),"Error: Calendar is not opens");
     }
 }
 

@@ -3,17 +3,16 @@ package pages;
 import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.ex.ElementNotFound;
 import helper.ToastHelper;
 import helper.WaitHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptException;
 import org.openqa.selenium.Keys;
+
 import java.time.Duration;
 import java.util.NoSuchElementException;
 
-import static com.codeborne.selenide.Condition.*;
-
+import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 
@@ -83,15 +82,11 @@ public abstract class BasePage<T> {
         }
     }
 
-    public void scrollToAndClick(SelenideElement elementId) {
+    public void scrollToAndClick(SelenideElement elementId)  {
         boolean isElementPresent = false;
         while (!isElementPresent) {
-            try {
-                Selenide.element(elementId).click(ClickOptions.usingJavaScript());
-                isElementPresent = true;
-            } catch (ElementNotFound e) {
-                executeJavaScript("window.scrollBy(0, 500)");
-            }
+            Selenide.element(elementId).click(ClickOptions.usingJavaScript());
+            isElementPresent = true;
         }
     }
 

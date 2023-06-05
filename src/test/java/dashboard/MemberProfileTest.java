@@ -1,11 +1,11 @@
 package dashboard;
 
 import base.DashboardTestBase;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.dashboard.MemberManagementPage;
 import pages.dashboard.MemberProfilePage;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 
 public class MemberProfileTest extends DashboardTestBase {
@@ -23,6 +23,6 @@ public class MemberProfileTest extends DashboardTestBase {
         memberProfilePage.deleteMember();
         Thread.sleep(3000);
         int newRowSize = memberManagementPage.getRowCount();
-        assertThat(newRowSize).isEqualTo(currentRowSize - 1);
+        Assert.assertEquals(newRowSize,currentRowSize - 1);
     }
 }

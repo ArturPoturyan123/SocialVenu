@@ -1,23 +1,12 @@
 package dashboard;
 
 import base.DashboardTestBase;
-import com.codeborne.selenide.Selenide;
 import helper.ToastHelper;
 import io.qameta.allure.Epic;
-import org.openqa.selenium.OutputType;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.dashboard.MyProfilePage;
 import utils.RandomUtils;
-
-
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.util.Base64;
-
-import static com.codeborne.selenide.Screenshots.screenshots;
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class MyProfileTest extends DashboardTestBase {
 
@@ -35,6 +24,6 @@ public class MyProfileTest extends DashboardTestBase {
         myProfilePage.clickSaveChangesButton();
         ToastHelper.waitForToastToAppear();
         String getCurrentCompanyAddress = myProfilePage.getAccountName();
-        assertThat(currentCompanyAddress).isEqualTo(getCurrentCompanyAddress);
+        Assert.assertEquals(currentCompanyAddress,getCurrentCompanyAddress);
     }
 }
