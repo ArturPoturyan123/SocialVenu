@@ -2,7 +2,7 @@
 <suite name="SocialVenue Dashboard" parallel="false" thread-count="15" data-provider-thread-count="8">
     <test name="SocialVenue Dashboard Test Regression">
         <classes>
-            <class name="dashboard.InviteMemberTest"/>
+            <class name="dashboard.CampaignsMainTest"/>
         </classes>
     </test>
 </suite>

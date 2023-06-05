@@ -21,17 +21,17 @@ public class TestBase {
         Configuration.driverManagerEnabled = true;
 //        Configuration.headless = true;
 
-        deleteAllureResultsFolder();
+//        deleteAllureResultsFolder();
         deleteAllureReportFolder();
     }
 
-    public void deleteAllureResultsFolder() {
-        Path allureResultsPath = Paths.get("allure-results");
-        if (Files.exists(allureResultsPath)) {
-            File allureResultsFolder = allureResultsPath.toFile();
-            deleteFolder(allureResultsFolder);
-        }
-    }
+//    public void deleteAllureResultsFolder() {
+//        Path allureResultsPath = Paths.get("allure-results");
+//        if (Files.exists(allureResultsPath)) {
+//            File allureResultsFolder = allureResultsPath.toFile();
+//            deleteFolder(allureResultsFolder);
+//        }
+//    }
 
     public void deleteAllureReportFolder() {
         Path allureReportPath = Paths.get("allure-report");
