@@ -32,6 +32,10 @@ public abstract class BasePage<T> {
         Selenide.refresh();
     }
 
+    public static void clickBrowserBackButton() {
+        Selenide.back();
+    }
+
     public static void clickHelpButton(SelenideElement element) {
         element.shouldBe(appear, Duration.ofSeconds(2)).click(ClickOptions.usingJavaScript());
     }
@@ -77,12 +81,12 @@ public abstract class BasePage<T> {
 
 
     public void scrollToElement(SelenideElement element) {
-        if (!isElementDisplayed(element)){
+        if (!isElementDisplayed(element)) {
             element.scrollIntoView(true).shouldBe(appear);
         }
     }
 
-    public void scrollToAndClick(SelenideElement elementId)  {
+    public void scrollToAndClick(SelenideElement elementId) {
         boolean isElementPresent = false;
         while (!isElementPresent) {
             Selenide.element(elementId).click(ClickOptions.usingJavaScript());

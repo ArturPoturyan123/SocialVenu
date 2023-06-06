@@ -1,7 +1,6 @@
 package dashboard;
 
 import base.DashboardTestBase;
-import com.codeborne.selenide.Condition;
 import helper.WaitHelper;
 import io.qameta.allure.Epic;
 import org.testng.Assert;
@@ -11,6 +10,8 @@ import pages.dashboard.CreateCampaignPage;
 
 import java.time.Duration;
 
+import static com.codeborne.selenide.Condition.visible;
+import static pages.BasePage.clickBrowserBackButton;
 import static pages.BasePage.isElementDisplayed;
 
 public class CreateCampaignTest extends DashboardTestBase {
@@ -32,14 +33,27 @@ public class CreateCampaignTest extends DashboardTestBase {
     }
 
     @Test(testName = "Verify the functionality of return to campaign list ")
-    public void verifyFunctionalityOfReturnToCampaignList() {
+    public void verifyFunctionalityOfReturnToCampaignListWithoutChange() {
         CreateCampaignPage createCampaignPage = new CreateCampaignPage();
         CampaignsMainPage campaignsMainPage = new CampaignsMainPage();
         createCampaignPage.open();
         WaitHelper.waitElementToPresent(createCampaignPage.createACampaignTitle,
-                Condition.visible, Duration.ofSeconds(5));
+                visible, Duration.ofSeconds(5));
         createCampaignPage.clickGoBackButton();
         Assert.assertTrue(isElementDisplayed(campaignsMainPage.createNewCampaign),
                 "Error: Campaigns page is not present ");
+    }
+
+    @Test(testName = "Verify the functionality of show Unsaved changes modal ")
+    public void verifyFunctionalityOfShowUnsavedChangesModal() {
+        CreateCampaignPage createCampaignPage = new CreateCampaignPage();
+        CampaignsMainPage campaignsMainPage = new CampaignsMainPage();
+        campaignsMainPage.open();
+        WaitHelper.waitElementToPresent(campaignsMainPage.createNewCampaign, visible,
+                Duration.ofSeconds(5));
+        campaignsMainPage.clickCreateNewCampaignButton();
+        clickBrowserBackButton();
+        Assert.assertTrue(isElementDisplayed(createCampaignPage.unsavedChangesModal),
+                "Error: the modal is not appear");
     }
 }

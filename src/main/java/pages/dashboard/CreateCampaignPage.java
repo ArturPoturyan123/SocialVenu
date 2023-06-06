@@ -11,6 +11,8 @@ public class CreateCampaignPage extends BasePage<CreateCampaignPage> {
     public SelenideElement goBackButton = Selenide.element(By.id("go-back-button"));
     public SelenideElement createACampaignTitle = Selenide.$x("//div//p[contains(text()," +
             "'Create a Campaign')]");
+    public SelenideElement unsavedChangesModal = Selenide.$x("//div//p[contains(text()," +
+            "'Unsaved Changes')]");
 
     public SelenideElement saveCreateButton = Selenide.element(By.id("save-and-create-button"));
 
