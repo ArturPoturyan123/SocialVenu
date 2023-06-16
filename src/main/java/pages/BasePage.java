@@ -56,9 +56,6 @@ public abstract class BasePage<T> {
         }
     }
 
-    public static boolean isElementDisplayed(SelenideElement element) {
-        return element.exists() && element.isDisplayed();
-    }
 
     public void zoomPage() {
         try {
@@ -79,8 +76,11 @@ public abstract class BasePage<T> {
         }
     }
 
+    public static boolean isElementDisplayed(SelenideElement element) {
+        return element.exists() && element.isDisplayed();
+    }
 
-    public void scrollToElement(SelenideElement element) {
+    public static void scrollToElement(SelenideElement element) {
         if (!isElementDisplayed(element)) {
             element.scrollIntoView(true).shouldBe(appear);
         }

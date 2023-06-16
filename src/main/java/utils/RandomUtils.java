@@ -25,4 +25,9 @@ public interface RandomUtils {
         return ThreadLocalRandom.current().nextInt(range);
     }
 
+    static String generateRandomNumber() {
+        Random random = new Random();
+        int randomNumber = random.nextInt((int) Math.pow(10, 10));
+        return String.format("%010d", randomNumber);
+    }
 }

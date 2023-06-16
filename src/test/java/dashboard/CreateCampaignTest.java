@@ -10,15 +10,15 @@ import pages.dashboard.CreateCampaignPage;
 
 import java.time.Duration;
 
+import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.visible;
-import static pages.BasePage.clickBrowserBackButton;
-import static pages.BasePage.isElementDisplayed;
+import static pages.BasePage.*;
 
 public class CreateCampaignTest extends DashboardTestBase {
 
 
     @Epic("Regression Tests")
-    @Test(testName = "Verify the functionality of the shows Top Bar on the Create Campaign page")
+    @Test(testName = "Verify the functionality of the shows Top Bar on the Create Campaign page ")
     public void verifyFunctionalityOfTheAppearTopBarInTheCreateCampaignFlow() {
         CampaignsMainPage campaignsMainPage = new CampaignsMainPage();
         CreateCampaignPage createCampaignPage = new CreateCampaignPage();
@@ -55,5 +55,42 @@ public class CreateCampaignTest extends DashboardTestBase {
         clickBrowserBackButton();
         Assert.assertTrue(isElementDisplayed(createCampaignPage.unsavedChangesModal),
                 "Error: the modal is not appear");
+    }
+
+
+    @Test(testName = "Verify the functionality of creating new default campaign ")
+    public void verifyFunctionalityOfCreatingNewDefaultCampaign() {
+        CreateCampaignPage createCampaignPage = new CreateCampaignPage();
+        createCampaignPage.open();
+        createCampaignPage.openAllIncentiveCampaignSteps();
+        createCampaignPage.clickCreateCampaignStep4();
+        createCampaignPage.clickSelectButton();
+        createCampaignPage.clickPhoneNumber();
+        createCampaignPage.setRewardPhoneNumber();
+        createCampaignPage.clickSaveAndCreateButton();
+        WaitHelper.waitElementToPresent(createCampaignPage.editSmsInvitationButton, appear, Duration.ofSeconds(5));
+        Assert.assertTrue(isElementDisplayed(createCampaignPage.editSmsInvitationButton),
+                "Error: the campaign is not created by default");
+    }
+
+
+    @Test(testName = "Verify the functionality of step 4 is not displayed after selecting awareness type ")
+    public void verifyFunctionalityOfStep4IsNotDisplayedAfterSelectingAwarenessType() {
+        CreateCampaignPage createCampaignPage = new CreateCampaignPage();
+        createCampaignPage.open();
+        createCampaignPage.clickAwarenessCampaignType();
+        Assert.assertFalse(isElementDisplayed(createCampaignPage.campaignSte4),
+                "Error: In the Create Campaign step 4 still shows in awareness type ");
+
+    }
+
+    @Test(testName = "Verify the functionality of step 4 is not displayed after selecting awareness type ")
+    public void verifyFunctionalityOfStep4IsDisplayedAfterSelectingIncentiveType() {
+        CreateCampaignPage createCampaignPage = new CreateCampaignPage();
+        createCampaignPage.open();
+        scrollToElement(createCampaignPage.campaignSte4);
+        WaitHelper.waitElementToPresent(createCampaignPage.campaignSte4, appear, Duration.ofSeconds(2));
+        Assert.assertTrue(isElementDisplayed(createCampaignPage.campaignSte4),
+                "Error: In the Create Campaign step 4 is not shows in incentive type ");
     }
 }
