@@ -75,7 +75,7 @@ public class CreateCampaignTest extends DashboardTestBase {
 
 
     @Test(testName = "Verify the functionality of step 4 is not displayed after selecting awareness type ")
-    public void verifyFunctionalityOfStep4IsNotDisplayedAfterSelectingAwarenessType() {
+    public void verifyFunctionalityOfStep4NotDisplayedAfterSelectingAwarenessType() {
         CreateCampaignPage createCampaignPage = new CreateCampaignPage();
         createCampaignPage.open();
         createCampaignPage.clickAwarenessCampaignType();
@@ -84,8 +84,8 @@ public class CreateCampaignTest extends DashboardTestBase {
 
     }
 
-    @Test(testName = "Verify the functionality of step 4 is not displayed after selecting awareness type ")
-    public void verifyFunctionalityOfStep4IsDisplayedAfterSelectingIncentiveType() {
+    @Test(testName = "Verify the functionality of step 4 displayed after selecting incentive type ")
+    public void verifyFunctionalityOfStep4DisplayedAfterSelectingIncentiveType() {
         CreateCampaignPage createCampaignPage = new CreateCampaignPage();
         createCampaignPage.open();
         scrollToElement(createCampaignPage.campaignSte4);
