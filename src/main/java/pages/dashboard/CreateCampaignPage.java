@@ -53,17 +53,6 @@ public class CreateCampaignPage extends BasePage<CreateCampaignPage> {
         saveAndCreateButton.click(ClickOptions.usingJavaScript());
     }
 
-    public void setCampaignName(String randomText) {
-        eraseAllTextField(campaignNameInput);
-        WaitHelper.waitTextFiledShouldBeEmpty(campaignNameInput, empty, Duration.ofSeconds(2));
-        String valueString = "Test campaign " + randomText;
-        campaignNameInput.sendKeys(valueString);
-    }
-
-    public String getCampaignName() {
-        return campaignNameInput.getValue();
-    }
-
 
     public void setRewardPhoneNumber() {
         eraseAllTextField(rewardPhoneNumberInput);
