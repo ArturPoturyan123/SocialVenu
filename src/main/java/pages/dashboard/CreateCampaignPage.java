@@ -106,7 +106,6 @@ public class CreateCampaignPage extends BasePage<CreateCampaignPage> {
     public void clickCreateCampaignStep4() {
         WaitHelper.waitElementToPresent(createCampaignStep4, appear, Duration.ofSeconds(2));
         createCampaignStep4.click(ClickOptions.usingJavaScript());
-
     }
 
     public void clickCreateCampaignStep5() {

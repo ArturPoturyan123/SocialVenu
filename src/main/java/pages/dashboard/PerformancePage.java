@@ -12,7 +12,7 @@ public class PerformancePage extends BasePage<PerformancePage> {
 
     public SelenideElement statisticBlockVideos = Selenide.element(By.id("statistic-block-Videos"));
     public SelenideElement statisticBlockShares = Selenide.element(By.id("statistic-block-Shares"));
-    //    public SelenideElement statisticBlockViews = Selenide.element(By.id("statistic-block-Views"));
+
     public SelenideElement views = Selenide.$x("//div//p[contains(text(),'Views')]");
     public SelenideElement statisticBlockClicks = Selenide.element(By.id("statistic-block-Clicks"));
     public SelenideElement statisticBlockCreators = Selenide.element(By.id("statistic-block-Creators"));

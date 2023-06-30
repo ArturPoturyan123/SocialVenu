@@ -43,7 +43,6 @@ public abstract class BasePage<T> {
 
     public void eraseAllTextField(SelenideElement element) {
         element.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
-
     }
 
     public void clickSaveButton() {
