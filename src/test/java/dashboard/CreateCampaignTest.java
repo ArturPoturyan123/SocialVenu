@@ -71,6 +71,7 @@ public class CreateCampaignTest extends DashboardTestBase {
         WaitHelper.waitElementToPresent(createCampaignPage.editSmsInvitationButton, appear, Duration.ofSeconds(5));
         Assert.assertTrue(isElementDisplayed(createCampaignPage.editSmsInvitationButton),
                 "Error: the campaign is not created by default");
+        
     }
 
 
